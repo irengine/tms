@@ -317,6 +317,8 @@ namespace CarsMaintenance.Reports {
             
             private global::System.Data.DataColumn columnDescription;
             
+            private global::System.Data.DataColumn columnOutboundDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public OutboundOrderDataTable() {
@@ -504,6 +506,14 @@ namespace CarsMaintenance.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OutboundDateColumn {
+                get {
+                    return this.columnOutboundDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -558,7 +568,8 @@ namespace CarsMaintenance.Reports {
                         string Dimensions, 
                         decimal Quantity, 
                         decimal Balance, 
-                        string Description) {
+                        string Description, 
+                        System.DateTime OutboundDate) {
                 OutboundOrderRow rowOutboundOrderRow = ((OutboundOrderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         OrderCode,
@@ -579,7 +590,8 @@ namespace CarsMaintenance.Reports {
                         Dimensions,
                         Quantity,
                         Balance,
-                        Description};
+                        Description,
+                        OutboundDate};
                 rowOutboundOrderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOutboundOrderRow);
                 return rowOutboundOrderRow;
@@ -621,6 +633,7 @@ namespace CarsMaintenance.Reports {
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnBalance = base.Columns["Balance"];
                 this.columnDescription = base.Columns["Description"];
+                this.columnOutboundDate = base.Columns["OutboundDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -664,6 +677,8 @@ namespace CarsMaintenance.Reports {
                 base.Columns.Add(this.columnBalance);
                 this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescription);
+                this.columnOutboundDate = new global::System.Data.DataColumn("OutboundDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOutboundDate);
                 this.columnOrderCode.AllowDBNull = false;
                 this.columnOrderCode.MaxLength = 20;
                 this.columnOrderDate.AllowDBNull = false;
@@ -689,6 +704,7 @@ namespace CarsMaintenance.Reports {
                 this.columnQuantity.AllowDBNull = false;
                 this.columnBalance.AllowDBNull = false;
                 this.columnDescription.MaxLength = 2147483647;
+                this.columnOutboundDate.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1085,6 +1101,17 @@ namespace CarsMaintenance.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime OutboundDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableOutboundOrder.OutboundDateColumn]));
+                }
+                set {
+                    this[this.tableOutboundOrder.OutboundDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsJobNull() {
                 return this.IsNull(this.tableOutboundOrder.JobColumn);
             }
@@ -1370,6 +1397,7 @@ namespace CarsMaintenance.Reports.OutboundOrderDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("Balance", "Balance");
             tableMapping.ColumnMappings.Add("Description", "Description");
+            tableMapping.ColumnMappings.Add("OutboundDate", "OutboundDate");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1389,9 +1417,9 @@ namespace CarsMaintenance.Reports.OutboundOrderDataSetTableAdapters {
             this._commandCollection[0].CommandText = @"select o.Code as OrderCode, o.OutboundDate as OrderDate, o.Version,
 o.Job, o.Berth, o.Machine, o.Ship, o.Hatch, o.Cargo, o.Quantity as lots, o.Process,
 c.Name as CustomerName, u.Name as UserName,
-t.Code, t.Name, t.Dimensions, i.Quantity,i.Balance,i.[Description]
+t.Code, t.Name, t.Dimensions, i.Quantity,i.Balance,i.[Description],i.OutboundDate 
 from OutboundOrder o
-inner join OutboundOrderDetail i on o.OutboundOrderID = i.OutboundOrderDetailID
+inner join OutboundOrderDetail i on o.OutboundOrderID = i.OutboundOrderID
 inner join Unit c on o.CustomerID = c.UnitID
 inner join SystemUser u on o.LastUpdatedBy = u.SystemUserID
 inner join Tool t on i.ToolID = t.ToolID";
