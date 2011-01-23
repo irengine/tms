@@ -20,6 +20,7 @@ namespace CarsMaintenance.Reports
         private void BarcodeReport_Load(object sender, EventArgs e)
         {
             var query = from t in SystemHelper.TMSContext.Tools
+                        where t.Deleted == false
                         orderby t.Code
                         select t;
 
