@@ -216,5 +216,19 @@ namespace CarsMaintenance.OrderManagement
         {
             ExecuteActionHelper.ExecuteAction(Create);
         }
+
+        private void btnAdvancedSearch_Click(object sender, EventArgs e)
+        {
+            string ship = txtShip.Text;
+            string machine = txtMachine.Text;
+            string cargo = txtCargo.Text;
+
+            var query = from o in SystemHelper.TMSContext.OutboundOrders
+                        where o.Ship.StartsWith(ship) && o.Machine.StartsWith(machine) && o.Cargo.StartsWith(cargo)
+                        orderby o.OutboundDate
+                        select o;
+
+            dataGridViewOutboundOrder.DataSource = query;
+        }
     }
 }

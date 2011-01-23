@@ -55,16 +55,25 @@
             this.lastUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastUpdateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSearch = new System.Windows.Forms.Panel();
+            this.btnNew = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
             this.dtEndDate = new System.Windows.Forms.DateTimePicker();
             this.dtBeginDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
-            this.btnNew = new System.Windows.Forms.Button();
+            this.panelAdvancedSearch = new System.Windows.Forms.Panel();
+            this.btnAdvancedSearch = new System.Windows.Forms.Button();
+            this.txtShip = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMachine = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCargo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.contextMenuStripOutboundOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.outboundOrderBindingSource)).BeginInit();
             this.tableLayoutPanelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOutboundOrder)).BeginInit();
             this.panelSearch.SuspendLayout();
+            this.panelAdvancedSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripOutboundOrder
@@ -134,12 +143,14 @@
             this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelMain.Controls.Add(this.dataGridViewOutboundOrder, 0, 1);
             this.tableLayoutPanelMain.Controls.Add(this.panelSearch, 0, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.panelAdvancedSearch, 0, 2);
             this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
-            this.tableLayoutPanelMain.RowCount = 2;
+            this.tableLayoutPanelMain.RowCount = 3;
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanelMain.Size = new System.Drawing.Size(853, 484);
             this.tableLayoutPanelMain.TabIndex = 1;
             // 
@@ -175,7 +186,7 @@
             this.dataGridViewOutboundOrder.ReadOnly = true;
             this.dataGridViewOutboundOrder.RowTemplate.Height = 23;
             this.dataGridViewOutboundOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewOutboundOrder.Size = new System.Drawing.Size(847, 418);
+            this.dataGridViewOutboundOrder.Size = new System.Drawing.Size(847, 384);
             this.dataGridViewOutboundOrder.TabIndex = 1;
             this.dataGridViewOutboundOrder.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOutboundOrder_CellDoubleClick);
             // 
@@ -312,6 +323,16 @@
             this.panelSearch.Size = new System.Drawing.Size(847, 54);
             this.panelSearch.TabIndex = 0;
             // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(491, 17);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 12;
+            this.btnNew.Text = "新建借用单";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // btnQuery
             // 
             this.btnQuery.Location = new System.Drawing.Point(383, 17);
@@ -345,15 +366,78 @@
             this.lblDate.TabIndex = 8;
             this.lblDate.Text = "日期范围";
             // 
-            // btnNew
+            // panelAdvancedSearch
             // 
-            this.btnNew.Location = new System.Drawing.Point(491, 17);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 12;
-            this.btnNew.Text = "新建借用单";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.panelAdvancedSearch.Controls.Add(this.txtCargo);
+            this.panelAdvancedSearch.Controls.Add(this.label3);
+            this.panelAdvancedSearch.Controls.Add(this.txtMachine);
+            this.panelAdvancedSearch.Controls.Add(this.label2);
+            this.panelAdvancedSearch.Controls.Add(this.btnAdvancedSearch);
+            this.panelAdvancedSearch.Controls.Add(this.txtShip);
+            this.panelAdvancedSearch.Controls.Add(this.label1);
+            this.panelAdvancedSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAdvancedSearch.Location = new System.Drawing.Point(3, 453);
+            this.panelAdvancedSearch.Name = "panelAdvancedSearch";
+            this.panelAdvancedSearch.Size = new System.Drawing.Size(847, 28);
+            this.panelAdvancedSearch.TabIndex = 2;
+            // 
+            // btnAdvancedSearch
+            // 
+            this.btnAdvancedSearch.Location = new System.Drawing.Point(662, 1);
+            this.btnAdvancedSearch.Name = "btnAdvancedSearch";
+            this.btnAdvancedSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnAdvancedSearch.TabIndex = 2;
+            this.btnAdvancedSearch.Text = "高级查询";
+            this.btnAdvancedSearch.UseVisualStyleBackColor = true;
+            this.btnAdvancedSearch.Click += new System.EventHandler(this.btnAdvancedSearch_Click);
+            // 
+            // txtShip
+            // 
+            this.txtShip.Location = new System.Drawing.Point(69, 3);
+            this.txtShip.Name = "txtShip";
+            this.txtShip.Size = new System.Drawing.Size(125, 21);
+            this.txtShip.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "船名";
+            // 
+            // txtMachine
+            // 
+            this.txtMachine.Location = new System.Drawing.Point(253, 4);
+            this.txtMachine.Name = "txtMachine";
+            this.txtMachine.Size = new System.Drawing.Size(125, 21);
+            this.txtMachine.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(206, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "机械";
+            // 
+            // txtCargo
+            // 
+            this.txtCargo.Location = new System.Drawing.Point(441, 4);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(125, 21);
+            this.txtCargo.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(394, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "货物";
             // 
             // ViewOutboundOrderForm
             // 
@@ -370,6 +454,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOutboundOrder)).EndInit();
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
+            this.panelAdvancedSearch.ResumeLayout(false);
+            this.panelAdvancedSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -407,5 +493,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Panel panelAdvancedSearch;
+        private System.Windows.Forms.Button btnAdvancedSearch;
+        private System.Windows.Forms.TextBox txtShip;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCargo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtMachine;
+        private System.Windows.Forms.Label label2;
     }
 }
