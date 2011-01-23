@@ -411,7 +411,7 @@ namespace CarsMaintenance.OrderManagement
             int col = dataGridViewDetail.CurrentCell.ColumnIndex;
             if (col == 1 || col == 2 || col == 3 || col == 3)
             {
-                if (e.KeyCode == Keys.Tab)
+                if (IsEnough(dataGridViewDetail.Rows[row]) && e.KeyCode == Keys.Tab)
                 {
                     dataGridViewDetail.CurrentCell = dataGridViewDetail.Rows[row + 1].Cells[0];
                     e.SuppressKeyPress = true;
@@ -419,5 +419,37 @@ namespace CarsMaintenance.OrderManagement
             }
         }
         #endregion
+
+        private void dataGridViewDetail_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            DataGridViewRow row = dataGridViewDetail.Rows[e.RowIndex];
+            e.Cancel = !IsEnough(row);
+        }
+
+        private bool IsEnough(DataGridViewRow row)
+        {
+            if (row.Cells["ItemCode"].Value == null || row.Cells["ItemCode"].Value.ToString().Length == 0)
+            {
+                return true;
+            }
+            bool isEnough = true;
+            decimal quantity = SystemHelper.ConvertToNumber(row.Cells["ItemQuantity"].Value);
+
+            string code = row.Cells["ItemCode"].Value.ToString();
+            Tool t = SystemHelper.TMSContext.Tools.FirstOrDefault(s => s.Code == code);
+
+            if (0 > t.ToolInventory.Quantity - quantity)
+            {
+                isEnough = false;
+                row.ErrorText = "库存数量不足.";
+            }
+            else
+            {
+                isEnough = true;
+                row.ErrorText = "";
+            }
+
+            return isEnough;
+        }
     }
 }
