@@ -513,10 +513,10 @@ namespace CarsMaintenance.Common
 
 		public static string SQL_DAY1_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where ClassType = 1 and DATEPART(day, OutboundOrder.OutboundDate) = {0}";
+											where ClassType = 2 and DATEPART(day, OutboundOrder.OutboundDate) = {0}";
 		public static string SQL_DAY2_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where ClassType = 2 and DATEPART(day, OutboundOrder.OutboundDate) = {0}";
+											where ClassType = 1 and DATEPART(day, OutboundOrder.OutboundDate) = {0}";
 		public static string SQL_MONTH_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
 											where DATEPART(month, OutboundOrder.OutboundDate) = {0}";
