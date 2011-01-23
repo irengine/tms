@@ -75,7 +75,7 @@ namespace CarsMaintenance.Reports
             this.Gv_type.Rows.Clear();
             for (int temp = 0; temp < ds.Tables[0].Rows.Count; temp++)
             {
-                this.Gv_type.Columns.Add("name" + temp, ds.Tables[0].Rows[temp]["Name"].ToString());               
+                this.Gv_type.Columns.Add("name" + temp, ds.Tables[0].Rows[temp]["Name"].ToString());
             }  
             this.Gv_type.Rows.Add(4);          
             for (int temp = 0; temp < this.Gv_type.Columns.Count; temp++)

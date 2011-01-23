@@ -291,6 +291,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             this.Gv_type.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Gv_type.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.Gv_type.RowTemplate.Height = 25;
             this.Gv_type.ShowCellErrors = false;
             this.Gv_type.ShowCellToolTips = false;

@@ -14,14 +14,15 @@ namespace CarsMaintenance.Common
 
 
         private static string sqlQueryLoginFormToTools = @"
-                           select Tc.Name,Sum(ti.Quantity) as Quantity,
+                           select tc.Code, tc.Name,Sum(ti.Quantity) as Quantity,
 			                               Sum(ti.OutQuantity) as OutQuantity,
 			                               Sum(t.RatedQuantity) as RatedQuantity,
 			                               SUM(ti.ScrapQuantity) as ScrapQuantity
                             from ToolCategory as tc
                             inner join Tool as t on tc.ToolCategoryID=t.ToolCategoryID
                             inner join ToolInventory as ti on ti.ToolID=t.ToolID 
-                            group by tc.Name";
+                            group by tc.Code, tc.Name
+                            order by tc.Code";
 
 		private static string sqlOutboundOrder =
                         @"select o.Code as OrderCode, o.OutboundDate as OrderDate, o.Version,
