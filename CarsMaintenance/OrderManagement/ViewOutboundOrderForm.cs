@@ -211,5 +211,10 @@ namespace CarsMaintenance.OrderManagement
                 FormsManager.OpenForm(typeof(CarsMaintenance.Reports.OutboundOrderReport), new object[] {"ID", GetSelectedOrder().OutboundOrderID});
             });
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ExecuteActionHelper.ExecuteAction(Create);
+        }
     }
 }

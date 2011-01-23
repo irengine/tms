@@ -59,6 +59,7 @@
             this.dtEndDate = new System.Windows.Forms.DateTimePicker();
             this.dtBeginDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
+            this.btnNew = new System.Windows.Forms.Button();
             this.contextMenuStripOutboundOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.outboundOrderBindingSource)).BeginInit();
             this.tableLayoutPanelMain.SuspendLayout();
@@ -76,7 +77,7 @@
             this.toolStripMenuItemAppendOutboundOrder,
             this.toolStripMenuItemReturnOutboundOrder});
             this.contextMenuStripOutboundOrder.Name = "contextMenuStripToolInventory";
-            this.contextMenuStripOutboundOrder.Size = new System.Drawing.Size(153, 142);
+            this.contextMenuStripOutboundOrder.Size = new System.Drawing.Size(137, 120);
             // 
             // toolStripMenuItemBrowseOutboundOrder
             // 
@@ -300,6 +301,7 @@
             // 
             // panelSearch
             // 
+            this.panelSearch.Controls.Add(this.btnNew);
             this.panelSearch.Controls.Add(this.btnQuery);
             this.panelSearch.Controls.Add(this.dtEndDate);
             this.panelSearch.Controls.Add(this.dtBeginDate);
@@ -342,6 +344,16 @@
             this.lblDate.Size = new System.Drawing.Size(53, 12);
             this.lblDate.TabIndex = 8;
             this.lblDate.Text = "日期范围";
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(491, 17);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 12;
+            this.btnNew.Text = "新建借用单";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // ViewOutboundOrderForm
             // 
@@ -394,5 +406,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn processDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnNew;
     }
 }
