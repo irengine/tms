@@ -72,6 +72,13 @@
             this.line2 = new System.Windows.Forms.Label();
             this.line1 = new System.Windows.Forms.Label();
             this.gbIO = new System.Windows.Forms.GroupBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.lblYearScrap = new System.Windows.Forms.Label();
             this.lblYearOut = new System.Windows.Forms.Label();
             this.lblMonthScrap = new System.Windows.Forms.Label();
@@ -541,6 +548,13 @@
             // 
             // gbIO
             // 
+            this.gbIO.Controls.Add(this.label33);
+            this.gbIO.Controls.Add(this.label32);
+            this.gbIO.Controls.Add(this.label31);
+            this.gbIO.Controls.Add(this.label30);
+            this.gbIO.Controls.Add(this.label29);
+            this.gbIO.Controls.Add(this.label28);
+            this.gbIO.Controls.Add(this.label25);
             this.gbIO.Controls.Add(this.lblYearScrap);
             this.gbIO.Controls.Add(this.lblYearOut);
             this.gbIO.Controls.Add(this.lblMonthScrap);
@@ -560,6 +574,69 @@
             this.gbIO.Size = new System.Drawing.Size(444, 230);
             this.gbIO.TabIndex = 2;
             this.gbIO.TabStop = false;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(322, 133);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(17, 12);
+            this.label33.TabIndex = 27;
+            this.label33.Text = "件";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(322, 106);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(17, 12);
+            this.label32.TabIndex = 26;
+            this.label32.Text = "件";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(322, 66);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(17, 12);
+            this.label31.TabIndex = 25;
+            this.label31.Text = "件";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(198, 133);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(17, 12);
+            this.label30.TabIndex = 24;
+            this.label30.Text = "件";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(198, 106);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(17, 12);
+            this.label29.TabIndex = 23;
+            this.label29.Text = "件";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(198, 79);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(17, 12);
+            this.label28.TabIndex = 22;
+            this.label28.Text = "件";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(198, 52);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(17, 12);
+            this.label25.TabIndex = 21;
+            this.label25.Text = "件";
             // 
             // lblYearScrap
             // 
@@ -757,6 +834,13 @@
         private System.Windows.Forms.Label lbScrap;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label25;
 
     }
 }
