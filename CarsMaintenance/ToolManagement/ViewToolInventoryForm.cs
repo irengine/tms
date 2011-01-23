@@ -231,6 +231,14 @@ namespace CarsMaintenance.ToolManagement
                                 Code = t.Code,
                                 Name = t.Name,
                                 Dimensions = t.Dimensions,
+
+                                //额定数
+                                RatedQuantity = t.RatedQuantity,
+                                //可用数
+                                DoQuantity = t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity,
+                                //补充数
+                                RenewQuantity = t.RatedQuantity - (t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity) - ti.RepairingQuantity,
+
                                 Quantity = ti.Quantity,
                                 OutQuantity = ti.OutQuantity,
                                 PrescrapQuantity = ti.PrescrapQuantity,
@@ -264,6 +272,14 @@ namespace CarsMaintenance.ToolManagement
                                 Code = t.Code,
                                 Name = t.Name,
                                 Dimensions = t.Dimensions,
+
+                                //额定数
+                                RatedQuantity = t.RatedQuantity,
+                                //可用数
+                                DoQuantity = t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity,
+                                //补充数
+                                RenewQuantity = t.RatedQuantity - (t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity) - ti.RepairingQuantity,
+
                                 Quantity = ti.Quantity,
                                 OutQuantity = ti.OutQuantity,
                                 PrescrapQuantity = ti.PrescrapQuantity,
