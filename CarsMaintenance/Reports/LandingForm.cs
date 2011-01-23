@@ -56,19 +56,19 @@ namespace CarsMaintenance.Reports
 
             lblRoles.Text = roleNames;
 
-            lblTotal.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_RATED);
-            lblStock.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_STOCK);
-            lblOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_OUT);
-            lbScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_SCRAP);
+            lblTotal.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_RATED).Replace(".00", " ");
+            lblStock.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_STOCK).Replace(".00", " ");
+            lblOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_OUT).Replace(".00", " ");
+            lbScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_SCRAP).Replace(".00", " ");
 
-            lblDay1Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY1_OUT, DateTime.Now.Day);
-            lblDay2Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY2_OUT, DateTime.Now.Day);
-            lblMonthOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_OUT, DateTime.Now.Month);
-            lblYearOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_OUT, DateTime.Now.Year);
+            lblDay1Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY1_OUT, DateTime.Now.Day).Replace(".00", " ");
+            lblDay2Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY2_OUT, DateTime.Now.Day).Replace(".00", " ");
+            lblMonthOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_OUT, DateTime.Now.Month).Replace(".00", " ");
+            lblYearOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_OUT, DateTime.Now.Year).Replace(".00", " ");
 
-            lblDayScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY_SCRAP, DateTime.Now.Day);
-            lblMonthScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_SCRAP, DateTime.Now.Month);
-            lblYearScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_SCRAP, DateTime.Now.Year);
+            lblDayScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY_SCRAP, DateTime.Now.Day).Replace(".00", " ");
+            lblMonthScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_SCRAP, DateTime.Now.Month).Replace(".00", " ");
+            lblYearScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_SCRAP, DateTime.Now.Year).Replace(".00", " ");
 
             DataSet ds = SQLHelper.QueryLoginFormToTools();
             this.Gv_type.Columns.Clear();
