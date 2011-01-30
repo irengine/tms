@@ -218,7 +218,6 @@
             // ItemQuantity
             // 
             dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "0";
             this.ItemQuantity.DefaultCellStyle = dataGridViewCellStyle1;
             this.ItemQuantity.HeaderText = "修理数";
             this.ItemQuantity.Name = "ItemQuantity";
@@ -228,7 +227,6 @@
             // Quantity
             // 
             dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = "0";
             this.Quantity.DefaultCellStyle = dataGridViewCellStyle2;
             this.Quantity.HeaderText = "入库数";
             this.Quantity.Name = "Quantity";
@@ -237,7 +235,6 @@
             // ScrapQuantity
             // 
             dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = "0";
             this.ScrapQuantity.DefaultCellStyle = dataGridViewCellStyle3;
             this.ScrapQuantity.HeaderText = "报废数";
             this.ScrapQuantity.Name = "ScrapQuantity";

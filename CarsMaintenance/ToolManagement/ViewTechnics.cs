@@ -93,7 +93,7 @@ namespace CarsMaintenance.ToolManagement
                     openProcess.WaitForExit();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("请安装PDF阅读工具。");
             }

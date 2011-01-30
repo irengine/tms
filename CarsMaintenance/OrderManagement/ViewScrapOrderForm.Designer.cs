@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStripScrapOrder = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemBrowseScrapOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -36,6 +40,12 @@
             this.toolStripMenuItemCreateSelfScrapOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewScrapOrder = new System.Windows.Forms.DataGridView();
+            this.scrapOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panelSearch = new System.Windows.Forms.Panel();
+            this.btnQuery = new System.Windows.Forms.Button();
+            this.dtEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dtBeginDate = new System.Windows.Forms.DateTimePicker();
+            this.lblDate = new System.Windows.Forms.Label();
             this.scrapOrderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scrapDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,12 +56,6 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RepairingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scrapOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panelSearch = new System.Windows.Forms.Panel();
-            this.btnQuery = new System.Windows.Forms.Button();
-            this.dtEndDate = new System.Windows.Forms.DateTimePicker();
-            this.dtBeginDate = new System.Windows.Forms.DateTimePicker();
-            this.lblDate = new System.Windows.Forms.Label();
             this.contextMenuStripScrapOrder.SuspendLayout();
             this.tableLayoutPanelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScrapOrder)).BeginInit();
@@ -144,84 +148,6 @@
             this.dataGridViewScrapOrder.TabIndex = 1;
             this.dataGridViewScrapOrder.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewScrapOrder_CellDoubleClick);
             // 
-            // scrapOrderIDDataGridViewTextBoxColumn
-            // 
-            this.scrapOrderIDDataGridViewTextBoxColumn.DataPropertyName = "ScrapOrderID";
-            this.scrapOrderIDDataGridViewTextBoxColumn.FillWeight = 38.48528F;
-            this.scrapOrderIDDataGridViewTextBoxColumn.HeaderText = "序号";
-            this.scrapOrderIDDataGridViewTextBoxColumn.Name = "scrapOrderIDDataGridViewTextBoxColumn";
-            this.scrapOrderIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // scrapDateDataGridViewTextBoxColumn
-            // 
-            this.scrapDateDataGridViewTextBoxColumn.DataPropertyName = "ScrapDate";
-            this.scrapDateDataGridViewTextBoxColumn.FillWeight = 96.2132F;
-            this.scrapDateDataGridViewTextBoxColumn.HeaderText = "报废日期";
-            this.scrapDateDataGridViewTextBoxColumn.Name = "scrapDateDataGridViewTextBoxColumn";
-            this.scrapDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ItemName
-            // 
-            this.ItemName.DataPropertyName = "ItemName";
-            this.ItemName.FillWeight = 115.4558F;
-            this.ItemName.HeaderText = "名称";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            // 
-            // Dimensions
-            // 
-            this.Dimensions.DataPropertyName = "Dimensions";
-            this.Dimensions.FillWeight = 96.2132F;
-            this.Dimensions.HeaderText = "规格";
-            this.Dimensions.Name = "Dimensions";
-            this.Dimensions.ReadOnly = true;
-            // 
-            // PrescrapQuantity
-            // 
-            this.PrescrapQuantity.DataPropertyName = "PrescrapQuantity";
-            this.PrescrapQuantity.HeaderText = "预报废数";
-            this.PrescrapQuantity.Name = "PrescrapQuantity";
-            this.PrescrapQuantity.ReadOnly = true;
-            // 
-            // ScrapReason
-            // 
-            this.ScrapReason.DataPropertyName = "ScrapReason";
-            this.ScrapReason.HeaderText = "报废原因";
-            this.ScrapReason.Name = "ScrapReason";
-            this.ScrapReason.ReadOnly = true;
-            // 
-            // ScrapQuantity
-            // 
-            this.ScrapQuantity.DataPropertyName = "ScrapQuantity";
-            this.ScrapQuantity.FillWeight = 80F;
-            this.ScrapQuantity.HeaderText = "报废数";
-            this.ScrapQuantity.Name = "ScrapQuantity";
-            this.ScrapQuantity.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.FillWeight = 80F;
-            this.Quantity.HeaderText = "归还数";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // RepairingQuantity
-            // 
-            this.RepairingQuantity.DataPropertyName = "RepairingQuantity";
-            this.RepairingQuantity.FillWeight = 80F;
-            this.RepairingQuantity.HeaderText = "修理数";
-            this.RepairingQuantity.Name = "RepairingQuantity";
-            this.RepairingQuantity.ReadOnly = true;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.FillWeight = 60F;
-            this.statusDataGridViewTextBoxColumn.HeaderText = "状态";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // scrapOrderBindingSource
             // 
             this.scrapOrderBindingSource.DataSource = typeof(TMS.Model.ScrapOrder);
@@ -270,6 +196,92 @@
             this.lblDate.Size = new System.Drawing.Size(53, 12);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "日期范围";
+            // 
+            // scrapOrderIDDataGridViewTextBoxColumn
+            // 
+            this.scrapOrderIDDataGridViewTextBoxColumn.DataPropertyName = "ScrapOrderID";
+            this.scrapOrderIDDataGridViewTextBoxColumn.FillWeight = 38.48528F;
+            this.scrapOrderIDDataGridViewTextBoxColumn.HeaderText = "序号";
+            this.scrapOrderIDDataGridViewTextBoxColumn.Name = "scrapOrderIDDataGridViewTextBoxColumn";
+            this.scrapOrderIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // scrapDateDataGridViewTextBoxColumn
+            // 
+            this.scrapDateDataGridViewTextBoxColumn.DataPropertyName = "ScrapDate";
+            this.scrapDateDataGridViewTextBoxColumn.FillWeight = 96.2132F;
+            this.scrapDateDataGridViewTextBoxColumn.HeaderText = "报废日期";
+            this.scrapDateDataGridViewTextBoxColumn.Name = "scrapDateDataGridViewTextBoxColumn";
+            this.scrapDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "ItemName";
+            this.ItemName.FillWeight = 115.4558F;
+            this.ItemName.HeaderText = "名称";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            // 
+            // Dimensions
+            // 
+            this.Dimensions.DataPropertyName = "Dimensions";
+            this.Dimensions.FillWeight = 96.2132F;
+            this.Dimensions.HeaderText = "规格";
+            this.Dimensions.Name = "Dimensions";
+            this.Dimensions.ReadOnly = true;
+            // 
+            // PrescrapQuantity
+            // 
+            this.PrescrapQuantity.DataPropertyName = "PrescrapQuantity";
+            dataGridViewCellStyle1.Format = "N0";
+            this.PrescrapQuantity.DefaultCellStyle = dataGridViewCellStyle1;
+            this.PrescrapQuantity.HeaderText = "预报废数";
+            this.PrescrapQuantity.Name = "PrescrapQuantity";
+            this.PrescrapQuantity.ReadOnly = true;
+            // 
+            // ScrapReason
+            // 
+            this.ScrapReason.DataPropertyName = "ScrapReason";
+            this.ScrapReason.HeaderText = "报废原因";
+            this.ScrapReason.Name = "ScrapReason";
+            this.ScrapReason.ReadOnly = true;
+            // 
+            // ScrapQuantity
+            // 
+            this.ScrapQuantity.DataPropertyName = "ScrapQuantity";
+            dataGridViewCellStyle2.Format = "N0";
+            this.ScrapQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ScrapQuantity.FillWeight = 80F;
+            this.ScrapQuantity.HeaderText = "报废数";
+            this.ScrapQuantity.Name = "ScrapQuantity";
+            this.ScrapQuantity.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            dataGridViewCellStyle3.Format = "N0";
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Quantity.FillWeight = 80F;
+            this.Quantity.HeaderText = "归还数";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // RepairingQuantity
+            // 
+            this.RepairingQuantity.DataPropertyName = "RepairingQuantity";
+            dataGridViewCellStyle4.Format = "N0";
+            this.RepairingQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            this.RepairingQuantity.FillWeight = 80F;
+            this.RepairingQuantity.HeaderText = "修理数";
+            this.RepairingQuantity.Name = "RepairingQuantity";
+            this.RepairingQuantity.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.FillWeight = 60F;
+            this.statusDataGridViewTextBoxColumn.HeaderText = "状态";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ViewScrapOrderForm
             // 

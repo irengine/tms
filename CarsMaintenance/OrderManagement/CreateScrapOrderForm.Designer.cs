@@ -210,7 +210,6 @@
             // PrescrapQuantity
             // 
             dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "0";
             this.PrescrapQuantity.DefaultCellStyle = dataGridViewCellStyle1;
             this.PrescrapQuantity.HeaderText = "预报废数量";
             this.PrescrapQuantity.Name = "PrescrapQuantity";
@@ -234,7 +233,6 @@
             // Quantity
             // 
             dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = "0";
             this.Quantity.DefaultCellStyle = dataGridViewCellStyle2;
             this.Quantity.HeaderText = "归还数";
             this.Quantity.Name = "Quantity";
@@ -243,7 +241,6 @@
             // RepairingQuantity
             // 
             dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = "0";
             this.RepairingQuantity.DefaultCellStyle = dataGridViewCellStyle3;
             this.RepairingQuantity.HeaderText = "修理数";
             this.RepairingQuantity.Name = "RepairingQuantity";
@@ -252,7 +249,6 @@
             // ScrapQuantity
             // 
             dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = "0";
             this.ScrapQuantity.DefaultCellStyle = dataGridViewCellStyle4;
             this.ScrapQuantity.HeaderText = "报废数";
             this.ScrapQuantity.Name = "ScrapQuantity";
