@@ -162,7 +162,8 @@ namespace CarsMaintenance.OrderManagement
                             item.ScrapQuantity = scrapQuantity;
                             item.ScrapReason = dgvr.Cells["ScrapReason"].Value as string;
                             item.ScrapDate = CurrentOrder.LastUpdateTime;
-                            item.IsAbnormal = (bool)dgvr.Cells["IsAbnormal"].Value;
+                            //item.IsAbnormal = (bool)dgvr.Cells["IsAbnormal"].Value;
+                            item.IsAbnormal = null == dgvr.Cells["IsAbnormal"].Value ? false : (bool)dgvr.Cells["IsAbnormal"].Value;
 
                             CurrentOrder.Items.Add(item);
                         }
@@ -192,7 +193,8 @@ namespace CarsMaintenance.OrderManagement
                             item.RepairingQuantity = repairingQuantity;
                             item.ScrapReason = dgvr.Cells["ScrapReason"].Value as string;
                             item.ScrapDate = CurrentOrder.LastUpdateTime;
-                            item.IsAbnormal = (bool)dgvr.Cells["IsAbnormal"].Value;
+                            //item.IsAbnormal = (bool)dgvr.Cells["IsAbnormal"].Value;
+                            item.IsAbnormal = null == dgvr.Cells["IsAbnormal"].Value ? false : (bool)dgvr.Cells["IsAbnormal"].Value;
                         }
 
                         // for inventory and inventory history
