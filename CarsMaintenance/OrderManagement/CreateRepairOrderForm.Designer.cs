@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCode = new System.Windows.Forms.Label();
             this._saveButton = new System.Windows.Forms.Button();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -214,6 +217,9 @@
             // 
             // ItemQuantity
             // 
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.ItemQuantity.DefaultCellStyle = dataGridViewCellStyle1;
             this.ItemQuantity.HeaderText = "修理数";
             this.ItemQuantity.Name = "ItemQuantity";
             this.ItemQuantity.ReadOnly = true;
@@ -221,12 +227,18 @@
             // 
             // Quantity
             // 
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle2;
             this.Quantity.HeaderText = "入库数";
             this.Quantity.Name = "Quantity";
             this.Quantity.Width = 72;
             // 
             // ScrapQuantity
             // 
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.ScrapQuantity.DefaultCellStyle = dataGridViewCellStyle3;
             this.ScrapQuantity.HeaderText = "报废数";
             this.ScrapQuantity.Name = "ScrapQuantity";
             this.ScrapQuantity.Width = 96;

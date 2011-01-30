@@ -216,12 +216,13 @@ namespace CarsMaintenance.OrderManagement
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ItemDimensions"].Value = t.Dimensions;
                     }
                     break;
-                //// TODO: add other columns to verify decimal
-                //case 7:
-                //    decimal quantity = 0;
-                //    if (!decimal.TryParse(e.FormattedValue.ToString(), out quantity))
-                //        e.Cancel = true;
-                //    break;
+                case 5:
+                case 6:
+                    //decimal quantity = 0;
+                    //if (!decimal.TryParse(e.FormattedValue.ToString(), out quantity))
+                    //    e.Cancel = true;
+                    e.Cancel = !SystemHelper.IsInteger(e.FormattedValue);
+                    break;
 
             }
         }

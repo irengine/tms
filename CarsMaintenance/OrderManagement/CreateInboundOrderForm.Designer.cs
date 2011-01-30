@@ -295,7 +295,7 @@
             // ItemQuantity
             // 
             dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.NullValue = "0";
             this.ItemQuantity.DefaultCellStyle = dataGridViewCellStyle2;
             this.ItemQuantity.HeaderText = "数量";
             this.ItemQuantity.Name = "ItemQuantity";
@@ -319,7 +319,7 @@
             // ItemBalance
             // 
             dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.NullValue = "0";
             this.ItemBalance.DefaultCellStyle = dataGridViewCellStyle3;
             this.ItemBalance.HeaderText = "未归还数";
             this.ItemBalance.Name = "ItemBalance";
@@ -334,6 +334,7 @@
             // Quantity
             // 
             dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = "0";
             this.Quantity.DefaultCellStyle = dataGridViewCellStyle4;
             this.Quantity.HeaderText = "归还数";
             this.Quantity.Name = "Quantity";
@@ -342,7 +343,7 @@
             // TransferQuantity
             // 
             dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.NullValue = "0";
             this.TransferQuantity.DefaultCellStyle = dataGridViewCellStyle5;
             this.TransferQuantity.HeaderText = "转借数";
             this.TransferQuantity.Name = "TransferQuantity";
@@ -351,7 +352,7 @@
             // PrescrapQuantity
             // 
             dataGridViewCellStyle6.Format = "N0";
-            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.NullValue = "0";
             this.PrescrapQuantity.DefaultCellStyle = dataGridViewCellStyle6;
             this.PrescrapQuantity.HeaderText = "预报废数";
             this.PrescrapQuantity.Name = "PrescrapQuantity";

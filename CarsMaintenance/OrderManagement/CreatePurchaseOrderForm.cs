@@ -48,7 +48,7 @@ namespace CarsMaintenance.OrderManagement
                 Control = cbTool,
                 ErrorMessage = string.Format(CarsMaintenance.Properties.Resources.RequiredErrorMessage, lblTool.Text)
             });
-            _validationManager.Validators.Add(new DecimalValidator()
+            _validationManager.Validators.Add(new IntValidator()
             {
                 Control = txtQuantity,
                 ErrorMessage = string.Format(CarsMaintenance.Properties.Resources.DigitalErrorMessage, lblQuantity.Text)

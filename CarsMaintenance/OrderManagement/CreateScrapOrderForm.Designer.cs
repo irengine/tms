@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCode = new System.Windows.Forms.Label();
             this._saveButton = new System.Windows.Forms.Button();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -205,6 +209,9 @@
             // 
             // PrescrapQuantity
             // 
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.PrescrapQuantity.DefaultCellStyle = dataGridViewCellStyle1;
             this.PrescrapQuantity.HeaderText = "预报废数量";
             this.PrescrapQuantity.Name = "PrescrapQuantity";
             this.PrescrapQuantity.ReadOnly = true;
@@ -226,18 +233,27 @@
             // 
             // Quantity
             // 
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle2;
             this.Quantity.HeaderText = "归还数";
             this.Quantity.Name = "Quantity";
             this.Quantity.Width = 72;
             // 
             // RepairingQuantity
             // 
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.RepairingQuantity.DefaultCellStyle = dataGridViewCellStyle3;
             this.RepairingQuantity.HeaderText = "修理数";
             this.RepairingQuantity.Name = "RepairingQuantity";
             this.RepairingQuantity.Width = 96;
             // 
             // ScrapQuantity
             // 
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.ScrapQuantity.DefaultCellStyle = dataGridViewCellStyle4;
             this.ScrapQuantity.HeaderText = "报废数";
             this.ScrapQuantity.Name = "ScrapQuantity";
             this.ScrapQuantity.Width = 72;

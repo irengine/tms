@@ -345,9 +345,10 @@ namespace CarsMaintenance.OrderManagement
                     }
                     break;
                 case 1:
-                    decimal quantity = 0;
-                    if (!decimal.TryParse(e.FormattedValue.ToString(), out quantity))
-                        e.Cancel = true;
+                    //decimal quantity = 0;
+                    //if (!decimal.TryParse(e.FormattedValue.ToString(), out quantity))
+                    //    e.Cancel = true;
+                    e.Cancel = !SystemHelper.IsInteger(e.FormattedValue);
                     break;
 
             }

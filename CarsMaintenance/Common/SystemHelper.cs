@@ -51,6 +51,15 @@ namespace CarsMaintenance.Common
                 return 0;
         }
 
+        public static bool IsInteger(object o)
+        {
+            if (o == null || o.ToString().Length == 0)
+                return true;
+
+            int i;
+            return int.TryParse(o.ToString(), out i);
+        }
+
         public static void BindComboBoxToScrapReason(DataGridViewComboBoxColumn col)
         {
             string[] reason = { "", "边缘断裂", "变形", "大圈变形", "断层", "断股", "断裂", 
