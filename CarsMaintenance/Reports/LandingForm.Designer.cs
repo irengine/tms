@@ -414,18 +414,16 @@
             this.Lb_Time.AutoSize = true;
             this.Lb_Time.Location = new System.Drawing.Point(226, 92);
             this.Lb_Time.Name = "Lb_Time";
-            this.Lb_Time.Size = new System.Drawing.Size(47, 12);
+            this.Lb_Time.Size = new System.Drawing.Size(0, 12);
             this.Lb_Time.TabIndex = 4;
-            this.Lb_Time.Text = "label15";
             // 
             // Lb_Date
             // 
             this.Lb_Date.AutoSize = true;
             this.Lb_Date.Location = new System.Drawing.Point(130, 92);
             this.Lb_Date.Name = "Lb_Date";
-            this.Lb_Date.Size = new System.Drawing.Size(47, 12);
+            this.Lb_Date.Size = new System.Drawing.Size(0, 12);
             this.Lb_Date.TabIndex = 3;
-            this.Lb_Date.Text = "label15";
             // 
             // label14
             // 

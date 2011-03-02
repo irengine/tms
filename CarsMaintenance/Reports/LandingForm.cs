@@ -23,8 +23,8 @@ namespace CarsMaintenance.Reports
         private void LoadData()
         {            
             var query = (from o in SystemHelper.TMSContext.Articles
-                        orderby o.LastUpdateTime descending
-                        where o.IsTop
+                         orderby o.IsTop descending, o.LastUpdateTime descending
+                        where !o.Deleted
                         select o).Take(3);
 
             this.line1.Text = "1.欢迎使用工属具管理应用系统，欢迎提供宝贵意见！";
@@ -107,7 +107,6 @@ namespace CarsMaintenance.Reports
             //this.SuspendLayout();
             //LoadData();
             //this.ResumeLayout();
-            
         }
     }
 }
