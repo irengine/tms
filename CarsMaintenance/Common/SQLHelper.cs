@@ -523,7 +523,14 @@ namespace CarsMaintenance.Common
 		public static string SQL_YEAR_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
 											where DATEPART(year, OutboundOrder.OutboundDate) = {0}";
-        public static string SQL_DAY_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEPART(day, ScrapDate) = {0}";
+        public static string SQL_DAY1_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
+											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
+											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
+                                              where ClassType = 2 and DATEPART(day, ScrapOrderDetail.ScrapDate) = {0}";
+        public static string SQL_DAY2_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
+											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
+											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
+                                              where ClassType = 1 and DATEPART(day, ScrapOrderDetail.ScrapDate) = {0}";
         public static string SQL_MONTH_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEPART(month, ScrapDate) = {0}";
         public static string SQL_YEAR_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEPART(year, ScrapDate) = {0}";
 

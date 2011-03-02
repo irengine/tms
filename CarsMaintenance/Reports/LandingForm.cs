@@ -66,7 +66,8 @@ namespace CarsMaintenance.Reports
             lblMonthOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_OUT, DateTime.Now.Month).Replace(".00", " ");
             lblYearOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_OUT, DateTime.Now.Year).Replace(".00", " ");
 
-            lblDayScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY_SCRAP, DateTime.Now.Day).Replace(".00", " ");
+            lblDay1Scrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY1_SCRAP, DateTime.Now.Day).Replace(".00", " ");
+            lblDay2Scrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY2_SCRAP, DateTime.Now.Day).Replace(".00", " ");
             lblMonthScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_SCRAP, DateTime.Now.Month).Replace(".00", " ");
             lblYearScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_SCRAP, DateTime.Now.Year).Replace(".00", " ");
 

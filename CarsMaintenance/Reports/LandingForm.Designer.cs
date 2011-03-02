@@ -84,7 +84,7 @@
             this.lblMonthScrap = new System.Windows.Forms.Label();
             this.lblMonthOut = new System.Windows.Forms.Label();
             this.lblDay2Out = new System.Windows.Forms.Label();
-            this.lblDayScrap = new System.Windows.Forms.Label();
+            this.lblDay1Scrap = new System.Windows.Forms.Label();
             this.lblDay1Out = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -92,6 +92,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.lblDay2Scrap = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Gv_type)).BeginInit();
@@ -546,6 +548,8 @@
             // 
             // gbIO
             // 
+            this.gbIO.Controls.Add(this.label34);
+            this.gbIO.Controls.Add(this.lblDay2Scrap);
             this.gbIO.Controls.Add(this.label33);
             this.gbIO.Controls.Add(this.label32);
             this.gbIO.Controls.Add(this.label31);
@@ -558,7 +562,7 @@
             this.gbIO.Controls.Add(this.lblMonthScrap);
             this.gbIO.Controls.Add(this.lblMonthOut);
             this.gbIO.Controls.Add(this.lblDay2Out);
-            this.gbIO.Controls.Add(this.lblDayScrap);
+            this.gbIO.Controls.Add(this.lblDay1Scrap);
             this.gbIO.Controls.Add(this.lblDay1Out);
             this.gbIO.Controls.Add(this.label9);
             this.gbIO.Controls.Add(this.label8);
@@ -594,7 +598,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(322, 66);
+            this.label31.Location = new System.Drawing.Point(322, 52);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(17, 12);
             this.label31.TabIndex = 25;
@@ -681,14 +685,14 @@
             this.lblDay2Out.TabIndex = 15;
             this.lblDay2Out.Text = "label12";
             // 
-            // lblDayScrap
+            // lblDay1Scrap
             // 
-            this.lblDayScrap.AutoSize = true;
-            this.lblDayScrap.Location = new System.Drawing.Point(269, 66);
-            this.lblDayScrap.Name = "lblDayScrap";
-            this.lblDayScrap.Size = new System.Drawing.Size(47, 12);
-            this.lblDayScrap.TabIndex = 14;
-            this.lblDayScrap.Text = "label11";
+            this.lblDay1Scrap.AutoSize = true;
+            this.lblDay1Scrap.Location = new System.Drawing.Point(269, 53);
+            this.lblDay1Scrap.Name = "lblDay1Scrap";
+            this.lblDay1Scrap.Size = new System.Drawing.Size(47, 12);
+            this.lblDay1Scrap.TabIndex = 14;
+            this.lblDay1Scrap.Text = "label11";
             // 
             // lblDay1Out
             // 
@@ -753,6 +757,24 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "第一班:";
             // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(322, 78);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(17, 12);
+            this.label34.TabIndex = 29;
+            this.label34.Text = "件";
+            // 
+            // lblDay2Scrap
+            // 
+            this.lblDay2Scrap.AutoSize = true;
+            this.lblDay2Scrap.Location = new System.Drawing.Point(269, 79);
+            this.lblDay2Scrap.Name = "lblDay2Scrap";
+            this.lblDay2Scrap.Size = new System.Drawing.Size(47, 12);
+            this.lblDay2Scrap.TabIndex = 28;
+            this.lblDay2Scrap.Text = "label11";
+            // 
             // LandingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -796,7 +818,7 @@
         private System.Windows.Forms.Label lblMonthScrap;
         private System.Windows.Forms.Label lblMonthOut;
         private System.Windows.Forms.Label lblDay2Out;
-        private System.Windows.Forms.Label lblDayScrap;
+        private System.Windows.Forms.Label lblDay1Scrap;
         private System.Windows.Forms.Label lblDay1Out;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -839,6 +861,8 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label lblDay2Scrap;
 
     }
 }
