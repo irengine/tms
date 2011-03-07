@@ -57,7 +57,7 @@ namespace CarsMaintenance.Common
                 return true;
 
             int i;
-            return int.TryParse(o.ToString(), out i);
+            return int.TryParse(o.ToString(), out i) && i >= 0;
         }
 
         public static void BindComboBoxToScrapReason(DataGridViewComboBoxColumn col)
