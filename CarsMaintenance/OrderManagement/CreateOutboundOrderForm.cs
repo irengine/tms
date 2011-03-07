@@ -193,7 +193,11 @@ namespace CarsMaintenance.OrderManagement
         private void EnableForm()
         {
             if (CurrentMode == MODE_BROWSE)
+            {
+                panelMaster.Enabled = false;
+                dataGridViewDetail.ReadOnly = true;
                 _saveButton.Enabled = false;
+            }
         }
 
         private void CreateOutboundOrderForm_Load(object sender, EventArgs e)
