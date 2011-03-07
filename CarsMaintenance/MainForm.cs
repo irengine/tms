@@ -559,5 +559,14 @@ namespace CarsMaintenance
             });
         }
 
+        private void ResetPasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExecuteActionHelper.ExecuteAction(delegate()
+            {
+                CarsMaintenance.UserManagement.ResetPasswordForm form = new CarsMaintenance.UserManagement.ResetPasswordForm();
+                form.ShowDialog();
+            });
+        }
+
 	}
 }

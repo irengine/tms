@@ -74,6 +74,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._openedFormsToolStrip = new System.Windows.Forms.ToolStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ResetPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._operationsTableLayoutPanel.SuspendLayout();
             this._mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -191,7 +192,8 @@
             this.toolsToolStripMenuItem,
             this.businessToolStripMenuItem,
             this.reportStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.ResetPasswordToolStripMenuItem});
             this._mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this._mainMenuStrip.Name = "_mainMenuStrip";
             this._mainMenuStrip.Size = new System.Drawing.Size(902, 25);
@@ -208,7 +210,7 @@
             // _exitToolStripMenuItem
             // 
             this._exitToolStripMenuItem.Name = "_exitToolStripMenuItem";
-            this._exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this._exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this._exitToolStripMenuItem.Text = "退出";
             this._exitToolStripMenuItem.Click += new System.EventHandler(this._exitToolStripMenuItem_Click);
             // 
@@ -225,7 +227,7 @@
             // 
             this.unitToolStripMenuItem.Enabled = false;
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unitToolStripMenuItem.Text = "组织机构管理";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
@@ -233,7 +235,7 @@
             // 
             this.userToolStripMenuItem.Enabled = false;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userToolStripMenuItem.Text = "系统用户管理";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
@@ -322,7 +324,7 @@
             this.outboundOrder2ToolStripMenuItem.Enabled = false;
             this.outboundOrder2ToolStripMenuItem.Name = "outboundOrder2ToolStripMenuItem";
             this.outboundOrder2ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.outboundOrder2ToolStripMenuItem.Text = "补借";
+            this.outboundOrder2ToolStripMenuItem.Text = "借用情况";
             this.outboundOrder2ToolStripMenuItem.Click += new System.EventHandler(this.outboundOrder2ToolStripMenuItem_Click);
             // 
             // inboundToolStripMenuItem
@@ -331,6 +333,7 @@
             this.inboundToolStripMenuItem.Name = "inboundToolStripMenuItem";
             this.inboundToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.inboundToolStripMenuItem.Text = "归还";
+            this.inboundToolStripMenuItem.Visible = false;
             this.inboundToolStripMenuItem.Click += new System.EventHandler(this.inboundToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
@@ -496,6 +499,13 @@
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStripMain";
             // 
+            // ResetPasswordToolStripMenuItem
+            // 
+            this.ResetPasswordToolStripMenuItem.Name = "ResetPasswordToolStripMenuItem";
+            this.ResetPasswordToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.ResetPasswordToolStripMenuItem.Text = "密码重置";
+            this.ResetPasswordToolStripMenuItem.Click += new System.EventHandler(this.ResetPasswordToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -567,6 +577,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolInfoMenu;
         private System.Windows.Forms.ToolStripMenuItem ScrapAdvanceMenu;
         private System.Windows.Forms.Button bt_Technics;
+        private System.Windows.Forms.ToolStripMenuItem ResetPasswordToolStripMenuItem;
 	}
 }
 

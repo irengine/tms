@@ -374,6 +374,12 @@
     <Compile Include="ToolManagement\ViewUnitForm.Designer.cs">
       <DependentUpon>ViewUnitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserManagement\ResetPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement\ResetPasswordForm.Designer.cs">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\ManageSystemUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -513,6 +519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ToolManagement\ViewUnitForm.resx">
       <DependentUpon>ViewUnitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagement\ResetPasswordForm.resx">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement\ManageSystemUserForm.resx">
       <DependentUpon>ManageSystemUserForm.cs</DependentUpon>
