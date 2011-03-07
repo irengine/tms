@@ -76,7 +76,7 @@ namespace CarsMaintenance.OrderManagement
                             it.ScrapQuantity,
                             it.Quantity,
                             it.RepairingQuantity,
-                            Status = (o.Status == 0 ? "预报废" : "报废")
+                            Status = (o.Status == 0 ? "预报废" : (it.ScrapQuantity > 0 ? "报废 " : "") + (it.Quantity > 0 ? "已入库 " : "") + (it.RepairingQuantity > 0 ? "修理 " : ""))
                         };
 
             CarsMaintenance.Common.Sorting.SortableBindingList<object> scrapOrders = new CarsMaintenance.Common.Sorting.SortableBindingList<object>();
@@ -212,7 +212,7 @@ namespace CarsMaintenance.OrderManagement
                             it.ScrapQuantity,
                             it.Quantity,
                             it.RepairingQuantity,
-                            Status = (o.Status == 0 ? "待报废" : "已报废")
+                            Status = (o.Status == 0 ? "预报废" : (it.ScrapQuantity > 0 ? "报废 " : "") + (it.Quantity > 0 ? "已入库 " : "") + (it.RepairingQuantity > 0 ? "修理 " : ""))
                         };
 
             dataGridViewScrapOrder.DataSource = query;
