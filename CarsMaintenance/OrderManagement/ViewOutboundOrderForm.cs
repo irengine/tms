@@ -61,7 +61,7 @@ namespace CarsMaintenance.OrderManagement
         protected void LoadData()
         {
             var query = from o in SystemHelper.TMSContext.OutboundOrders
-                        orderby o.OutboundDate
+                        orderby o.OutboundDate descending
                         select o;
 
             CarsMaintenance.Common.Sorting.SortableBindingList<object> outboundOrders = new CarsMaintenance.Common.Sorting.SortableBindingList<object>();
@@ -198,7 +198,7 @@ namespace CarsMaintenance.OrderManagement
             DateTime endDate = dtEndDate.Value.Date.AddDays(1);
             var query = from o in SystemHelper.TMSContext.OutboundOrders
                         where o.OutboundDate >= beginDate && o.OutboundDate <= endDate
-                        orderby o.OutboundDate
+                        orderby o.OutboundDate descending
                         select o;
 
             dataGridViewOutboundOrder.DataSource = query;
