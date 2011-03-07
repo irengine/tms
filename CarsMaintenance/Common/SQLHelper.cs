@@ -35,7 +35,7 @@ namespace CarsMaintenance.Common
                             inner join Unit c on o.CustomerID = c.UnitID
                             inner join SystemUser u on o.LastUpdatedBy = u.SystemUserID
                             inner join Tool t on i.ToolID = t.ToolID
-						    where  o.OutboundOrderID = {0}
+						    where  o.OutboundOrderID = {0} and i.Quantity != 0
                             group by
                             o.Code, o.OutboundDate, o.Version, o.ClassType,
                             o.Job, o.Berth, o.Machine, o.Ship, o.Hatch, o.Cargo, o.Quantity, o.Process,
