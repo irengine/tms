@@ -60,9 +60,44 @@ namespace CarsMaintenance.OrderManagement
 
         protected void LoadData()
         {
-            var query = from o in SystemHelper.TMSContext.OutboundOrders
-                        orderby o.OutboundDate descending
-                        select o;
+            var query = (from o in SystemHelper.TMSContext.OutboundOrders
+                        from d in SystemHelper.TMSContext.OutboundOrderDetails
+                        from c in SystemHelper.TMSContext.Units
+                        from u in SystemHelper.TMSContext.SystemUsers
+                        where d.OutboundOrderID == o.OutboundOrderID && c.UnitID == o.CustomerID && u.SystemUserID == o.LastUpdatedBy
+                        group d by new {o.OutboundOrderID,
+                            o.OutboundDate,
+                            o.Version,
+                            o.Code,
+                            o.Job,
+                            o.Ship,
+                            o.Berth,
+                            o.Hatch,
+                            o.Machine,
+                            o.Cargo,
+                            o.Quantity,
+                            o.Process,
+                            Customer = c.Name,
+                            User = u.Name 
+                        } into g
+                        select new
+                        {
+                            g.Key.OutboundOrderID,
+                            g.Key.OutboundDate,
+                            Balance = g.Sum(d => d.Balance),
+                            g.Key.Version,
+                            g.Key.Code,
+                            g.Key.Job,
+                            g.Key.Ship,
+                            g.Key.Berth,
+                            g.Key.Hatch,
+                            g.Key.Machine,
+                            g.Key.Cargo,
+                            g.Key.Quantity,
+                            g.Key.Process,
+                            g.Key.Customer,
+                            g.Key.User
+                        }).OrderByDescending(q => q.OutboundDate);
 
             CarsMaintenance.Common.Sorting.SortableBindingList<object> outboundOrders = new CarsMaintenance.Common.Sorting.SortableBindingList<object>();
             foreach (object o in query)
@@ -196,12 +231,56 @@ namespace CarsMaintenance.OrderManagement
         {
             DateTime beginDate = dtBeginDate.Value.Date;
             DateTime endDate = dtEndDate.Value.Date.AddDays(1);
-            var query = from o in SystemHelper.TMSContext.OutboundOrders
-                        where o.OutboundDate >= beginDate && o.OutboundDate <= endDate
-                        orderby o.OutboundDate descending
-                        select o;
 
-            dataGridViewOutboundOrder.DataSource = query;
+            var query = (from o in SystemHelper.TMSContext.OutboundOrders
+                         from d in SystemHelper.TMSContext.OutboundOrderDetails
+                         from c in SystemHelper.TMSContext.Units
+                         from u in SystemHelper.TMSContext.SystemUsers
+                         where d.OutboundOrderID == o.OutboundOrderID && c.UnitID == o.CustomerID && u.SystemUserID == o.LastUpdatedBy
+                            && o.OutboundDate >= beginDate && o.OutboundDate <= endDate
+                         group d by new
+                         {
+                             o.OutboundOrderID,
+                             o.OutboundDate,
+                             o.Version,
+                             o.Code,
+                             o.Job,
+                             o.Ship,
+                             o.Berth,
+                             o.Hatch,
+                             o.Machine,
+                             o.Cargo,
+                             o.Quantity,
+                             o.Process,
+                             Customer = c.Name,
+                             User = u.Name
+                         } into g
+                         select new
+                         {
+                             g.Key.OutboundOrderID,
+                             g.Key.OutboundDate,
+                             Balance = g.Sum(d => d.Balance),
+                             g.Key.Version,
+                             g.Key.Code,
+                             g.Key.Job,
+                             g.Key.Ship,
+                             g.Key.Berth,
+                             g.Key.Hatch,
+                             g.Key.Machine,
+                             g.Key.Cargo,
+                             g.Key.Quantity,
+                             g.Key.Process,
+                             g.Key.Customer,
+                             g.Key.User
+                         }).OrderByDescending(q => q.OutboundDate);
+
+            CarsMaintenance.Common.Sorting.SortableBindingList<object> outboundOrders = new CarsMaintenance.Common.Sorting.SortableBindingList<object>();
+            foreach (object o in query)
+            {
+                outboundOrders.Add(o);
+            }
+
+            dataGridViewOutboundOrder.DataSource = outboundOrders;
         }
 
         private void toolStripMenuItemPrintOutboundOrder_Click(object sender, EventArgs e)
@@ -223,12 +302,65 @@ namespace CarsMaintenance.OrderManagement
             string machine = txtMachine.Text;
             string cargo = txtCargo.Text;
 
-            var query = from o in SystemHelper.TMSContext.OutboundOrders
-                        where o.Ship.StartsWith(ship) && o.Machine.StartsWith(machine) && o.Cargo.StartsWith(cargo)
-                        orderby o.OutboundDate
-                        select o;
+            var query = (from o in SystemHelper.TMSContext.OutboundOrders
+                         from d in SystemHelper.TMSContext.OutboundOrderDetails
+                         from c in SystemHelper.TMSContext.Units
+                         from u in SystemHelper.TMSContext.SystemUsers
+                         where d.OutboundOrderID == o.OutboundOrderID && c.UnitID == o.CustomerID && u.SystemUserID == o.LastUpdatedBy
+                            && o.Ship.StartsWith(ship) && o.Machine.StartsWith(machine) && o.Cargo.StartsWith(cargo)
+                         group d by new
+                         {
+                             o.OutboundOrderID,
+                             o.OutboundDate,
+                             o.Version,
+                             o.Code,
+                             o.Job,
+                             o.Ship,
+                             o.Berth,
+                             o.Hatch,
+                             o.Machine,
+                             o.Cargo,
+                             o.Quantity,
+                             o.Process,
+                             Customer = c.Name,
+                             User = u.Name
+                         } into g
+                         select new
+                         {
+                             g.Key.OutboundOrderID,
+                             g.Key.OutboundDate,
+                             Balance = g.Sum(d => d.Balance),
+                             g.Key.Version,
+                             g.Key.Code,
+                             g.Key.Job,
+                             g.Key.Ship,
+                             g.Key.Berth,
+                             g.Key.Hatch,
+                             g.Key.Machine,
+                             g.Key.Cargo,
+                             g.Key.Quantity,
+                             g.Key.Process,
+                             g.Key.Customer,
+                             g.Key.User
+                         }).OrderByDescending(q => q.OutboundDate);
 
-            dataGridViewOutboundOrder.DataSource = query;
+            CarsMaintenance.Common.Sorting.SortableBindingList<object> outboundOrders = new CarsMaintenance.Common.Sorting.SortableBindingList<object>();
+            foreach (object o in query)
+            {
+                outboundOrders.Add(o);
+            }
+
+            dataGridViewOutboundOrder.DataSource = outboundOrders;
+        }
+
+        private void dataGridViewOutboundOrder_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow dgv in dataGridViewOutboundOrder.Rows)
+            {
+                // the balance column
+                decimal d = SystemHelper.ConvertToNumber(dgv.Cells[3].Value);
+                dgv.DefaultCellStyle.BackColor = d == 0 ? Color.LightBlue : SystemColors.Window;
+            } 
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStripOutboundOrder = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemBrowseOutboundOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPrintOutboundOrder = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +58,10 @@
             this.outboundOrderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.outboundDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.berthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +70,6 @@
             this.cargoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.processDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdatedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastUpdateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStripOutboundOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.outboundOrderBindingSource)).BeginInit();
@@ -167,8 +169,10 @@
             this.outboundOrderIDDataGridViewTextBoxColumn,
             this.outboundDateDataGridViewTextBoxColumn,
             this.versionDataGridViewTextBoxColumn,
-            this.codeDataGridViewTextBoxColumn,
+            this.Balance,
             this.customerIDDataGridViewTextBoxColumn,
+            this.lastUpdatedByDataGridViewTextBoxColumn,
+            this.codeDataGridViewTextBoxColumn,
             this.jobDataGridViewTextBoxColumn,
             this.shipDataGridViewTextBoxColumn,
             this.berthDataGridViewTextBoxColumn,
@@ -177,7 +181,6 @@
             this.cargoDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
             this.processDataGridViewTextBoxColumn,
-            this.lastUpdatedByDataGridViewTextBoxColumn,
             this.lastUpdateTimeDataGridViewTextBoxColumn});
             this.dataGridViewOutboundOrder.ContextMenuStrip = this.contextMenuStripOutboundOrder;
             this.dataGridViewOutboundOrder.DataSource = this.outboundOrderBindingSource;
@@ -190,6 +193,7 @@
             this.dataGridViewOutboundOrder.Size = new System.Drawing.Size(847, 384);
             this.dataGridViewOutboundOrder.TabIndex = 1;
             this.dataGridViewOutboundOrder.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOutboundOrder_CellDoubleClick);
+            this.dataGridViewOutboundOrder.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewOutboundOrder_DataBindingComplete);
             // 
             // panelSearch
             // 
@@ -344,6 +348,30 @@
             this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
             this.versionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // Balance
+            // 
+            this.Balance.DataPropertyName = "Balance";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.Balance.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Balance.HeaderText = "未归还工具";
+            this.Balance.Name = "Balance";
+            this.Balance.ReadOnly = true;
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "Customer";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "装卸组";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastUpdatedByDataGridViewTextBoxColumn
+            // 
+            this.lastUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "User";
+            this.lastUpdatedByDataGridViewTextBoxColumn.HeaderText = "收发工";
+            this.lastUpdatedByDataGridViewTextBoxColumn.Name = "lastUpdatedByDataGridViewTextBoxColumn";
+            this.lastUpdatedByDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // codeDataGridViewTextBoxColumn
             // 
             this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
@@ -351,14 +379,6 @@
             this.codeDataGridViewTextBoxColumn.HeaderText = "借用单号";
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
             this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerIDDataGridViewTextBoxColumn
-            // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // jobDataGridViewTextBoxColumn
             // 
@@ -411,8 +431,8 @@
             // quantityDataGridViewTextBoxColumn
             // 
             this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            dataGridViewCellStyle1.Format = "N0";
-            this.quantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "N0";
+            this.quantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.quantityDataGridViewTextBoxColumn.FillWeight = 60F;
             this.quantityDataGridViewTextBoxColumn.HeaderText = "数量";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
@@ -425,14 +445,6 @@
             this.processDataGridViewTextBoxColumn.HeaderText = "作业过程";
             this.processDataGridViewTextBoxColumn.Name = "processDataGridViewTextBoxColumn";
             this.processDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastUpdatedByDataGridViewTextBoxColumn
-            // 
-            this.lastUpdatedByDataGridViewTextBoxColumn.DataPropertyName = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn.HeaderText = "LastUpdatedBy";
-            this.lastUpdatedByDataGridViewTextBoxColumn.Name = "lastUpdatedByDataGridViewTextBoxColumn";
-            this.lastUpdatedByDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lastUpdatedByDataGridViewTextBoxColumn.Visible = false;
             // 
             // lastUpdateTimeDataGridViewTextBoxColumn
             // 
@@ -492,8 +504,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn outboundOrderIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn outboundDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedByDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn jobDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shipDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn berthDataGridViewTextBoxColumn;
@@ -502,7 +516,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cargoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn processDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdatedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateTimeDataGridViewTextBoxColumn;
     }
 }
