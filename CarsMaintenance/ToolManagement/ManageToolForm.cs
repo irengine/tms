@@ -88,6 +88,7 @@ namespace CarsMaintenance.ToolManagement
             txtName.Text = CurrentTool.Name;
             txtUnit.Text = CurrentTool.Unit;
             txtRatedQuantity.Text = CurrentTool.RatedQuantity.ToString();
+            txtDisplayIndex.Text = CurrentTool.DisplayIndex.ToString();
         }
 
         private void ManageToolForm_Load(object sender, EventArgs e)
@@ -114,6 +115,11 @@ namespace CarsMaintenance.ToolManagement
                 CurrentTool.Load2 = txtLoad2.Text;
                 CurrentTool.Name = txtName.Text;
                 CurrentTool.Unit = txtUnit.Text;
+
+                int index = 0;
+                int.TryParse(txtDisplayIndex.Text, out index);
+                CurrentTool.DisplayIndex = index;
+
                 decimal ratedQuantity = 0;
                 decimal.TryParse(txtRatedQuantity.Text, out ratedQuantity);
                 CurrentTool.RatedQuantity = ratedQuantity;

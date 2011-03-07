@@ -22,3 +22,8 @@ add
 	AddTime DateTime2(7) null,
 	ReturnTime DateTime2(7) null
 go
+
+alter table TMS.dbo.Tool 
+add 
+	DisplayIndex int not null default(1000)
+go

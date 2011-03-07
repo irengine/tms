@@ -163,7 +163,7 @@ namespace CarsMaintenance.ToolManagement
                         join s in SystemHelper.TMSContext.Supplies on ti.SupplyID equals s.SupplyID
                         where t.Deleted == false
                         && (ti.Quantity > 0 || ti.OutQuantity > 0 || ti.PrescrapQuantity > 0 || ti.ScrapQuantity > 0 || ti.RepairingQuantity > 0)
-                        orderby t.Code
+                        orderby t.DisplayIndex, t.Code
                         select new
                         {
                             ToolID = t.ToolID,
@@ -224,7 +224,7 @@ namespace CarsMaintenance.ToolManagement
                             join ti in SystemHelper.TMSContext.ToolInventories on t.ToolID equals ti.ToolID
                             join s in SystemHelper.TMSContext.Supplies on ti.SupplyID equals s.SupplyID
                             where t.Deleted == false && t.Code.StartsWith(categoryCode)
-                            orderby t.Code
+                            orderby t.DisplayIndex, t.Code
                             select new
                             {
                                 ToolID = t.ToolID,
@@ -265,7 +265,7 @@ namespace CarsMaintenance.ToolManagement
                             join s in SystemHelper.TMSContext.Supplies on ti.SupplyID equals s.SupplyID
                             where t.Deleted == false && t.Code.StartsWith(categoryCode)
                             && (ti.Quantity > 0 || ti.OutQuantity > 0 || ti.PrescrapQuantity > 0 || ti.ScrapQuantity > 0 || ti.RepairingQuantity > 0)
-                            orderby t.Code
+                            orderby t.DisplayIndex, t.Code
                             select new
                             {
                                 ToolID = t.ToolID,

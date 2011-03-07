@@ -55,6 +55,8 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtRatedQuantity = new System.Windows.Forms.TextBox();
             this.lblRatedQuantity = new System.Windows.Forms.Label();
+            this.txtDisplayIndex = new System.Windows.Forms.TextBox();
+            this.lblDisplayIndex = new System.Windows.Forms.Label();
             this._operationsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -141,7 +143,7 @@
             this._operationsPanel.Location = new System.Drawing.Point(0, 247);
             this._operationsPanel.Name = "_operationsPanel";
             this._operationsPanel.Size = new System.Drawing.Size(641, 39);
-            this._operationsPanel.TabIndex = 22;
+            this._operationsPanel.TabIndex = 24;
             // 
             // _saveButton
             // 
@@ -276,11 +278,29 @@
             this.lblRatedQuantity.TabIndex = 20;
             this.lblRatedQuantity.Text = "额定数";
             // 
+            // txtDisplayIndex
+            // 
+            this.txtDisplayIndex.Location = new System.Drawing.Point(98, 173);
+            this.txtDisplayIndex.Name = "txtDisplayIndex";
+            this.txtDisplayIndex.Size = new System.Drawing.Size(196, 21);
+            this.txtDisplayIndex.TabIndex = 23;
+            // 
+            // lblDisplayIndex
+            // 
+            this.lblDisplayIndex.AutoSize = true;
+            this.lblDisplayIndex.Location = new System.Drawing.Point(17, 176);
+            this.lblDisplayIndex.Name = "lblDisplayIndex";
+            this.lblDisplayIndex.Size = new System.Drawing.Size(53, 12);
+            this.lblDisplayIndex.TabIndex = 22;
+            this.lblDisplayIndex.Text = "显示顺序";
+            // 
             // ManageToolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 286);
+            this.Controls.Add(this.txtDisplayIndex);
+            this.Controls.Add(this.lblDisplayIndex);
             this.Controls.Add(this.txtRatedQuantity);
             this.Controls.Add(this.lblRatedQuantity);
             this.Controls.Add(this.txtDescription);
@@ -343,5 +363,7 @@
         private System.Windows.Forms.Label lblLoad2;
         private System.Windows.Forms.TextBox txtRatedQuantity;
         private System.Windows.Forms.Label lblRatedQuantity;
+        private System.Windows.Forms.TextBox txtDisplayIndex;
+        private System.Windows.Forms.Label lblDisplayIndex;
     }
 }

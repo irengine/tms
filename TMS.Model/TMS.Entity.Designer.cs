@@ -5469,7 +5469,8 @@ namespace TMS.Model
         /// <param name="unit">Initial value of the Unit property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
         /// <param name="ratedQuantity">Initial value of the RatedQuantity property.</param>
-        public static Tool CreateTool(global::System.Int32 toolID, global::System.Int32 toolCategoryID, global::System.String code, global::System.String name, global::System.String dimensions, global::System.String unit, global::System.Boolean deleted, global::System.Decimal ratedQuantity)
+        /// <param name="displayIndex">Initial value of the DisplayIndex property.</param>
+        public static Tool CreateTool(global::System.Int32 toolID, global::System.Int32 toolCategoryID, global::System.String code, global::System.String name, global::System.String dimensions, global::System.String unit, global::System.Boolean deleted, global::System.Decimal ratedQuantity, global::System.Int32 displayIndex)
         {
             Tool tool = new Tool();
             tool.ToolID = toolID;
@@ -5480,6 +5481,7 @@ namespace TMS.Model
             tool.Unit = unit;
             tool.Deleted = deleted;
             tool.RatedQuantity = ratedQuantity;
+            tool.DisplayIndex = displayIndex;
             return tool;
         }
 
@@ -5800,6 +5802,30 @@ namespace TMS.Model
         private global::System.Decimal _RatedQuantity;
         partial void OnRatedQuantityChanging(global::System.Decimal value);
         partial void OnRatedQuantityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DisplayIndex
+        {
+            get
+            {
+                return _DisplayIndex;
+            }
+            set
+            {
+                OnDisplayIndexChanging(value);
+                ReportPropertyChanging("DisplayIndex");
+                _DisplayIndex = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DisplayIndex");
+                OnDisplayIndexChanged();
+            }
+        }
+        private global::System.Int32 _DisplayIndex;
+        partial void OnDisplayIndexChanging(global::System.Int32 value);
+        partial void OnDisplayIndexChanged();
 
         #endregion
     

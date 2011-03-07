@@ -398,6 +398,7 @@
           <Property Name="Comment" Type="nvarchar" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
           <Property Name="ToolCategoryID" Type="int" Nullable="false" />
+          <Property Name="DisplayIndex" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ToolCategory">
           <Key>
@@ -1276,6 +1277,7 @@
           <NavigationProperty Name="RepairOrderDetails" Relationship="TMS.Model.FK_RepairOrderDetail_Tool" FromRole="Tool" ToRole="RepairOrderDetail" />
           <NavigationProperty Name="Groups" Relationship="TMS.Model.FK_ToolGroup_Tool" FromRole="Tool" ToRole="ToolGroup" />
           <NavigationProperty Name="Items" Relationship="TMS.Model.FK_ToolGroup_Tool2" FromRole="Tool" ToRole="ToolGroup" />
+          <Property Type="Int32" Name="DisplayIndex" Nullable="false" />
         </EntityType>
         <Association Name="FK_Tool_ToolCategory">
           <End Type="TMS.Model.ToolCategory" Role="ToolCategory" Multiplicity="1" />
@@ -2118,6 +2120,7 @@
           <EntitySetMapping Name="Tools">
             <EntityTypeMapping TypeName="TMS.Model.Tool">
               <MappingFragment StoreEntitySet="Tool">
+                <ScalarProperty Name="DisplayIndex" ColumnName="DisplayIndex" />
                 <ScalarProperty Name="RatedQuantity" ColumnName="RatedQuantity" />
                 <ScalarProperty Name="Load2" ColumnName="Load2" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
