@@ -73,6 +73,12 @@ namespace CarsMaintenance.ToolManagement
             column.Width = 150;
             dataGridViewToolInventory.Columns.Add(column);
 
+            column = new DataGridViewTextBoxColumn();
+            column.DataPropertyName = "Unit";
+            column.Name = "单位";
+            column.Width = 60;
+            dataGridViewToolInventory.Columns.Add(column);
+
             DataGridViewCellStyle dsc=new DataGridViewCellStyle();
             dsc.Format = "n0";
             column = new DataGridViewTextBoxColumn();
@@ -129,12 +135,6 @@ namespace CarsMaintenance.ToolManagement
             column.Name = "修理数";
             column.Width = 80;
             column.DefaultCellStyle = dsc;
-            dataGridViewToolInventory.Columns.Add(column);
-
-            column = new DataGridViewTextBoxColumn();
-            column.DataPropertyName = "Unit";
-            column.Name = "单位";
-            column.Width = 60;
             dataGridViewToolInventory.Columns.Add(column);
 
             column = new DataGridViewTextBoxColumn();
