@@ -34,6 +34,12 @@
             this._cancelButton = new System.Windows.Forms.Button();
             this.panelDetail = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
+            this.ItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMaster = new System.Windows.Forms.Panel();
             this.cbSystemUser = new System.Windows.Forms.ComboBox();
             this.cbCustomer = new System.Windows.Forms.ComboBox();
@@ -72,12 +78,6 @@
             this._operationsPanel = new System.Windows.Forms.Panel();
             this._saveButton = new System.Windows.Forms.Button();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetail)).BeginInit();
             this.panelMaster.SuspendLayout();
@@ -131,6 +131,49 @@
             this.dataGridViewDetail.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewDetail_RowValidating);
             this.dataGridViewDetail.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridViewDetail_UserDeletingRow);
             this.dataGridViewDetail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewDetail_KeyDown);
+            // 
+            // ItemCode
+            // 
+            this.ItemCode.HeaderText = "工属具编码";
+            this.ItemCode.Name = "ItemCode";
+            this.ItemCode.Width = 120;
+            // 
+            // ItemQuantity
+            // 
+            dataGridViewCellStyle1.Format = "N0";
+            this.ItemQuantity.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ItemQuantity.HeaderText = "数量";
+            this.ItemQuantity.Name = "ItemQuantity";
+            this.ItemQuantity.Width = 120;
+            // 
+            // ItemBalance
+            // 
+            dataGridViewCellStyle2.Format = "N0";
+            this.ItemBalance.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ItemBalance.HeaderText = "未归还数";
+            this.ItemBalance.Name = "ItemBalance";
+            this.ItemBalance.ReadOnly = true;
+            this.ItemBalance.Visible = false;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "名称";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            this.ItemName.Width = 120;
+            // 
+            // ItemDimensions
+            // 
+            this.ItemDimensions.HeaderText = "规格";
+            this.ItemDimensions.Name = "ItemDimensions";
+            this.ItemDimensions.ReadOnly = true;
+            this.ItemDimensions.Width = 120;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "备注";
+            this.Description.Name = "Description";
+            this.Description.Width = 150;
             // 
             // panelMaster
             // 
@@ -442,6 +485,7 @@
             // 
             // dtOutboundDate
             // 
+            this.dtOutboundDate.Enabled = false;
             this.dtOutboundDate.Location = new System.Drawing.Point(100, 43);
             this.dtOutboundDate.Name = "dtOutboundDate";
             this.dtOutboundDate.Size = new System.Drawing.Size(200, 21);
@@ -497,49 +541,6 @@
             // _errorProvider
             // 
             this._errorProvider.ContainerControl = this;
-            // 
-            // ItemCode
-            // 
-            this.ItemCode.HeaderText = "工属具编码";
-            this.ItemCode.Name = "ItemCode";
-            this.ItemCode.Width = 120;
-            // 
-            // ItemQuantity
-            // 
-            dataGridViewCellStyle1.Format = "N0";
-            this.ItemQuantity.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ItemQuantity.HeaderText = "数量";
-            this.ItemQuantity.Name = "ItemQuantity";
-            this.ItemQuantity.Width = 120;
-            // 
-            // ItemBalance
-            // 
-            dataGridViewCellStyle2.Format = "N0";
-            this.ItemBalance.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ItemBalance.HeaderText = "未归还数";
-            this.ItemBalance.Name = "ItemBalance";
-            this.ItemBalance.ReadOnly = true;
-            this.ItemBalance.Visible = false;
-            // 
-            // ItemName
-            // 
-            this.ItemName.HeaderText = "名称";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            this.ItemName.Width = 120;
-            // 
-            // ItemDimensions
-            // 
-            this.ItemDimensions.HeaderText = "规格";
-            this.ItemDimensions.Name = "ItemDimensions";
-            this.ItemDimensions.ReadOnly = true;
-            this.ItemDimensions.Width = 120;
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "备注";
-            this.Description.Name = "Description";
-            this.Description.Width = 150;
             // 
             // CreateOutboundOrderForm
             // 
