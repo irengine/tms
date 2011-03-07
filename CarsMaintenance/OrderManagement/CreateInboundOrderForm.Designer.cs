@@ -61,6 +61,7 @@
             this.ItemDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransferQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrescrapQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -248,6 +249,7 @@
             this.ItemDimensions,
             this.ItemBalance,
             this.ItemUnitPrice,
+            this.Description,
             this.Quantity,
             this.TransferQuantity,
             this.PrescrapQuantity,
@@ -329,6 +331,13 @@
             this.ItemUnitPrice.Name = "ItemUnitPrice";
             this.ItemUnitPrice.Visible = false;
             // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "备注";
+            this.Description.Name = "Description";
+            this.Description.Visible = false;
+            // 
             // Quantity
             // 
             dataGridViewCellStyle4.Format = "N0";
@@ -407,6 +416,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemDimensions;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransferQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrescrapQuantity;

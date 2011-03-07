@@ -64,7 +64,7 @@ namespace CarsMaintenance.OrderManagement
             foreach (OutboundOrderDetail item in ReferenceOrder.Items)
             {
                 DataGridViewRow dgvr = new DataGridViewRow();
-                object[] row = { item.OutboundOrderDetailID, item.Tool.Code, item.Quantity, item.Tool.Name, item.Tool.Dimensions, item.Balance, item.UnitPrice };
+                object[] row = { item.OutboundOrderDetailID, item.Tool.Code, item.Quantity, item.Tool.Name, item.Tool.Dimensions, item.Balance, item.UnitPrice, item.Description };
                 dataGridViewDetail.Rows.Add(row);
             }
         }
@@ -231,9 +231,9 @@ namespace CarsMaintenance.OrderManagement
                             item.UnitPrice = unitPrice;
                             item.OutboundDate = CurrentOrder.InboundDate;
 
-                            //add by 张应洪 date:2010-12-9
-                            if (item.Description != null)
-                                item.Description = item.Description + ReferenceOrder.Customer.Name;
+                            object description = dgvr.Cells["Description"].Value;
+                            if (description != null && description.ToString() != "")
+                                item.Description = description + "," + ReferenceOrder.Customer.Name;
                             else
                                 item.Description = ReferenceOrder.Customer.Name;
 
