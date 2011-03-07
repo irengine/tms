@@ -17,3 +17,8 @@ update tool set Dimensions =
 
 update Unit set Code =REPLACE(code,'-','_')
 
+alter table TMS.dbo.OutboundOrder 
+add 
+	AddTime DateTime2(7) null,
+	ReturnTime DateTime2(7) null
+go

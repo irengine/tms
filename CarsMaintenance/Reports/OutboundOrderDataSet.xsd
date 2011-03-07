@@ -15,7 +15,7 @@
                     <CommandText>select o.Code as OrderCode, o.OutboundDate as OrderDate, o.Version,
 o.Job, o.Berth, o.Machine, o.Ship, o.Hatch, o.Cargo, o.Quantity as lots, o.Process,
 c.Name as CustomerName, u.Name as UserName,
-t.Code, t.Name, t.Dimensions, i.Quantity,i.Balance,i.[Description],i.OutboundDate 
+t.Code, t.Name, t.Dimensions, i.Quantity,i.Balance,i.[Description],o.OutboundDate,o.AddTime, o.ReturnTime 
 from OutboundOrder o
 inner join OutboundOrderDetail i on o.OutboundOrderID = i.OutboundOrderID
 inner join Unit c on o.CustomerID = c.UnitID
@@ -47,6 +47,8 @@ inner join Tool t on i.ToolID = t.ToolID</CommandText>
               <Mapping SourceColumn="Balance" DataSetColumn="Balance" />
               <Mapping SourceColumn="Description" DataSetColumn="Description" />
               <Mapping SourceColumn="OutboundDate" DataSetColumn="OutboundDate" />
+              <Mapping SourceColumn="AddTime" DataSetColumn="AddTime" />
+              <Mapping SourceColumn="ReturnTime" DataSetColumn="ReturnTime" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -171,6 +173,8 @@ inner join Tool t on i.ToolID = t.ToolID</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="OutboundDate" msprop:Generator_ColumnVarNameInTable="columnOutboundDate" msprop:Generator_ColumnPropNameInRow="OutboundDate" msprop:Generator_ColumnPropNameInTable="OutboundDateColumn" msprop:Generator_UserColumnName="OutboundDate" type="xs:dateTime" />
+              <xs:element name="AddTime" msprop:Generator_ColumnVarNameInTable="columnAddTime" msprop:Generator_ColumnPropNameInRow="AddTime" msprop:Generator_ColumnPropNameInTable="AddTimeColumn" msprop:Generator_UserColumnName="AddTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ReturnTime" msprop:Generator_ColumnVarNameInTable="columnReturnTime" msprop:Generator_ColumnPropNameInRow="ReturnTime" msprop:Generator_ColumnPropNameInTable="ReturnTimeColumn" msprop:Generator_UserColumnName="ReturnTime" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

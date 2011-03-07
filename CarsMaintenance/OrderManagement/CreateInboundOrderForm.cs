@@ -93,6 +93,8 @@ namespace CarsMaintenance.OrderManagement
                 CurrentOrder.SystemUser = cbSystemUser.SelectedItem as SystemUser;
 
                 CurrentOrder.OutboundOrder = ReferenceOrder;
+                // Set return time
+                CurrentOrder.OutboundOrder.ReturnTime = CurrentOrder.InboundDate;
 
                 if (CurrentOrder.EntityKey == null)
                     SystemHelper.TMSContext.AddToInboundOrders(CurrentOrder);

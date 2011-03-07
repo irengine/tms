@@ -134,6 +134,20 @@ namespace CarsMaintenance.OrderManagement
                 ItemCount = CurrentOrder.Items.Count;
             }
 
+            // if add time or return time equals null, do not show it
+            if (CurrentOrder.AddTime != null)
+            {
+                dtAddTime.Value = (DateTime)CurrentOrder.AddTime;
+            }
+            if (CurrentOrder.ReturnTime != null)
+            {
+                dtReturnTime.Value = (DateTime)CurrentOrder.ReturnTime;
+            }
+            dtAddTime.Visible = !((CurrentOrder.AddTime == null));
+            dtReturnTime.Visible = !((CurrentOrder.ReturnTime == null));
+
+
+
             txtCode.Text = CurrentOrder.Code;
             dtOutboundDate.Value = CurrentOrder.OutboundDate;
             txtVersion.Text = CurrentOrder.Version.ToString();
@@ -214,11 +228,6 @@ namespace CarsMaintenance.OrderManagement
         {
             ExecuteActionHelper.ExecuteAction(delegate()
             {
-                if (!_validationManager.Validate())
-                {
-                    return;
-                }
-
                 CurrentOrder.Code = txtCode.Text;
                 CurrentOrder.OutboundDate = dtOutboundDate.Value;
 
@@ -252,6 +261,12 @@ namespace CarsMaintenance.OrderManagement
                 // Don't set current user because user may change it.
                 // CurrentOrder.SystemUser = SystemHelper.CurrentUser;
                 CurrentOrder.LastUpdateTime = System.DateTime.Now;
+
+                // Set add time
+                if (CurrentMode == MODE_APPEND)
+                {
+                    CurrentOrder.AddTime = CurrentOrder.LastUpdateTime;
+                }
 
                 // Iterate all rows
                 foreach (DataGridViewRow dgvr in dataGridViewDetail.Rows)

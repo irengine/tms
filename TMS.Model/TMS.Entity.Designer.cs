@@ -2033,6 +2033,54 @@ namespace TMS.Model
         private global::System.Int32 _ClassType;
         partial void OnClassTypeChanging(global::System.Int32 value);
         partial void OnClassTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> AddTime
+        {
+            get
+            {
+                return _AddTime;
+            }
+            set
+            {
+                OnAddTimeChanging(value);
+                ReportPropertyChanging("AddTime");
+                _AddTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AddTime");
+                OnAddTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _AddTime;
+        partial void OnAddTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OnAddTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ReturnTime
+        {
+            get
+            {
+                return _ReturnTime;
+            }
+            set
+            {
+                OnReturnTimeChanging(value);
+                ReportPropertyChanging("ReturnTime");
+                _ReturnTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ReturnTime");
+                OnReturnTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ReturnTime;
+        partial void OnReturnTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OnReturnTimeChanged();
 
         #endregion
     

@@ -262,6 +262,8 @@
           <Property Name="Process" Type="varchar" MaxLength="50" />
           <Property Name="LastUpdatedBy" Type="int" Nullable="false" />
           <Property Name="LastUpdateTime" Type="datetime2" Nullable="false" />
+          <Property Name="AddTime" Type="datetime2" />
+          <Property Name="ReturnTime" Type="datetime2" />
         </EntityType>
         <EntityType Name="OutboundOrderDetail">
           <Key>
@@ -1520,6 +1522,8 @@
           <Property Type="String" Name="JobPosition" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="JobType" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ClassType" Nullable="false" />
+          <Property Type="DateTime" Name="AddTime" />
+          <Property Type="DateTime" Name="ReturnTime" />
         </EntityType>
         <EntityType Name="OutboundOrderDetail">
           <Key>
@@ -2209,6 +2213,8 @@
           <EntitySetMapping Name="OutboundOrders">
             <EntityTypeMapping TypeName="TMS.Model.OutboundOrder">
               <MappingFragment StoreEntitySet="OutboundOrder">
+                <ScalarProperty Name="ReturnTime" ColumnName="ReturnTime" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
                 <ScalarProperty Name="ClassType" ColumnName="ClassType" />
                 <ScalarProperty Name="JobType" ColumnName="JobType" />
                 <ScalarProperty Name="JobPosition" ColumnName="JobPosition" />

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this._cancelButton = new System.Windows.Forms.Button();
             this.panelDetail = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
@@ -78,6 +78,10 @@
             this._operationsPanel = new System.Windows.Forms.Panel();
             this._saveButton = new System.Windows.Forms.Button();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dtReturnTime = new System.Windows.Forms.DateTimePicker();
+            this.lblReturnTime = new System.Windows.Forms.Label();
+            this.dtAddTime = new System.Windows.Forms.DateTimePicker();
+            this.lblAddTime = new System.Windows.Forms.Label();
             this.panelDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetail)).BeginInit();
             this.panelMaster.SuspendLayout();
@@ -102,9 +106,9 @@
             // 
             this.panelDetail.Controls.Add(this.dataGridViewDetail);
             this.panelDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDetail.Location = new System.Drawing.Point(0, 301);
+            this.panelDetail.Location = new System.Drawing.Point(0, 318);
             this.panelDetail.Name = "panelDetail";
-            this.panelDetail.Size = new System.Drawing.Size(683, 333);
+            this.panelDetail.Size = new System.Drawing.Size(683, 212);
             this.panelDetail.TabIndex = 1;
             // 
             // dataGridViewDetail
@@ -123,7 +127,7 @@
             this.dataGridViewDetail.MultiSelect = false;
             this.dataGridViewDetail.Name = "dataGridViewDetail";
             this.dataGridViewDetail.RowTemplate.Height = 23;
-            this.dataGridViewDetail.Size = new System.Drawing.Size(683, 333);
+            this.dataGridViewDetail.Size = new System.Drawing.Size(683, 212);
             this.dataGridViewDetail.TabIndex = 0;
             this.dataGridViewDetail.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetail_CellEnter);
             this.dataGridViewDetail.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridViewDetail_CellValidating);
@@ -140,16 +144,16 @@
             // 
             // ItemQuantity
             // 
-            dataGridViewCellStyle1.Format = "N0";
-            this.ItemQuantity.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "N0";
+            this.ItemQuantity.DefaultCellStyle = dataGridViewCellStyle5;
             this.ItemQuantity.HeaderText = "数量";
             this.ItemQuantity.Name = "ItemQuantity";
             this.ItemQuantity.Width = 120;
             // 
             // ItemBalance
             // 
-            dataGridViewCellStyle2.Format = "N0";
-            this.ItemBalance.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "N0";
+            this.ItemBalance.DefaultCellStyle = dataGridViewCellStyle6;
             this.ItemBalance.HeaderText = "未归还数";
             this.ItemBalance.Name = "ItemBalance";
             this.ItemBalance.ReadOnly = true;
@@ -177,6 +181,10 @@
             // 
             // panelMaster
             // 
+            this.panelMaster.Controls.Add(this.dtAddTime);
+            this.panelMaster.Controls.Add(this.lblAddTime);
+            this.panelMaster.Controls.Add(this.dtReturnTime);
+            this.panelMaster.Controls.Add(this.lblReturnTime);
             this.panelMaster.Controls.Add(this.cbSystemUser);
             this.panelMaster.Controls.Add(this.cbCustomer);
             this.panelMaster.Controls.Add(this.txtVersion);
@@ -196,13 +204,13 @@
             this.panelMaster.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMaster.Location = new System.Drawing.Point(0, 0);
             this.panelMaster.Name = "panelMaster";
-            this.panelMaster.Size = new System.Drawing.Size(683, 301);
+            this.panelMaster.Size = new System.Drawing.Size(683, 318);
             this.panelMaster.TabIndex = 0;
             // 
             // cbSystemUser
             // 
             this.cbSystemUser.FormattingEnabled = true;
-            this.cbSystemUser.Location = new System.Drawing.Point(423, 269);
+            this.cbSystemUser.Location = new System.Drawing.Point(427, 282);
             this.cbSystemUser.Name = "cbSystemUser";
             this.cbSystemUser.Size = new System.Drawing.Size(200, 20);
             this.cbSystemUser.TabIndex = 15;
@@ -211,7 +219,7 @@
             // cbCustomer
             // 
             this.cbCustomer.FormattingEnabled = true;
-            this.cbCustomer.Location = new System.Drawing.Point(100, 270);
+            this.cbCustomer.Location = new System.Drawing.Point(104, 283);
             this.cbCustomer.Name = "cbCustomer";
             this.cbCustomer.Size = new System.Drawing.Size(200, 20);
             this.cbCustomer.TabIndex = 13;
@@ -220,7 +228,7 @@
             // txtVersion
             // 
             this.txtVersion.Enabled = false;
-            this.txtVersion.Location = new System.Drawing.Point(446, 17);
+            this.txtVersion.Location = new System.Drawing.Point(441, 44);
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.Size = new System.Drawing.Size(200, 21);
             this.txtVersion.TabIndex = 3;
@@ -228,7 +236,7 @@
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(378, 20);
+            this.lblVersion.Location = new System.Drawing.Point(373, 47);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(53, 12);
             this.lblVersion.TabIndex = 2;
@@ -237,7 +245,7 @@
             // lblSystemUser
             // 
             this.lblSystemUser.AutoSize = true;
-            this.lblSystemUser.Location = new System.Drawing.Point(375, 271);
+            this.lblSystemUser.Location = new System.Drawing.Point(379, 284);
             this.lblSystemUser.Name = "lblSystemUser";
             this.lblSystemUser.Size = new System.Drawing.Size(41, 12);
             this.lblSystemUser.TabIndex = 14;
@@ -246,7 +254,7 @@
             // lblCustomer
             // 
             this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Location = new System.Drawing.Point(32, 271);
+            this.lblCustomer.Location = new System.Drawing.Point(36, 284);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(41, 12);
             this.lblCustomer.TabIndex = 12;
@@ -288,7 +296,7 @@
             this.gbJob.Controls.Add(this.lblMachine);
             this.gbJob.Controls.Add(this.txtBerth);
             this.gbJob.Controls.Add(this.lblBerth);
-            this.gbJob.Location = new System.Drawing.Point(21, 106);
+            this.gbJob.Location = new System.Drawing.Point(25, 119);
             this.gbJob.Name = "gbJob";
             this.gbJob.Size = new System.Drawing.Size(634, 155);
             this.gbJob.TabIndex = 11;
@@ -454,7 +462,7 @@
             // 
             this.rbNight.AutoSize = true;
             this.rbNight.Enabled = false;
-            this.rbNight.Location = new System.Drawing.Point(446, 49);
+            this.rbNight.Location = new System.Drawing.Point(442, 97);
             this.rbNight.Name = "rbNight";
             this.rbNight.Size = new System.Drawing.Size(59, 16);
             this.rbNight.TabIndex = 8;
@@ -466,7 +474,7 @@
             this.rbDay.AutoSize = true;
             this.rbDay.Checked = true;
             this.rbDay.Enabled = false;
-            this.rbDay.Location = new System.Drawing.Point(511, 49);
+            this.rbDay.Location = new System.Drawing.Point(507, 97);
             this.rbDay.Name = "rbDay";
             this.rbDay.Size = new System.Drawing.Size(59, 16);
             this.rbDay.TabIndex = 7;
@@ -477,7 +485,7 @@
             // lblGroup
             // 
             this.lblGroup.AutoSize = true;
-            this.lblGroup.Location = new System.Drawing.Point(375, 49);
+            this.lblGroup.Location = new System.Drawing.Point(373, 97);
             this.lblGroup.Name = "lblGroup";
             this.lblGroup.Size = new System.Drawing.Size(29, 12);
             this.lblGroup.TabIndex = 6;
@@ -485,8 +493,10 @@
             // 
             // dtOutboundDate
             // 
+            this.dtOutboundDate.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.dtOutboundDate.Enabled = false;
-            this.dtOutboundDate.Location = new System.Drawing.Point(100, 43);
+            this.dtOutboundDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtOutboundDate.Location = new System.Drawing.Point(441, 17);
             this.dtOutboundDate.Name = "dtOutboundDate";
             this.dtOutboundDate.Size = new System.Drawing.Size(200, 21);
             this.dtOutboundDate.TabIndex = 5;
@@ -494,7 +504,7 @@
             // lblOutboundDate
             // 
             this.lblOutboundDate.AutoSize = true;
-            this.lblOutboundDate.Location = new System.Drawing.Point(32, 49);
+            this.lblOutboundDate.Location = new System.Drawing.Point(373, 23);
             this.lblOutboundDate.Name = "lblOutboundDate";
             this.lblOutboundDate.Size = new System.Drawing.Size(29, 12);
             this.lblOutboundDate.TabIndex = 4;
@@ -522,7 +532,7 @@
             this._operationsPanel.Controls.Add(this._saveButton);
             this._operationsPanel.Controls.Add(this._cancelButton);
             this._operationsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._operationsPanel.Location = new System.Drawing.Point(0, 634);
+            this._operationsPanel.Location = new System.Drawing.Point(0, 530);
             this._operationsPanel.Name = "_operationsPanel";
             this._operationsPanel.Size = new System.Drawing.Size(683, 39);
             this._operationsPanel.TabIndex = 2;
@@ -542,12 +552,50 @@
             // 
             this._errorProvider.ContainerControl = this;
             // 
+            // dtReturnTime
+            // 
+            this.dtReturnTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.dtReturnTime.Enabled = false;
+            this.dtReturnTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtReturnTime.Location = new System.Drawing.Point(100, 44);
+            this.dtReturnTime.Name = "dtReturnTime";
+            this.dtReturnTime.Size = new System.Drawing.Size(200, 21);
+            this.dtReturnTime.TabIndex = 17;
+            // 
+            // lblReturnTime
+            // 
+            this.lblReturnTime.AutoSize = true;
+            this.lblReturnTime.Location = new System.Drawing.Point(34, 47);
+            this.lblReturnTime.Name = "lblReturnTime";
+            this.lblReturnTime.Size = new System.Drawing.Size(53, 12);
+            this.lblReturnTime.TabIndex = 16;
+            this.lblReturnTime.Text = "归还时间";
+            // 
+            // dtAddTime
+            // 
+            this.dtAddTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.dtAddTime.Enabled = false;
+            this.dtAddTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtAddTime.Location = new System.Drawing.Point(441, 70);
+            this.dtAddTime.Name = "dtAddTime";
+            this.dtAddTime.Size = new System.Drawing.Size(200, 21);
+            this.dtAddTime.TabIndex = 19;
+            // 
+            // lblAddTime
+            // 
+            this.lblAddTime.AutoSize = true;
+            this.lblAddTime.Location = new System.Drawing.Point(373, 70);
+            this.lblAddTime.Name = "lblAddTime";
+            this.lblAddTime.Size = new System.Drawing.Size(53, 12);
+            this.lblAddTime.TabIndex = 18;
+            this.lblAddTime.Text = "补借时间";
+            // 
             // CreateOutboundOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(683, 673);
+            this.ClientSize = new System.Drawing.Size(683, 569);
             this.Controls.Add(this.panelDetail);
             this.Controls.Add(this.panelMaster);
             this.Controls.Add(this._operationsPanel);
@@ -616,5 +664,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemDimensions;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DateTimePicker dtAddTime;
+        private System.Windows.Forms.Label lblAddTime;
+        private System.Windows.Forms.DateTimePicker dtReturnTime;
+        private System.Windows.Forms.Label lblReturnTime;
     }
 }
