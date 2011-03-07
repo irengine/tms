@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCode = new System.Windows.Forms.Label();
             this._saveButton = new System.Windows.Forms.Button();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -56,9 +56,29 @@
             this.ScrapQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ScrapReason = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.IsAbnormal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.gbJob = new System.Windows.Forms.GroupBox();
+            this.cbJobType = new System.Windows.Forms.ComboBox();
+            this.cbJobPosition = new System.Windows.Forms.ComboBox();
+            this.txtProcess = new System.Windows.Forms.TextBox();
+            this.lblJobType = new System.Windows.Forms.Label();
+            this.lblProcess = new System.Windows.Forms.Label();
+            this.lblJobPosition = new System.Windows.Forms.Label();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.txtCargo = new System.Windows.Forms.TextBox();
+            this.lblCargo = new System.Windows.Forms.Label();
+            this.txtHatch = new System.Windows.Forms.TextBox();
+            this.lblHatch = new System.Windows.Forms.Label();
+            this.txtShip = new System.Windows.Forms.TextBox();
+            this.lblShip = new System.Windows.Forms.Label();
+            this.txtMachine = new System.Windows.Forms.TextBox();
+            this.lblMachine = new System.Windows.Forms.Label();
+            this.txtBerth = new System.Windows.Forms.TextBox();
+            this.lblBerth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
             this._operationsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetail)).BeginInit();
+            this.gbJob.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCode
@@ -100,7 +120,7 @@
             this._operationsPanel.Controls.Add(this._saveButton);
             this._operationsPanel.Controls.Add(this._cancelButton);
             this._operationsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._operationsPanel.Location = new System.Drawing.Point(0, 272);
+            this._operationsPanel.Location = new System.Drawing.Point(0, 411);
             this._operationsPanel.Name = "_operationsPanel";
             this._operationsPanel.Size = new System.Drawing.Size(883, 39);
             this._operationsPanel.TabIndex = 20;
@@ -186,7 +206,7 @@
             this.ScrapReason,
             this.IsAbnormal});
             this.dataGridViewDetail.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridViewDetail.Location = new System.Drawing.Point(25, 79);
+            this.dataGridViewDetail.Location = new System.Drawing.Point(25, 227);
             this.dataGridViewDetail.MultiSelect = false;
             this.dataGridViewDetail.Name = "dataGridViewDetail";
             this.dataGridViewDetail.RowTemplate.Height = 23;
@@ -209,8 +229,8 @@
             // 
             // PrescrapQuantity
             // 
-            dataGridViewCellStyle1.Format = "N0";
-            this.PrescrapQuantity.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "N0";
+            this.PrescrapQuantity.DefaultCellStyle = dataGridViewCellStyle5;
             this.PrescrapQuantity.HeaderText = "预报废数量";
             this.PrescrapQuantity.Name = "PrescrapQuantity";
             this.PrescrapQuantity.ReadOnly = true;
@@ -232,24 +252,24 @@
             // 
             // Quantity
             // 
-            dataGridViewCellStyle2.Format = "N0";
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "N0";
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle6;
             this.Quantity.HeaderText = "归还数";
             this.Quantity.Name = "Quantity";
             this.Quantity.Width = 72;
             // 
             // RepairingQuantity
             // 
-            dataGridViewCellStyle3.Format = "N0";
-            this.RepairingQuantity.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "N0";
+            this.RepairingQuantity.DefaultCellStyle = dataGridViewCellStyle7;
             this.RepairingQuantity.HeaderText = "修理数";
             this.RepairingQuantity.Name = "RepairingQuantity";
             this.RepairingQuantity.Width = 96;
             // 
             // ScrapQuantity
             // 
-            dataGridViewCellStyle4.Format = "N0";
-            this.ScrapQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Format = "N0";
+            this.ScrapQuantity.DefaultCellStyle = dataGridViewCellStyle8;
             this.ScrapQuantity.HeaderText = "报废数";
             this.ScrapQuantity.Name = "ScrapQuantity";
             this.ScrapQuantity.Width = 72;
@@ -268,11 +288,194 @@
             this.IsAbnormal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.IsAbnormal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // gbJob
+            // 
+            this.gbJob.Controls.Add(this.cbJobType);
+            this.gbJob.Controls.Add(this.cbJobPosition);
+            this.gbJob.Controls.Add(this.txtProcess);
+            this.gbJob.Controls.Add(this.lblJobType);
+            this.gbJob.Controls.Add(this.lblProcess);
+            this.gbJob.Controls.Add(this.lblJobPosition);
+            this.gbJob.Controls.Add(this.txtQuantity);
+            this.gbJob.Controls.Add(this.lblQuantity);
+            this.gbJob.Controls.Add(this.txtCargo);
+            this.gbJob.Controls.Add(this.lblCargo);
+            this.gbJob.Controls.Add(this.txtHatch);
+            this.gbJob.Controls.Add(this.lblHatch);
+            this.gbJob.Controls.Add(this.txtShip);
+            this.gbJob.Controls.Add(this.lblShip);
+            this.gbJob.Controls.Add(this.txtMachine);
+            this.gbJob.Controls.Add(this.lblMachine);
+            this.gbJob.Controls.Add(this.txtBerth);
+            this.gbJob.Controls.Add(this.lblBerth);
+            this.gbJob.Location = new System.Drawing.Point(25, 59);
+            this.gbJob.Name = "gbJob";
+            this.gbJob.Size = new System.Drawing.Size(634, 155);
+            this.gbJob.TabIndex = 21;
+            this.gbJob.TabStop = false;
+            this.gbJob.Text = "作业信息";
+            // 
+            // cbJobType
+            // 
+            this.cbJobType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbJobType.FormattingEnabled = true;
+            this.cbJobType.Location = new System.Drawing.Point(403, 20);
+            this.cbJobType.Name = "cbJobType";
+            this.cbJobType.Size = new System.Drawing.Size(200, 20);
+            this.cbJobType.TabIndex = 3;
+            // 
+            // cbJobPosition
+            // 
+            this.cbJobPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbJobPosition.FormattingEnabled = true;
+            this.cbJobPosition.Location = new System.Drawing.Point(79, 18);
+            this.cbJobPosition.Name = "cbJobPosition";
+            this.cbJobPosition.Size = new System.Drawing.Size(200, 20);
+            this.cbJobPosition.TabIndex = 1;
+            // 
+            // txtProcess
+            // 
+            this.txtProcess.Enabled = false;
+            this.txtProcess.Location = new System.Drawing.Point(79, 126);
+            this.txtProcess.Name = "txtProcess";
+            this.txtProcess.Size = new System.Drawing.Size(200, 21);
+            this.txtProcess.TabIndex = 17;
+            // 
+            // lblJobType
+            // 
+            this.lblJobType.AutoSize = true;
+            this.lblJobType.Location = new System.Drawing.Point(334, 23);
+            this.lblJobType.Name = "lblJobType";
+            this.lblJobType.Size = new System.Drawing.Size(29, 12);
+            this.lblJobType.TabIndex = 2;
+            this.lblJobType.Text = "类型";
+            // 
+            // lblProcess
+            // 
+            this.lblProcess.AutoSize = true;
+            this.lblProcess.Location = new System.Drawing.Point(11, 129);
+            this.lblProcess.Name = "lblProcess";
+            this.lblProcess.Size = new System.Drawing.Size(53, 12);
+            this.lblProcess.TabIndex = 16;
+            this.lblProcess.Text = "操作过程";
+            // 
+            // lblJobPosition
+            // 
+            this.lblJobPosition.AutoSize = true;
+            this.lblJobPosition.Location = new System.Drawing.Point(11, 20);
+            this.lblJobPosition.Name = "lblJobPosition";
+            this.lblJobPosition.Size = new System.Drawing.Size(53, 12);
+            this.lblJobPosition.TabIndex = 0;
+            this.lblJobPosition.Text = "作业位置";
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Enabled = false;
+            this.txtQuantity.Location = new System.Drawing.Point(402, 102);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(200, 21);
+            this.txtQuantity.TabIndex = 15;
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Location = new System.Drawing.Point(334, 105);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(29, 12);
+            this.lblQuantity.TabIndex = 14;
+            this.lblQuantity.Text = "数量";
+            // 
+            // txtCargo
+            // 
+            this.txtCargo.Enabled = false;
+            this.txtCargo.Location = new System.Drawing.Point(79, 99);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(200, 21);
+            this.txtCargo.TabIndex = 13;
+            // 
+            // lblCargo
+            // 
+            this.lblCargo.AutoSize = true;
+            this.lblCargo.Location = new System.Drawing.Point(11, 102);
+            this.lblCargo.Name = "lblCargo";
+            this.lblCargo.Size = new System.Drawing.Size(29, 12);
+            this.lblCargo.TabIndex = 12;
+            this.lblCargo.Text = "货种";
+            // 
+            // txtHatch
+            // 
+            this.txtHatch.Enabled = false;
+            this.txtHatch.Location = new System.Drawing.Point(402, 75);
+            this.txtHatch.Name = "txtHatch";
+            this.txtHatch.Size = new System.Drawing.Size(200, 21);
+            this.txtHatch.TabIndex = 11;
+            // 
+            // lblHatch
+            // 
+            this.lblHatch.AutoSize = true;
+            this.lblHatch.Location = new System.Drawing.Point(334, 78);
+            this.lblHatch.Name = "lblHatch";
+            this.lblHatch.Size = new System.Drawing.Size(29, 12);
+            this.lblHatch.TabIndex = 10;
+            this.lblHatch.Text = "舱口";
+            // 
+            // txtShip
+            // 
+            this.txtShip.Enabled = false;
+            this.txtShip.Location = new System.Drawing.Point(79, 72);
+            this.txtShip.Name = "txtShip";
+            this.txtShip.Size = new System.Drawing.Size(200, 21);
+            this.txtShip.TabIndex = 9;
+            // 
+            // lblShip
+            // 
+            this.lblShip.AutoSize = true;
+            this.lblShip.Location = new System.Drawing.Point(11, 75);
+            this.lblShip.Name = "lblShip";
+            this.lblShip.Size = new System.Drawing.Size(29, 12);
+            this.lblShip.TabIndex = 8;
+            this.lblShip.Text = "船名";
+            // 
+            // txtMachine
+            // 
+            this.txtMachine.Enabled = false;
+            this.txtMachine.Location = new System.Drawing.Point(402, 48);
+            this.txtMachine.Name = "txtMachine";
+            this.txtMachine.Size = new System.Drawing.Size(200, 21);
+            this.txtMachine.TabIndex = 7;
+            // 
+            // lblMachine
+            // 
+            this.lblMachine.AutoSize = true;
+            this.lblMachine.Location = new System.Drawing.Point(334, 51);
+            this.lblMachine.Name = "lblMachine";
+            this.lblMachine.Size = new System.Drawing.Size(53, 12);
+            this.lblMachine.TabIndex = 6;
+            this.lblMachine.Text = "使用机械";
+            // 
+            // txtBerth
+            // 
+            this.txtBerth.Enabled = false;
+            this.txtBerth.Location = new System.Drawing.Point(79, 45);
+            this.txtBerth.Name = "txtBerth";
+            this.txtBerth.Size = new System.Drawing.Size(200, 21);
+            this.txtBerth.TabIndex = 5;
+            // 
+            // lblBerth
+            // 
+            this.lblBerth.AutoSize = true;
+            this.lblBerth.Location = new System.Drawing.Point(11, 48);
+            this.lblBerth.Name = "lblBerth";
+            this.lblBerth.Size = new System.Drawing.Size(53, 12);
+            this.lblBerth.TabIndex = 4;
+            this.lblBerth.Text = "码头泊位";
+            // 
             // CreateScrapOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 311);
+            this.ClientSize = new System.Drawing.Size(883, 450);
+            this.Controls.Add(this.gbJob);
             this.Controls.Add(this.lblCode);
             this.Controls.Add(this.cbCustomer);
             this.Controls.Add(this._operationsPanel);
@@ -290,6 +493,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
             this._operationsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetail)).EndInit();
+            this.gbJob.ResumeLayout(false);
+            this.gbJob.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,5 +525,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ScrapQuantity;
         private System.Windows.Forms.DataGridViewComboBoxColumn ScrapReason;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAbnormal;
+        private System.Windows.Forms.GroupBox gbJob;
+        private System.Windows.Forms.ComboBox cbJobType;
+        private System.Windows.Forms.ComboBox cbJobPosition;
+        private System.Windows.Forms.TextBox txtProcess;
+        private System.Windows.Forms.Label lblJobType;
+        private System.Windows.Forms.Label lblProcess;
+        private System.Windows.Forms.Label lblJobPosition;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.TextBox txtCargo;
+        private System.Windows.Forms.Label lblCargo;
+        private System.Windows.Forms.TextBox txtHatch;
+        private System.Windows.Forms.Label lblHatch;
+        private System.Windows.Forms.TextBox txtShip;
+        private System.Windows.Forms.Label lblShip;
+        private System.Windows.Forms.TextBox txtMachine;
+        private System.Windows.Forms.Label lblMachine;
+        private System.Windows.Forms.TextBox txtBerth;
+        private System.Windows.Forms.Label lblBerth;
     }
 }

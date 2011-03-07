@@ -76,6 +76,8 @@ namespace CarsMaintenance.OrderManagement
         {
             SystemHelper.BindComboxToCustomer(cbCustomer);
             SystemHelper.BindComboxToSystemUser(cbSystemUser);
+            SystemHelper.BindComboxToJobPosition(cbJobPosition);
+            SystemHelper.BindComboxToJobType(cbJobType);
             SystemHelper.BindComboBoxToScrapReason(dataGridViewDetail.Columns["ScrapReason"] as DataGridViewComboBoxColumn);
 
             // Set data object value
@@ -96,6 +98,20 @@ namespace CarsMaintenance.OrderManagement
 
             cbCustomer.SelectedItem = CurrentOrder.Customer;
             cbSystemUser.SelectedItem = CurrentOrder.SystemUser;
+
+            // show outbound order information
+            if (CurrentOrder.OutboundOrder != null)
+            {
+                cbJobPosition.Text = CurrentOrder.OutboundOrder.JobPosition;
+                cbJobType.Text = CurrentOrder.OutboundOrder.JobType;
+                txtBerth.Text = CurrentOrder.OutboundOrder.Berth;
+                txtMachine.Text = CurrentOrder.OutboundOrder.Machine;
+                txtShip.Text = CurrentOrder.OutboundOrder.Ship;
+                txtHatch.Text = CurrentOrder.OutboundOrder.Hatch;
+                txtCargo.Text = CurrentOrder.OutboundOrder.Cargo;
+                txtQuantity.Text = CurrentOrder.OutboundOrder.Quantity;
+                txtProcess.Text = CurrentOrder.OutboundOrder.Process;
+            }
 
             foreach (ScrapOrderDetail item in CurrentOrder.Items)
             {
