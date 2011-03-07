@@ -210,6 +210,16 @@ namespace CarsMaintenance.OrderManagement
 
         private void TransferOrderDetail(OutboundOrder transferOrder)
         {
+            transferOrder.Job = ReferenceOrder.Job;
+            transferOrder.JobPosition = ReferenceOrder.JobPosition;
+            transferOrder.JobType = ReferenceOrder.JobType;
+            transferOrder.Ship = ReferenceOrder.Ship;
+            transferOrder.Berth = ReferenceOrder.Berth;
+            transferOrder.Hatch = ReferenceOrder.Hatch;
+            transferOrder.Machine = ReferenceOrder.Machine;
+            transferOrder.Quantity = ReferenceOrder.Quantity;
+            transferOrder.Process = ReferenceOrder.Process;
+
             if (transferOrder.Items.Count == 0)
             {
                 foreach (DataGridViewRow dgvr in dataGridViewDetail.Rows)
