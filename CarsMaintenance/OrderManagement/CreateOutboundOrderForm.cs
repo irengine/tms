@@ -125,6 +125,7 @@ namespace CarsMaintenance.OrderManagement
             {
                 ItemCount = CurrentOrder.Items.Count;
                 dataGridViewDetail.Columns["ItemBalance"].Visible = true;
+                lblSummary.Visible = true;
             }
             else if (CurrentMode == MODE_TRANSFER)
             {
@@ -177,12 +178,18 @@ namespace CarsMaintenance.OrderManagement
             cbCustomer.SelectedItem = CurrentOrder.Customer;
             cbSystemUser.SelectedItem = CurrentOrder.SystemUser;
 
+            int iSummary = 0;
+
             foreach (OutboundOrderDetail item in CurrentOrder.Items)
             {        
                 DataGridViewRow dgvr = new DataGridViewRow();
                 object[] row = { item.Tool.Code, item.Quantity, item.Balance, item.Tool.Name, item.Tool.Dimensions,item.Description};
                 dataGridViewDetail.Rows.Add(row);
+
+                iSummary += (int)item.Quantity;
             }
+
+            lblSummary.Text += iSummary.ToString();
 
             AddEmptyRows();
         }
@@ -375,6 +382,9 @@ namespace CarsMaintenance.OrderManagement
 
         private void dataGridViewDetail_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
+            if (CurrentMode == MODE_BROWSE)
+                return;
+
             if (dataGridViewDetail.Rows[e.RowIndex].Cells["ItemCode"].Value != null
                 && dataGridViewDetail.Rows[e.RowIndex].Cells["ItemCode"].Value.ToString().StartsWith(CarsMaintenance.Properties.Settings.Default.ToolGroupCode))
             {

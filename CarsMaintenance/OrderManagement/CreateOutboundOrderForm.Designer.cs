@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this._cancelButton = new System.Windows.Forms.Button();
             this.panelDetail = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
@@ -41,6 +41,10 @@
             this.ItemDimensions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMaster = new System.Windows.Forms.Panel();
+            this.dtAddTime = new System.Windows.Forms.DateTimePicker();
+            this.lblAddTime = new System.Windows.Forms.Label();
+            this.dtReturnTime = new System.Windows.Forms.DateTimePicker();
+            this.lblReturnTime = new System.Windows.Forms.Label();
             this.cbSystemUser = new System.Windows.Forms.ComboBox();
             this.cbCustomer = new System.Windows.Forms.ComboBox();
             this.txtVersion = new System.Windows.Forms.TextBox();
@@ -76,12 +80,9 @@
             this.txtCode = new System.Windows.Forms.TextBox();
             this.lblCode = new System.Windows.Forms.Label();
             this._operationsPanel = new System.Windows.Forms.Panel();
+            this.lblSummary = new System.Windows.Forms.Label();
             this._saveButton = new System.Windows.Forms.Button();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dtReturnTime = new System.Windows.Forms.DateTimePicker();
-            this.lblReturnTime = new System.Windows.Forms.Label();
-            this.dtAddTime = new System.Windows.Forms.DateTimePicker();
-            this.lblAddTime = new System.Windows.Forms.Label();
             this.panelDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetail)).BeginInit();
             this.panelMaster.SuspendLayout();
@@ -144,16 +145,16 @@
             // 
             // ItemQuantity
             // 
-            dataGridViewCellStyle5.Format = "N0";
-            this.ItemQuantity.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "N0";
+            this.ItemQuantity.DefaultCellStyle = dataGridViewCellStyle1;
             this.ItemQuantity.HeaderText = "数量";
             this.ItemQuantity.Name = "ItemQuantity";
             this.ItemQuantity.Width = 120;
             // 
             // ItemBalance
             // 
-            dataGridViewCellStyle6.Format = "N0";
-            this.ItemBalance.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "N0";
+            this.ItemBalance.DefaultCellStyle = dataGridViewCellStyle2;
             this.ItemBalance.HeaderText = "未归还数";
             this.ItemBalance.Name = "ItemBalance";
             this.ItemBalance.ReadOnly = true;
@@ -206,6 +207,44 @@
             this.panelMaster.Name = "panelMaster";
             this.panelMaster.Size = new System.Drawing.Size(683, 318);
             this.panelMaster.TabIndex = 0;
+            // 
+            // dtAddTime
+            // 
+            this.dtAddTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.dtAddTime.Enabled = false;
+            this.dtAddTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtAddTime.Location = new System.Drawing.Point(441, 70);
+            this.dtAddTime.Name = "dtAddTime";
+            this.dtAddTime.Size = new System.Drawing.Size(200, 21);
+            this.dtAddTime.TabIndex = 19;
+            // 
+            // lblAddTime
+            // 
+            this.lblAddTime.AutoSize = true;
+            this.lblAddTime.Location = new System.Drawing.Point(373, 70);
+            this.lblAddTime.Name = "lblAddTime";
+            this.lblAddTime.Size = new System.Drawing.Size(53, 12);
+            this.lblAddTime.TabIndex = 18;
+            this.lblAddTime.Text = "补借时间";
+            // 
+            // dtReturnTime
+            // 
+            this.dtReturnTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.dtReturnTime.Enabled = false;
+            this.dtReturnTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtReturnTime.Location = new System.Drawing.Point(100, 44);
+            this.dtReturnTime.Name = "dtReturnTime";
+            this.dtReturnTime.Size = new System.Drawing.Size(200, 21);
+            this.dtReturnTime.TabIndex = 17;
+            // 
+            // lblReturnTime
+            // 
+            this.lblReturnTime.AutoSize = true;
+            this.lblReturnTime.Location = new System.Drawing.Point(34, 47);
+            this.lblReturnTime.Name = "lblReturnTime";
+            this.lblReturnTime.Size = new System.Drawing.Size(53, 12);
+            this.lblReturnTime.TabIndex = 16;
+            this.lblReturnTime.Text = "归还时间";
             // 
             // cbSystemUser
             // 
@@ -529,6 +568,7 @@
             // 
             // _operationsPanel
             // 
+            this._operationsPanel.Controls.Add(this.lblSummary);
             this._operationsPanel.Controls.Add(this._saveButton);
             this._operationsPanel.Controls.Add(this._cancelButton);
             this._operationsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -536,6 +576,16 @@
             this._operationsPanel.Name = "_operationsPanel";
             this._operationsPanel.Size = new System.Drawing.Size(683, 39);
             this._operationsPanel.TabIndex = 2;
+            // 
+            // lblSummary
+            // 
+            this.lblSummary.AutoSize = true;
+            this.lblSummary.Location = new System.Drawing.Point(162, 13);
+            this.lblSummary.Name = "lblSummary";
+            this.lblSummary.Size = new System.Drawing.Size(35, 12);
+            this.lblSummary.TabIndex = 2;
+            this.lblSummary.Text = "合计:";
+            this.lblSummary.Visible = false;
             // 
             // _saveButton
             // 
@@ -551,44 +601,6 @@
             // _errorProvider
             // 
             this._errorProvider.ContainerControl = this;
-            // 
-            // dtReturnTime
-            // 
-            this.dtReturnTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.dtReturnTime.Enabled = false;
-            this.dtReturnTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtReturnTime.Location = new System.Drawing.Point(100, 44);
-            this.dtReturnTime.Name = "dtReturnTime";
-            this.dtReturnTime.Size = new System.Drawing.Size(200, 21);
-            this.dtReturnTime.TabIndex = 17;
-            // 
-            // lblReturnTime
-            // 
-            this.lblReturnTime.AutoSize = true;
-            this.lblReturnTime.Location = new System.Drawing.Point(34, 47);
-            this.lblReturnTime.Name = "lblReturnTime";
-            this.lblReturnTime.Size = new System.Drawing.Size(53, 12);
-            this.lblReturnTime.TabIndex = 16;
-            this.lblReturnTime.Text = "归还时间";
-            // 
-            // dtAddTime
-            // 
-            this.dtAddTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.dtAddTime.Enabled = false;
-            this.dtAddTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtAddTime.Location = new System.Drawing.Point(441, 70);
-            this.dtAddTime.Name = "dtAddTime";
-            this.dtAddTime.Size = new System.Drawing.Size(200, 21);
-            this.dtAddTime.TabIndex = 19;
-            // 
-            // lblAddTime
-            // 
-            this.lblAddTime.AutoSize = true;
-            this.lblAddTime.Location = new System.Drawing.Point(373, 70);
-            this.lblAddTime.Name = "lblAddTime";
-            this.lblAddTime.Size = new System.Drawing.Size(53, 12);
-            this.lblAddTime.TabIndex = 18;
-            this.lblAddTime.Text = "补借时间";
             // 
             // CreateOutboundOrderForm
             // 
@@ -610,6 +622,7 @@
             this.gbJob.ResumeLayout(false);
             this.gbJob.PerformLayout();
             this._operationsPanel.ResumeLayout(false);
+            this._operationsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
             this.ResumeLayout(false);
 
@@ -668,5 +681,6 @@
         private System.Windows.Forms.Label lblAddTime;
         private System.Windows.Forms.DateTimePicker dtReturnTime;
         private System.Windows.Forms.Label lblReturnTime;
+        private System.Windows.Forms.Label lblSummary;
     }
 }
