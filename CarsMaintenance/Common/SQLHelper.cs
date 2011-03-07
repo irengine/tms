@@ -24,18 +24,24 @@ namespace CarsMaintenance.Common
                             group by tc.Code, tc.Name
                             order by tc.Code";
 
-		private static string sqlOutboundOrder =
-                        @"select o.Code as OrderCode, o.OutboundDate as OrderDate, o.Version,
-                                o.Job, o.Berth, o.Machine, o.Ship, o.Hatch, o.Cargo, o.Quantity as lots, o.Process,
-                                c.Name as CustomerName, u.Name as UserName,
-                                t.Code, t.Name, t.Dimensions, i.Quantity,i.Balance,i.[Description],i.OutboundDate,o.AddTime,
-                                o.ReturnTime
+	    private static string sqlOutboundOrder =
+            @"select o.Code as OrderCode, o.OutboundDate as OrderDate, o.Version, o.ClassType, o.ClassType,
+                            o.Job, o.Berth, o.Machine, o.Ship, o.Hatch, o.Cargo, o.Quantity as lots, o.Process,
+                            c.Name as CustomerName, u.Name as UserName,
+                            t.Code, t.Name, t.Dimensions, sum(i.Quantity) as Quantity, sum(i.Balance) as Balance,convert(varchar(255),
+                            i.[Description]) as [Description],max(i.OutboundDate) as OutboundDate,o.AddTime, o.ReturnTime, i.Version as V
                             from OutboundOrder o
-                                inner join OutboundOrderDetail i on o.OutboundOrderID = i.OutboundOrderID
-                                inner join Unit c on o.CustomerID = c.UnitID
-                                inner join SystemUser u on o.LastUpdatedBy = u.SystemUserID
-                                inner join Tool t on i.ToolID = t.ToolID" +
-						    " where  o.OutboundOrderID = {0}";
+                            inner join OutboundOrderDetail i on o.OutboundOrderID = i.OutboundOrderID
+                            inner join Unit c on o.CustomerID = c.UnitID
+                            inner join SystemUser u on o.LastUpdatedBy = u.SystemUserID
+                            inner join Tool t on i.ToolID = t.ToolID
+						    where  o.OutboundOrderID = {0}
+                            group by
+                            o.Code, o.OutboundDate, o.Version, o.ClassType,
+                            o.Job, o.Berth, o.Machine, o.Ship, o.Hatch, o.Cargo, o.Quantity, o.Process,
+                            c.Name, u.Name,
+                            t.Code, t.Name, t.Dimensions, convert(varchar(255),i.[Description]),o.AddTime, o.ReturnTime, i.Version 
+                            order by t.Code";
 
 		private static string sqlScrapReport =
 						 @"SELECT ToolCategory.Name AS ToolCategoryName, Tool.Name AS ToolName, 
