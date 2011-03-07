@@ -56,10 +56,10 @@ namespace CarsMaintenance.Reports
 
             lblRoles.Text = roleNames;
 
-            lblTotal.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_RATED).Replace(".00", " ");
-            lblStock.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_STOCK).Replace(".00", " ");
-            lblOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_OUT).Replace(".00", " ");
-            lbScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_SCRAP).Replace(".00", " ");
+            //lblTotal.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_RATED).Replace(".00", " ");
+            //lblStock.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_STOCK).Replace(".00", " ");
+            //lblOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_OUT).Replace(".00", " ");
+            //lbScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_SCRAP).Replace(".00", " ");
 
             lblDay1Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY1_OUT, DateTime.Now.Day).Replace(".00", " ");
             lblDay2Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY2_OUT, DateTime.Now.Day).Replace(".00", " ");
@@ -71,29 +71,50 @@ namespace CarsMaintenance.Reports
             lblMonthScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_SCRAP, DateTime.Now.Month).Replace(".00", " ");
             lblYearScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_SCRAP, DateTime.Now.Year).Replace(".00", " ");
 
+
+            // Set grid view
             DataSet ds = SQLHelper.QueryLoginFormToTools();
-            this.Gv_type.Columns.Clear();
-            this.Gv_type.Rows.Clear();
-            for (int temp = 0; temp < ds.Tables[0].Rows.Count; temp++)
+            this.gvSummary.Columns.Clear();
+            this.gvSummary.Rows.Clear();
+
+            int columnCount = ds.Tables[0].Rows.Count * 2 + 3;
+
+            for (int col = 0; col < columnCount; col++)
             {
-                this.Gv_type.Columns.Add("name" + temp, ds.Tables[0].Rows[temp]["Name"].ToString());
+                string name = "name" + col;
+                string header = col < 3 || col%2 == 0 ? " " : ds.Tables[0].Rows[(col - 3)/2]["Name"].ToString();
+                this.gvSummary.Columns.Add(name, header);
             }  
-            this.Gv_type.Rows.Add(4);          
-            for (int temp = 0; temp < this.Gv_type.Columns.Count; temp++)
+            this.gvSummary.Rows.Add(4);
+
+            // Set header value
+
+            this.gvSummary.Rows[0].Cells[0].Value = "总额定数";
+            this.gvSummary.Rows[1].Cells[0].Value = "总在库数";
+            this.gvSummary.Rows[2].Cells[0].Value = "总外借数";
+            this.gvSummary.Rows[3].Cells[0].Value = "总报废数";
+
+            this.gvSummary.Rows[0].Cells[1].Value = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_RATED).Replace(".00", " ");
+            this.gvSummary.Rows[1].Cells[1].Value = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_STOCK).Replace(".00", " ");
+            this.gvSummary.Rows[2].Cells[1].Value = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_OUT).Replace(".00", " ");
+            this.gvSummary.Rows[3].Cells[1].Value = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_SCRAP).Replace(".00", " ");
+
+            for (int col = 2; col < columnCount; col++)
             {
-                this.Gv_type.Rows[0].Cells[temp].Value = ds.Tables[0].Rows[temp]["RatedQuantity"].ToString().Replace(".00"," ")+" 件";
-            }
-            for (int temp = 0; temp < this.Gv_type.Columns.Count; temp++)
-            {
-                this.Gv_type.Rows[1].Cells[temp].Value = ds.Tables[0].Rows[temp]["Quantity"].ToString().Replace(".00", " ") + " 件";
-            }
-            for (int temp = 0; temp < this.Gv_type.Columns.Count; temp++)
-            {
-                this.Gv_type.Rows[2].Cells[temp].Value = ds.Tables[0].Rows[temp]["OutQuantity"].ToString().Replace(".00", " ") + " 件";
-            }
-            for (int temp = 0; temp < this.Gv_type.Columns.Count; temp++)
-            {
-                this.Gv_type.Rows[3].Cells[temp].Value = ds.Tables[0].Rows[temp]["ScrapQuantity"].ToString().Replace(".00", " ") + " 件";
+                if (col%2 == 0)
+                {
+                    this.gvSummary.Rows[0].Cells[col].Value = "件";
+                    this.gvSummary.Rows[1].Cells[col].Value = "件";
+                    this.gvSummary.Rows[2].Cells[col].Value = "件";
+                    this.gvSummary.Rows[3].Cells[col].Value = "件";
+                }
+                else
+                {
+                    this.gvSummary.Rows[0].Cells[col].Value = ds.Tables[0].Rows[(col - 3) / 2]["RatedQuantity"].ToString().Replace(".00", " ");
+                    this.gvSummary.Rows[1].Cells[col].Value = ds.Tables[0].Rows[(col - 3) / 2]["Quantity"].ToString().Replace(".00", " ");
+                    this.gvSummary.Rows[2].Cells[col].Value = ds.Tables[0].Rows[(col - 3) / 2]["OutQuantity"].ToString().Replace(".00", " ");
+                    this.gvSummary.Rows[3].Cells[col].Value = ds.Tables[0].Rows[(col - 3) / 2]["ScrapQuantity"].ToString().Replace(".00", " ");
+                }
             }
         }
 

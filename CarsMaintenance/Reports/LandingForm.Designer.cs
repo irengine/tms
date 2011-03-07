@@ -31,28 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Currently_Time = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.lbScrap = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.Gv_type = new System.Windows.Forms.DataGridView();
-            this.lblOut = new System.Windows.Forms.Label();
-            this.lblStock = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.gvSummary = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -72,6 +54,8 @@
             this.line2 = new System.Windows.Forms.Label();
             this.line1 = new System.Windows.Forms.Label();
             this.gbIO = new System.Windows.Forms.GroupBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.lblDay2Scrap = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -92,11 +76,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.lblDay2Scrap = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Gv_type)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSummary)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbMessage.SuspendLayout();
@@ -135,23 +117,7 @@
             // groupBox3
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox3, 2);
-            this.groupBox3.Controls.Add(this.label27);
-            this.groupBox3.Controls.Add(this.label24);
-            this.groupBox3.Controls.Add(this.lbScrap);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.Gv_type);
-            this.groupBox3.Controls.Add(this.lblOut);
-            this.groupBox3.Controls.Add(this.lblStock);
-            this.groupBox3.Controls.Add(this.lblTotal);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.gvSummary);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 243);
             this.groupBox3.Name = "groupBox3";
@@ -160,208 +126,44 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "工属具统计情况";
             // 
-            // label27
+            // gvSummary
             // 
-            this.label27.BackColor = System.Drawing.SystemColors.ControlText;
-            this.label27.Location = new System.Drawing.Point(17, 128);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(1203, 1);
-            this.label27.TabIndex = 22;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(151, 110);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(17, 12);
-            this.label24.TabIndex = 21;
-            this.label24.Text = "件";
-            // 
-            // lbScrap
-            // 
-            this.lbScrap.AutoSize = true;
-            this.lbScrap.Location = new System.Drawing.Point(98, 110);
-            this.lbScrap.Name = "lbScrap";
-            this.lbScrap.Size = new System.Drawing.Size(47, 12);
-            this.lbScrap.TabIndex = 20;
-            this.lbScrap.Text = "label12";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(12, 110);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(59, 12);
-            this.label26.TabIndex = 19;
-            this.label26.Text = "总报废数:";
-            // 
-            // label23
-            // 
-            this.label23.BackColor = System.Drawing.SystemColors.ControlText;
-            this.label23.Location = new System.Drawing.Point(17, 101);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(1203, 1);
-            this.label23.TabIndex = 18;
-            // 
-            // label22
-            // 
-            this.label22.BackColor = System.Drawing.SystemColors.ControlText;
-            this.label22.Location = new System.Drawing.Point(17, 76);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(1203, 1);
-            this.label22.TabIndex = 17;
-            // 
-            // label21
-            // 
-            this.label21.BackColor = System.Drawing.SystemColors.ControlText;
-            this.label21.Location = new System.Drawing.Point(17, 50);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(1203, 1);
-            this.label21.TabIndex = 16;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(151, 82);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(17, 12);
-            this.label18.TabIndex = 15;
-            this.label18.Text = "件";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(151, 58);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(17, 12);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "件";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(151, 33);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(17, 12);
-            this.label20.TabIndex = 13;
-            this.label20.Text = "件";
-            // 
-            // Gv_type
-            // 
-            this.Gv_type.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Gv_type.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.Gv_type.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Gv_type.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.Gv_type.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.Gv_type.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gvSummary.AllowUserToAddRows = false;
+            this.gvSummary.AllowUserToDeleteRows = false;
+            this.gvSummary.AllowUserToResizeColumns = false;
+            this.gvSummary.AllowUserToResizeRows = false;
+            this.gvSummary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvSummary.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.gvSummary.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gvSummary.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gvSummary.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Gv_type.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.Gv_type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            this.gvSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gvSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Gv_type.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Gv_type.Enabled = false;
-            this.Gv_type.EnableHeadersVisualStyles = false;
-            this.Gv_type.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.Gv_type.Location = new System.Drawing.Point(200, 14);
-            this.Gv_type.MultiSelect = false;
-            this.Gv_type.Name = "Gv_type";
-            this.Gv_type.ReadOnly = true;
-            this.Gv_type.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Gv_type.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.Gv_type.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            this.Gv_type.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.Gv_type.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Gv_type.RowTemplate.Height = 25;
-            this.Gv_type.ShowCellErrors = false;
-            this.Gv_type.ShowCellToolTips = false;
-            this.Gv_type.ShowEditingIcon = false;
-            this.Gv_type.ShowRowErrors = false;
-            this.Gv_type.Size = new System.Drawing.Size(943, 140);
-            this.Gv_type.TabIndex = 12;
-            // 
-            // lblOut
-            // 
-            this.lblOut.AutoSize = true;
-            this.lblOut.Location = new System.Drawing.Point(98, 82);
-            this.lblOut.Name = "lblOut";
-            this.lblOut.Size = new System.Drawing.Size(47, 12);
-            this.lblOut.TabIndex = 11;
-            this.lblOut.Text = "label12";
-            // 
-            // lblStock
-            // 
-            this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(98, 58);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(47, 12);
-            this.lblStock.TabIndex = 10;
-            this.lblStock.Text = "label11";
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(98, 33);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(47, 12);
-            this.lblTotal.TabIndex = 9;
-            this.lblTotal.Text = "label10";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 82);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 12);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "总外借数:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 58);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 12);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "总在库数:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 12);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "总额定数:";
+            this.gvSummary.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gvSummary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvSummary.Enabled = false;
+            this.gvSummary.EnableHeadersVisualStyles = false;
+            this.gvSummary.Location = new System.Drawing.Point(3, 17);
+            this.gvSummary.Name = "gvSummary";
+            this.gvSummary.ReadOnly = true;
+            this.gvSummary.RowHeadersVisible = false;
+            this.gvSummary.RowTemplate.Height = 23;
+            this.gvSummary.Size = new System.Drawing.Size(889, 150);
+            this.gvSummary.TabIndex = 13;
             // 
             // groupBox2
             // 
@@ -577,6 +379,24 @@
             this.gbIO.TabIndex = 2;
             this.gbIO.TabStop = false;
             // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(322, 78);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(17, 12);
+            this.label34.TabIndex = 29;
+            this.label34.Text = "件";
+            // 
+            // lblDay2Scrap
+            // 
+            this.lblDay2Scrap.AutoSize = true;
+            this.lblDay2Scrap.Location = new System.Drawing.Point(269, 79);
+            this.lblDay2Scrap.Name = "lblDay2Scrap";
+            this.lblDay2Scrap.Size = new System.Drawing.Size(47, 12);
+            this.lblDay2Scrap.TabIndex = 28;
+            this.lblDay2Scrap.Text = "label11";
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -757,24 +577,6 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "第一班:";
             // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(322, 78);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(17, 12);
-            this.label34.TabIndex = 29;
-            this.label34.Text = "件";
-            // 
-            // lblDay2Scrap
-            // 
-            this.lblDay2Scrap.AutoSize = true;
-            this.lblDay2Scrap.Location = new System.Drawing.Point(269, 79);
-            this.lblDay2Scrap.Name = "lblDay2Scrap";
-            this.lblDay2Scrap.Size = new System.Drawing.Size(47, 12);
-            this.lblDay2Scrap.TabIndex = 28;
-            this.lblDay2Scrap.Text = "label11";
-            // 
             // LandingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -786,8 +588,7 @@
             this.Activated += new System.EventHandler(this.LandingForm_Activated);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Gv_type)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSummary)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -837,23 +638,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Timer Currently_Time;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label lblOut;
-        private System.Windows.Forms.Label lblStock;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DataGridView Gv_type;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label lbScrap;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
@@ -863,6 +647,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label lblDay2Scrap;
+        private System.Windows.Forms.DataGridView gvSummary;
 
     }
 }
