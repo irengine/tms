@@ -520,28 +520,28 @@ namespace CarsMaintenance.Common
 
 		public static string SQL_DAY1_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where ClassType = 2 and DATEPART(day, OutboundOrder.OutboundDate) = {0}";
+											where ClassType = 2 and DATEDIFF(day, OutboundOrder.OutboundDate, '{0}') = 0";
 		public static string SQL_DAY2_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where ClassType = 1 and DATEPART(day, OutboundOrder.OutboundDate) = {0}";
+											where ClassType = 1 and DATEDIFF(day, OutboundOrder.OutboundDate, '{0}') = 0";
 		public static string SQL_MONTH_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where DATEPART(month, OutboundOrder.OutboundDate) = {0}";
+											where  DATEDIFF(month, OutboundOrder.OutboundDate, '{0}') = 0";
 		public static string SQL_YEAR_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where DATEPART(year, OutboundOrder.OutboundDate) = {0}";
+											where  DATEDIFF(year, OutboundOrder.OutboundDate, '{0}') = 0";
         public static string SQL_DAY1_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
 											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
 											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
-                                              where ClassType = 2 and DATEPART(day, ScrapOrderDetail.ScrapDate) = {0}";
+                                              where ClassType = 2 and DATEDIFF(day, ScrapOrderDetail.ScrapDate, '{0}') = 0";
         public static string SQL_DAY2_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
 											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
 											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
-                                              where ClassType = 1 and DATEPART(day, ScrapOrderDetail.ScrapDate) = {0}";
-        public static string SQL_MONTH_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEPART(month, ScrapDate) = {0}";
-        public static string SQL_YEAR_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEPART(year, ScrapDate) = {0}";
+                                              where ClassType = 1 and DATEDIFF(day, ScrapOrderDetail.ScrapDate, '{0}') = 0";
+        public static string SQL_MONTH_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEDIFF(month, ScrapOrderDetail.ScrapDate, '{0}') = 0";
+        public static string SQL_YEAR_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEDIFF(year, ScrapOrderDetail.ScrapDate, '{0}') = 0";
 
-		public static string QueryLandForm(string sql, int cnt)
+		public static string QueryLandForm(string sql, DateTime dt)
 		{
 			string val = "";
 			using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[CONNECTION_NAME].ConnectionString))
@@ -550,7 +550,7 @@ namespace CarsMaintenance.Common
 				{
 
 					conn.Open();
-					sql = string.Format(sql, cnt);
+					sql = string.Format(sql, dt);
 					SqlCommand cmd = new SqlCommand(sql, conn);
 					val = cmd.ExecuteScalar().ToString();
 				}

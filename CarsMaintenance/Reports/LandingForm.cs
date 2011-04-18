@@ -61,15 +61,15 @@ namespace CarsMaintenance.Reports
             //lblOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_OUT).Replace(".00", " ");
             //lbScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_TOTAL_SCRAP).Replace(".00", " ");
 
-            lblDay1Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY1_OUT, DateTime.Now.Day).Replace(".00", " ");
-            lblDay2Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY2_OUT, DateTime.Now.Day).Replace(".00", " ");
-            lblMonthOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_OUT, DateTime.Now.Month).Replace(".00", " ");
-            lblYearOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_OUT, DateTime.Now.Year).Replace(".00", " ");
+            lblDay1Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY1_OUT, DateTime.Now).Replace(".00", " ");
+            lblDay2Out.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY2_OUT, DateTime.Now).Replace(".00", " ");
+            lblMonthOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_OUT, DateTime.Now).Replace(".00", " ");
+            lblYearOut.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_OUT, DateTime.Now).Replace(".00", " ");
 
-            lblDay1Scrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY1_SCRAP, DateTime.Now.Day).Replace(".00", " ");
-            lblDay2Scrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY2_SCRAP, DateTime.Now.Day).Replace(".00", " ");
-            lblMonthScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_SCRAP, DateTime.Now.Month).Replace(".00", " ");
-            lblYearScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_SCRAP, DateTime.Now.Year).Replace(".00", " ");
+            lblDay1Scrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY1_SCRAP, DateTime.Now).Replace(".00", " ");
+            lblDay2Scrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_DAY2_SCRAP, DateTime.Now).Replace(".00", " ");
+            lblMonthScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_MONTH_SCRAP, DateTime.Now).Replace(".00", " ");
+            lblYearScrap.Text = SQLHelper.QueryLandForm(SQLHelper.SQL_YEAR_SCRAP, DateTime.Now).Replace(".00", " ");
 
 
             // Set grid view
@@ -77,7 +77,7 @@ namespace CarsMaintenance.Reports
             this.gvSummary.Columns.Clear();
             this.gvSummary.Rows.Clear();
 
-            int columnCount = ds.Tables[0].Rows.Count * 2 + 3;
+            int columnCount = ds.Tables[0].Rows.Count * 2 + 1;
 
             for (int col = 0; col < columnCount; col++)
             {
@@ -90,6 +90,24 @@ namespace CarsMaintenance.Reports
             // Set header value
 
             this.gvSummary.Columns[0].Width = 80;
+            this.gvSummary.Columns[1].Width = 80;
+            this.gvSummary.Columns[2].Width = 20;
+            this.gvSummary.Columns[3].Width = 60;
+            this.gvSummary.Columns[4].Width = 20;
+            this.gvSummary.Columns[5].Width = 60;
+            this.gvSummary.Columns[6].Width = 20;
+            this.gvSummary.Columns[7].Width = 60;
+            this.gvSummary.Columns[8].Width = 20;
+            this.gvSummary.Columns[9].Width = 60;
+            this.gvSummary.Columns[10].Width = 20;
+            this.gvSummary.Columns[11].Width = 60;
+            this.gvSummary.Columns[12].Width = 20;
+            this.gvSummary.Columns[13].Width = 60;
+            this.gvSummary.Columns[14].Width = 20;
+            this.gvSummary.Columns[15].Width = 60;
+            this.gvSummary.Columns[16].Width = 20;
+            this.gvSummary.Columns[17].Width = 60;
+            this.gvSummary.Columns[18].Width = 20;
 
             this.gvSummary.Rows[0].Cells[0].Value = "总额定数";
             this.gvSummary.Rows[1].Cells[0].Value = "总在库数";
