@@ -945,13 +945,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.49768in</Width>
+              <Width>0.38272in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.12268in</Width>
+              <Width>0.93681in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.10422in</Width>
+              <Width>1.3924in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.38309in</Width>
@@ -1231,7 +1231,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>OrderId</rd:DefaultName>
@@ -1353,7 +1355,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Balance</rd:DefaultName>
@@ -1385,7 +1389,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Quantity</rd:DefaultName>
@@ -1748,7 +1754,7 @@
         <Top>5.68008cm</Top>
         <Left>0.03174cm</Left>
         <Height>1.5cm</Height>
-        <Width>17.99999cm</Width>
+        <Width>17.96785cm</Width>
         <ZIndex>27</ZIndex>
         <Style>
           <Border>
