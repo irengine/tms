@@ -215,6 +215,7 @@ namespace CarsMaintenance.OrderManagement
             transferOrder.JobType = ReferenceOrder.JobType;
             transferOrder.Ship = ReferenceOrder.Ship;
             transferOrder.Berth = ReferenceOrder.Berth;
+            transferOrder.Cargo = ReferenceOrder.Cargo;
             transferOrder.Hatch = ReferenceOrder.Hatch;
             transferOrder.Machine = ReferenceOrder.Machine;
             transferOrder.Quantity = ReferenceOrder.Quantity;
