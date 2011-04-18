@@ -71,13 +71,13 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStripToolCategory.Name = "contextMenuStripToolCategory";
-            this.contextMenuStripToolCategory.Size = new System.Drawing.Size(161, 99);
+            this.contextMenuStripToolCategory.Size = new System.Drawing.Size(161, 101);
             // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Enabled = false;
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 21);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox1.Text = "工属具类别";
             // 
             // toolStripSeparator1
@@ -118,13 +118,13 @@
             this.Edit2ToolStripMenuItem,
             this.Delete2ToolStripMenuItem});
             this.contextMenuStripTool.Name = "contextMenuStripToolCategory";
-            this.contextMenuStripTool.Size = new System.Drawing.Size(161, 121);
+            this.contextMenuStripTool.Size = new System.Drawing.Size(161, 101);
             // 
             // toolStripTextBox2
             // 
             this.toolStripTextBox2.Enabled = false;
             this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 21);
+            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox2.Text = "工属具";
             // 
             // toolStripSeparator2
@@ -145,14 +145,14 @@
             // AddToolToolStripMenuItem
             // 
             this.AddToolToolStripMenuItem.Name = "AddToolToolStripMenuItem";
-            this.AddToolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.AddToolToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.AddToolToolStripMenuItem.Text = "工属具";
             this.AddToolToolStripMenuItem.Click += new System.EventHandler(this.AddToolToolStripMenuItem_Click);
             // 
             // AddToolGroupToolStripMenuItem
             // 
             this.AddToolGroupToolStripMenuItem.Name = "AddToolGroupToolStripMenuItem";
-            this.AddToolGroupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.AddToolGroupToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.AddToolGroupToolStripMenuItem.Text = "工属具组合";
             this.AddToolGroupToolStripMenuItem.Click += new System.EventHandler(this.AddToolGroupToolStripMenuItem_Click);
             // 
@@ -206,7 +206,6 @@
             this.dataGridViewTool.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTool.Size = new System.Drawing.Size(366, 373);
             this.dataGridViewTool.TabIndex = 1;
-            this.dataGridViewTool.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTool_CellDoubleClick);
             // 
             // toolIDDataGridViewTextBoxColumn
             // 

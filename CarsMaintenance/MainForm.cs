@@ -59,11 +59,24 @@ namespace CarsMaintenance
             this.btnViewOutboundOrderForm.Enabled = true;
             this.btnViewScrapOrderForm.Enabled = true;
             this.btnViewRepairOrderForm.Enabled = true;
-            this.articleToolStripMenuItem.Enabled = true;
+
+            this._mainMenuStrip.Enabled = true;
+
+            this.toolsToolStripMenuItem.Enabled = true;
+            this.toolsToolStripMenuItem.DropDownItems[0].Enabled = true;
+            this.toolsToolStripMenuItem.DropDownItems[1].Enabled = true;
+
+            this.businessToolStripMenuItem.Enabled = true;
+            for (int i = 2; i < this.businessToolStripMenuItem.DropDownItems.Count; i++)
+            {
+                this.businessToolStripMenuItem.DropDownItems[i].Enabled = true;
+            }
+
+            this.reportStripMenuItem.Enabled = true;
             for (int i = 0; i < this.reportStripMenuItem.DropDownItems.Count; i++)
             {
                 this.reportStripMenuItem.DropDownItems[i].Enabled = true;
-            }  
+            }   
         }
 
         /// <summary>
@@ -76,7 +89,20 @@ namespace CarsMaintenance
             this.btnViewOutboundOrderForm.Enabled = true;
             this.btnViewScrapOrderForm.Enabled = true;
             this.btnViewRepairOrderForm.Enabled = true;
-            this.articleToolStripMenuItem.Enabled = true;
+
+            this._mainMenuStrip.Enabled = true;
+
+            this.toolsToolStripMenuItem.Enabled = true;
+            this.toolsToolStripMenuItem.DropDownItems[0].Enabled = true;
+            this.toolsToolStripMenuItem.DropDownItems[1].Enabled = true;
+
+            this.businessToolStripMenuItem.Enabled = true;
+            for (int i = 2; i < this.businessToolStripMenuItem.DropDownItems.Count; i++)
+            {
+                this.businessToolStripMenuItem.DropDownItems[i].Enabled = true;
+            }
+
+            this.reportStripMenuItem.Enabled = true;
             for (int i = 0; i < this.reportStripMenuItem.DropDownItems.Count; i++)
             {
                 this.reportStripMenuItem.DropDownItems[i].Enabled = true;
@@ -92,8 +118,21 @@ namespace CarsMaintenance
             this.btnViewToolInventoryForm.Enabled = true;
             this.btnViewOutboundOrderForm.Enabled = true;
             this.btnViewScrapOrderForm.Enabled = true;
-            this.btnViewRepairOrderForm.Enabled = true;            
-            this.articleToolStripMenuItem.Enabled = true;
+            this.btnViewRepairOrderForm.Enabled = true;
+
+            this._mainMenuStrip.Enabled = true;
+
+            this.toolsToolStripMenuItem.Enabled = true;
+            this.toolsToolStripMenuItem.DropDownItems[0].Enabled = true;
+            this.toolsToolStripMenuItem.DropDownItems[1].Enabled = true;
+
+            this.businessToolStripMenuItem.Enabled = true;
+            for (int i = 1; i < this.businessToolStripMenuItem.DropDownItems.Count; i++)
+            {
+                this.businessToolStripMenuItem.DropDownItems[i].Enabled = true;
+            }
+
+            this.reportStripMenuItem.Enabled = true;
             for (int i = 0; i < this.reportStripMenuItem.DropDownItems.Count; i++)
             {
                 this.reportStripMenuItem.DropDownItems[i].Enabled = true;
@@ -109,13 +148,24 @@ namespace CarsMaintenance
             this.btnViewOutboundOrderForm.Enabled = true;
             this.btnViewScrapOrderForm.Enabled = true;
             this.btnViewRepairOrderForm.Enabled = true;
-            this.unitToolStripMenuItem.Enabled = true;
-            this.userToolStripMenuItem.Enabled = true;
-            for (int i = 0; i < this.businessToolStripMenuItem.DropDownItems.Count; i++)
+
+            this._mainMenuStrip.Enabled = true;
+
+            this.toolsToolStripMenuItem.Enabled = true;
+            this.toolsToolStripMenuItem.DropDownItems[0].Enabled = true;
+            this.toolsToolStripMenuItem.DropDownItems[1].Enabled = true;
+
+            this.businessToolStripMenuItem.Enabled = true;
+            for (int i = 1; i < this.businessToolStripMenuItem.DropDownItems.Count; i++)
             {
                 this.businessToolStripMenuItem.DropDownItems[i].Enabled = true;
             }
 
+            this.reportStripMenuItem.Enabled = true;
+            for (int i = 0; i < this.reportStripMenuItem.DropDownItems.Count; i++)
+            {
+                this.reportStripMenuItem.DropDownItems[i].Enabled = true;
+            }  
         }
         /// <summary>
         /// 工具主任
@@ -127,12 +177,9 @@ namespace CarsMaintenance
             this.btnViewRepairOrderForm.Enabled = true;
             this.btnViewScrapOrderForm.Enabled = true;
             this.btnViewToolInventoryForm.Enabled = true;
-            this.businessToolStripMenuItem.Enabled = true;
+            //this.businessToolStripMenuItem.Enabled = true;
             this._mainMenuStrip.Enabled = true;
-            for (int i = 0; i < this.systemToolStripMenuItem.DropDownItems.Count; i++)
-            {
-                this.systemToolStripMenuItem.DropDownItems[i].Enabled = true;
-            }
+
             for (int i = 0; i < this._mainMenuStrip.Items.Count; i++)
             {
                 this._mainMenuStrip.Items[i].Enabled = true;
@@ -153,6 +200,7 @@ namespace CarsMaintenance
                 this.reportStripMenuItem.DropDownItems[i].Enabled = true;
             }     
         }
+
         /// <summary>
         /// 工具工艺主管
         /// </summary>
@@ -163,12 +211,18 @@ namespace CarsMaintenance
             this.btnViewRepairOrderForm.Enabled = true;
             this.btnViewScrapOrderForm.Enabled = true;
             this.btnViewToolInventoryForm.Enabled = true;
-            this.businessToolStripMenuItem.Enabled = true;
+            //this.businessToolStripMenuItem.Enabled = true;
             this._mainMenuStrip.Enabled = true;
-            this.unitToolStripMenuItem.Enabled = true;
+            //this.unitToolStripMenuItem.Enabled = true;
+
             for (int i = 0; i < this._mainMenuStrip.Items.Count; i++)
             {
                 this._mainMenuStrip.Items[i].Enabled = true;
+            }
+
+            for (int i = 0; i < this.systemToolStripMenuItem.DropDownItems.Count - 1; i++)
+            {
+                this.systemToolStripMenuItem.DropDownItems[i].Enabled = true;
             }
       
             for (int i = 0; i < this.toolsToolStripMenuItem.DropDownItems.Count; i++)
@@ -197,8 +251,9 @@ namespace CarsMaintenance
             this.btnViewRepairOrderForm.Enabled = true;
             this.btnViewScrapOrderForm.Enabled = true;
             this.btnViewToolInventoryForm.Enabled = true;
-            this.businessToolStripMenuItem.Enabled = true;
+            //this.businessToolStripMenuItem.Enabled = true;
             this._mainMenuStrip.Enabled = true;
+
             for (int i = 0; i < this._mainMenuStrip.Items.Count;i++ )
             {
                 this._mainMenuStrip.Items[i].Enabled = true;               
@@ -208,6 +263,7 @@ namespace CarsMaintenance
             {
                 this.systemToolStripMenuItem.DropDownItems[i].Enabled = true;
             }
+
             for (int i = 0; i < this.toolsToolStripMenuItem.DropDownItems.Count; i++)
             {
                 this.toolsToolStripMenuItem.DropDownItems[i].Enabled = true;

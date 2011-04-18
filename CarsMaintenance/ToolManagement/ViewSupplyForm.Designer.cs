@@ -106,7 +106,6 @@
             this.dataGridViewSupply.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSupply.Size = new System.Drawing.Size(884, 382);
             this.dataGridViewSupply.TabIndex = 0;
-            this.dataGridViewSupply.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSupply_CellDoubleClick);
             // 
             // supplyIDDataGridViewTextBoxColumn
             // 

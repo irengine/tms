@@ -44,6 +44,7 @@ namespace CarsMaintenance.OrderManagement
             {
                 contextMenuStripRepairOrder.Items[i].Enabled = true;
             }
+            contextMenuStripRepairOrder.Items["toolStripMenuItemCreateRepairOrder"].Enabled = false;
         }
         protected override void RoleToToolsConservator()
         {
@@ -51,6 +52,7 @@ namespace CarsMaintenance.OrderManagement
             {
                 contextMenuStripRepairOrder.Items[i].Enabled = true;
             }
+            contextMenuStripRepairOrder.Items["toolStripMenuItemCreateRepairOrder"].Enabled = false;
         }
         #endregion
         public ViewRepairOrderForm()

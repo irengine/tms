@@ -36,6 +36,7 @@ namespace CarsMaintenance.OrderManagement
             {
                 contextMenuStripScrapOrder.Items[i].Enabled = true;
             }
+            contextMenuStripScrapOrder.Items["toolStripMenuItemCreateScrapOrder"].Enabled = false;
 
         }
         protected override void RoleToToolsOutOrInUser()
@@ -44,6 +45,7 @@ namespace CarsMaintenance.OrderManagement
             {
                 contextMenuStripScrapOrder.Items[i].Enabled = true;
             }
+            contextMenuStripScrapOrder.Items["toolStripMenuItemCreateScrapOrder"].Enabled = false;
         }
         protected override void RoleToToolsConservator()
         {

@@ -25,6 +25,7 @@ namespace CarsMaintenance.ToolManagement
             {
                 contextMenuStripTool.Items[i].Enabled = true;
             }
+            this.dataGridViewTool.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTool_CellDoubleClick);
         }
         protected override void RoleToToolsManage()
         {
@@ -36,6 +37,7 @@ namespace CarsMaintenance.ToolManagement
             {
                 contextMenuStripTool.Items[i].Enabled = true;
             }
+            this.dataGridViewTool.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTool_CellDoubleClick);
         }
         protected override void RoleToToolArticleManage()
         {
@@ -47,6 +49,7 @@ namespace CarsMaintenance.ToolManagement
             {
                 contextMenuStripTool.Items[i].Enabled = true;
             }
+            this.dataGridViewTool.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTool_CellDoubleClick);
         }
         #endregion 
 
