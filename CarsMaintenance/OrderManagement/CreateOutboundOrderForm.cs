@@ -235,6 +235,11 @@ namespace CarsMaintenance.OrderManagement
         {
             ExecuteActionHelper.ExecuteAction(delegate()
             {
+                if (!_validationManager.Validate())
+                {
+                    return;
+                }
+
                 CurrentOrder.Code = txtCode.Text;
                 CurrentOrder.OutboundDate = dtOutboundDate.Value;
 
@@ -308,7 +313,10 @@ namespace CarsMaintenance.OrderManagement
                             item.Description = "";
                         CurrentOrder.Items.Add(item);
 
-                        OrderManager.Lend(CurrentOrder, item);
+                        if (CurrentMode != MODE_TRANSFER)
+                        {
+                            OrderManager.Lend(CurrentOrder, item);
+                        }
                     }
                 }
 
