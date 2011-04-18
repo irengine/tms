@@ -89,6 +89,8 @@ namespace CarsMaintenance.Reports
 
             // Set header value
 
+            this.gvSummary.Columns[0].Width = 80;
+
             this.gvSummary.Rows[0].Cells[0].Value = "总额定数";
             this.gvSummary.Rows[1].Cells[0].Value = "总在库数";
             this.gvSummary.Rows[2].Cells[0].Value = "总外借数";
