@@ -72,9 +72,9 @@
             this.ScrapAdvanceMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ResetPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._openedFormsToolStrip = new System.Windows.Forms.ToolStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.ResetPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._operationsTableLayoutPanel.SuspendLayout();
             this._mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -210,7 +210,7 @@
             // _exitToolStripMenuItem
             // 
             this._exitToolStripMenuItem.Name = "_exitToolStripMenuItem";
-            this._exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this._exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this._exitToolStripMenuItem.Text = "退出";
             this._exitToolStripMenuItem.Click += new System.EventHandler(this._exitToolStripMenuItem_Click);
             // 
@@ -227,7 +227,7 @@
             // 
             this.unitToolStripMenuItem.Enabled = false;
             this.unitToolStripMenuItem.Name = "unitToolStripMenuItem";
-            this.unitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unitToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.unitToolStripMenuItem.Text = "组织机构管理";
             this.unitToolStripMenuItem.Click += new System.EventHandler(this.unitToolStripMenuItem_Click);
             // 
@@ -235,7 +235,7 @@
             // 
             this.userToolStripMenuItem.Enabled = false;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.userToolStripMenuItem.Text = "系统用户管理";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
@@ -375,7 +375,7 @@
             // viewInventoryToolStripMenuItem
             // 
             this.viewInventoryToolStripMenuItem.Name = "viewInventoryToolStripMenuItem";
-            this.viewInventoryToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.viewInventoryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.viewInventoryToolStripMenuItem.Text = "即时库存";
             this.viewInventoryToolStripMenuItem.Visible = false;
             // 
@@ -383,27 +383,27 @@
             // 
             this.BarcodeReportToolStripMenuItem.Enabled = false;
             this.BarcodeReportToolStripMenuItem.Name = "BarcodeReportToolStripMenuItem";
-            this.BarcodeReportToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.BarcodeReportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.BarcodeReportToolStripMenuItem.Text = "条码本";
             this.BarcodeReportToolStripMenuItem.Click += new System.EventHandler(this.BarcodeReportToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // OrderSummaryReportToolStripMenuItem
             // 
             this.OrderSummaryReportToolStripMenuItem.Name = "OrderSummaryReportToolStripMenuItem";
-            this.OrderSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.OrderSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.OrderSummaryReportToolStripMenuItem.Text = "工属具借用表";
             this.OrderSummaryReportToolStripMenuItem.Click += new System.EventHandler(this.OrderSummaryReportToolStripMenuItem_Click);
             // 
             // ToolInfoMenu
             // 
             this.ToolInfoMenu.Name = "ToolInfoMenu";
-            this.ToolInfoMenu.Size = new System.Drawing.Size(148, 22);
-            this.ToolInfoMenu.Text = "工属具明细";
+            this.ToolInfoMenu.Size = new System.Drawing.Size(152, 22);
+            this.ToolInfoMenu.Text = "工属具明细表";
             this.ToolInfoMenu.Click += new System.EventHandler(this.ToolInfoMenu_Click);
             // 
             // ScrapReportMune
@@ -415,7 +415,7 @@
             this.ScrapByShipMenu,
             this.ScrapByColligateMenu});
             this.ScrapReportMune.Name = "ScrapReportMune";
-            this.ScrapReportMune.Size = new System.Drawing.Size(148, 22);
+            this.ScrapReportMune.Size = new System.Drawing.Size(152, 22);
             this.ScrapReportMune.Text = "工属具消耗表";
             this.ScrapReportMune.Click += new System.EventHandler(this.ScrapReportMune_Click);
             // 
@@ -457,15 +457,16 @@
             // OutToolMenu
             // 
             this.OutToolMenu.Name = "OutToolMenu";
-            this.OutToolMenu.Size = new System.Drawing.Size(148, 22);
+            this.OutToolMenu.Size = new System.Drawing.Size(152, 22);
             this.OutToolMenu.Text = "外借工具总览";
+            this.OutToolMenu.Visible = false;
             this.OutToolMenu.Click += new System.EventHandler(this.OutToolMenu_Click);
             // 
             // ScrapAdvanceMenu
             // 
             this.ScrapAdvanceMenu.Name = "ScrapAdvanceMenu";
-            this.ScrapAdvanceMenu.Size = new System.Drawing.Size(148, 22);
-            this.ScrapAdvanceMenu.Text = "预报废总览";
+            this.ScrapAdvanceMenu.Size = new System.Drawing.Size(152, 22);
+            this.ScrapAdvanceMenu.Text = "工属具报废表";
             this.ScrapAdvanceMenu.Click += new System.EventHandler(this.ScrapAdvanceMenu_Click);
             // 
             // helpToolStripMenuItem
@@ -481,6 +482,13 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.aboutToolStripMenuItem.Text = "关于...";
+            // 
+            // ResetPasswordToolStripMenuItem
+            // 
+            this.ResetPasswordToolStripMenuItem.Name = "ResetPasswordToolStripMenuItem";
+            this.ResetPasswordToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.ResetPasswordToolStripMenuItem.Text = "密码重置";
+            this.ResetPasswordToolStripMenuItem.Click += new System.EventHandler(this.ResetPasswordToolStripMenuItem_Click);
             // 
             // _openedFormsToolStrip
             // 
@@ -498,13 +506,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(802, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStripMain";
-            // 
-            // ResetPasswordToolStripMenuItem
-            // 
-            this.ResetPasswordToolStripMenuItem.Name = "ResetPasswordToolStripMenuItem";
-            this.ResetPasswordToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.ResetPasswordToolStripMenuItem.Text = "密码重置";
-            this.ResetPasswordToolStripMenuItem.Click += new System.EventHandler(this.ResetPasswordToolStripMenuItem_Click);
             // 
             // MainForm
             // 

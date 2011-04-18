@@ -44,9 +44,9 @@ namespace CarsMaintenance.Common
                             order by t.Code";
 
 		private static string sqlScrapReport =
-						 @"SELECT ToolCategory.Name AS ToolCategoryName, Tool.Name AS ToolName, 
-								  ScrapOrderDetail.UnitPrice * ScrapOrderDetail.ScrapQuantity AS AllUnitPrice, 
-								  ScrapOrderDetail.UnitPrice, ScrapOrderDetail.ScrapQuantity AS Quantity, 
+                         @"SELECT ToolCategory.Name AS ToolCategoryName, Tool.Name AS ToolName, 
+								  SUM(ScrapOrderDetail.UnitPrice * ScrapOrderDetail.ScrapQuantity) AS AllUnitPrice, 
+								  ScrapOrderDetail.UnitPrice, SUM(ScrapOrderDetail.ScrapQuantity) AS Quantity, 
 								  Tool.Dimensions
 							FROM ScrapOrder LEFT OUTER JOIN
 								  ScrapOrderDetail ON 
@@ -54,7 +54,9 @@ namespace CarsMaintenance.Common
 								  Tool ON ScrapOrderDetail.ToolID = Tool.ToolID LEFT OUTER JOIN
 								  ToolCategory ON Tool.ToolCategoryID = ToolCategory.ToolCategoryID
 							WHERE (ScrapOrderDetail.ScrapQuantity > 0) AND (ScrapOrder.Status = 1) AND 
-								  (ScrapOrderDetail.ScrapDate BETWEEN '{0}' AND '{1}')";
+								  (ScrapOrderDetail.ScrapDate BETWEEN '{0}' AND '{1}')
+                            GROUP BY ToolCategory.Name, Tool.Name, ScrapOrderDetail.UnitPrice, Tool.Dimensions, ToolCategory.Code, Tool.DisplayIndex
+                            ORDER BY ToolCategory.Code, Tool.DisplayIndex";
 		private static string sqlOutBoundOrderByUintReport =
 							 @"Select Pu.Name as ParentName,u.Name as Name,O.Berth,O.Cargo,O.Ship,O.Hatch,O.Code,O.Version,Od.Quantity,Od.UnitPrice,T.Name as ToolName,T.Dimensions,T.Code as ToolCode
 							 from OutboundOrder as O 
@@ -84,19 +86,21 @@ namespace CarsMaintenance.Common
 									on so.ScrapOrderID=sod.ScrapOrderID
 									inner join OutboundOrder as o 
 									on so.OutboundOrderID=o.OutboundOrderID
-									 Where So.ScrapDate between '{0}' and '{1}'
+									 Where So.ScrapDate between '{0}' and '{1}' and o.JobPosition = '船舶'
 									Group by o.Ship,so.ScrapDate,o.JobType";
 		private static string sqlOutboundSummary =
 					"select c.Name as CategroyName, t.Code, t.Name as ToolName, t.Dimensions, t.Unit, sum(i.Quantity) as Quantity from OutboundOrderDetail i " +
 								"inner join Tool t on i.ToolID = t.ToolID " +
 								"inner join ToolCategory c on SUBSTRING(t.Code, 1, 2) = c.Code and c.ParentCategoryID is null " +
 								"where i.OutboundDate between '{0}' and '{1}'" +
-								"group by c.Name , t.Code, t.Name, t.Dimensions, t.Unit ";
+								"group by c.Name , t.Code, t.Name, t.Dimensions, t.Unit, t.DisplayIndex " + 
+                                "order by t.DisplayIndex";
 		private static string sqlToolReport =
 					@"Select t.Name as ToolName,T.Dimensions,t.Code,t.Unit,t.[Description], tc.Name as CategoryName,ti.OutQuantity,
 								ti.Quantity,ti.PrescrapQuantity,t.RatedQuantity,ti.ScrapQuantity,ti.RepairingQuantity,ti.UnitPrice from Tool as t inner join ToolCategory as tc
 								on t.ToolCategoryID=Tc.ToolCategoryID inner join ToolInventory as ti
-								on t.ToolID=ti.ToolID Where t.Name like '%{0}%' and t.Code like '%{1}%'";
+								on t.ToolID=ti.ToolID Where t.Name like '%{0}%' and t.Code like '%{1}%' " +
+                                "order by t.DisplayIndex";
 
 		private static string sqlColligaterByJobTypeReport = @"Select Sum(sd.UnitPrice * sd.ScrapQuantity) as UnitPrice,o.JobType,
 								 (SUM(sd.UnitPrice*sd.ScrapQuantity)/(Select SUM(sd1.ScrapQuantity*sd1.UnitPrice) from ScrapOrderDetail as sd1)) as Percentage from ScrapOrder as s 
@@ -170,14 +174,14 @@ namespace CarsMaintenance.Common
 											Where (s.ScrapDate BETWEEN '{0}' AND '{1}') ";
 
 		private static string sqlAbnormityScrapReport = @"Select S.ScrapDate,o.JobType,o.JobPosition,o.Ship,t.Dimensions,t.Name as ToolName,
-											CASE WHEN o.ClassType=1 Then '白班' ELSE '夜班' END as ClassType,pu.Name as ParentUserName,u.Name as UserName,su.Name as SystemUserName,
+											CASE WHEN o.ClassType=1 Then '日班' ELSE '夜班' END as ClassType,pu.Name as ParentUserName,u.Name as UserName,su.Name as SystemUserName,
 											sd.ScrapQuantity,sd.UnitPrice,(sd.ScrapQuantity* sd.UnitPrice) as AllUnitPrice ,Case When  sd.IsAbnormal=0  then '否' Else  '是' End as IsAbnormal,sd.ScrapReason from ScrapOrder as s 
 											inner join ScrapOrderDetail as sd on s.ScrapOrderID=sd.ScrapOrderID
 											inner join Tool as t on sd.ToolID=t.ToolID
 											inner join Unit as u on s.CustomerID=u.UnitID
 											inner join Unit as pu on u.ParentUnitID= pu.UnitID
 											inner join OutboundOrder as o on o.OutboundOrderID=s.OutboundOrderID
-											inner join SystemUser as su on s.LastUpdatedBy=su.SystemUserID where sd.IsAbnormal!=0 AND (s.ScrapDate BETWEEN '{0}' AND '{1}')";
+											inner join SystemUser as su on s.LastUpdatedBy=su.SystemUserID where s.Status=1 and sd.IsAbnormal!=0 AND (s.ScrapDate BETWEEN '{0}' AND '{1}')";
 
 
 

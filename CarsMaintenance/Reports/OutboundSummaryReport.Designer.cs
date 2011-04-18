@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.OutboundSummaryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.btnQuery = new System.Windows.Forms.Button();
@@ -37,11 +38,15 @@
             this.dtBeginDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.OutboundSummaryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.OutboundSummaryDataSetBindingSource)).BeginInit();
             this.tableLayoutPanelMain.SuspendLayout();
             this.panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OutboundSummaryDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // OutboundSummaryDataSetBindingSource
+            // 
+            this.OutboundSummaryDataSetBindingSource.DataMember = "OutboundSummary";
+            this.OutboundSummaryDataSetBindingSource.DataSource = typeof(CarsMaintenance.Reports.OutboundSummaryDataSet);
             // 
             // tableLayoutPanelMain
             // 
@@ -106,19 +111,14 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "OutboundSummaryDataSet";
-            reportDataSource2.Value = this.OutboundSummaryDataSetBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "OutboundSummaryDataSet";
+            reportDataSource1.Value = this.OutboundSummaryDataSetBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "CarsMaintenance.Reports.OutboundSummary.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 63);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(656, 338);
             this.reportViewer1.TabIndex = 1;
-            // 
-            // OutboundSummaryDataSetBindingSource
-            // 
-            this.OutboundSummaryDataSetBindingSource.DataMember = "OutboundSummary";
-            this.OutboundSummaryDataSetBindingSource.DataSource = typeof(CarsMaintenance.Reports.OutboundSummaryDataSet);
             // 
             // OutboundSummaryReport
             // 
@@ -127,12 +127,12 @@
             this.ClientSize = new System.Drawing.Size(662, 404);
             this.Controls.Add(this.tableLayoutPanelMain);
             this.Name = "OutboundSummaryReport";
-            this.Text = "借用表";
+            this.Text = "工属具借用表";
             this.Load += new System.EventHandler(this.OutboundSummaryReport_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.OutboundSummaryDataSetBindingSource)).EndInit();
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OutboundSummaryDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

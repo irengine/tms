@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.ScrapByShipDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnQuery = new System.Windows.Forms.Button();
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelSearch = new System.Windows.Forms.Panel();
@@ -37,11 +38,15 @@
             this.dtBeginDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.ScrapByShipDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ScrapByShipDataSetBindingSource)).BeginInit();
             this.tableLayoutPanelMain.SuspendLayout();
             this.panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ScrapByShipDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ScrapByShipDataSetBindingSource
+            // 
+            this.ScrapByShipDataSetBindingSource.DataMember = "ScrapByShip";
+            this.ScrapByShipDataSetBindingSource.DataSource = typeof(CarsMaintenance.Reports.ScrapByShipDataSet);
             // 
             // btnQuery
             // 
@@ -106,19 +111,14 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "ScrapByShipDataSet";
-            reportDataSource2.Value = this.ScrapByShipDataSetBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "ScrapByShipDataSet";
+            reportDataSource1.Value = this.ScrapByShipDataSetBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "CarsMaintenance.Reports.ScrapByShipReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 63);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(723, 200);
             this.reportViewer1.TabIndex = 1;
-            // 
-            // ScrapByShipDataSetBindingSource
-            // 
-            this.ScrapByShipDataSetBindingSource.DataMember = "ScrapByShip";
-            this.ScrapByShipDataSetBindingSource.DataSource = typeof(CarsMaintenance.Reports.ScrapByShipDataSet);
             // 
             // ScrapByShipReport
             // 
@@ -127,12 +127,12 @@
             this.ClientSize = new System.Drawing.Size(729, 266);
             this.Controls.Add(this.tableLayoutPanelMain);
             this.Name = "ScrapByShipReport";
-            this.Text = "工属具单船消耗";
+            this.Text = "工属具单船消耗表";
             this.Load += new System.EventHandler(this.ScrapByShipReport_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ScrapByShipDataSetBindingSource)).EndInit();
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ScrapByShipDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
