@@ -98,7 +98,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::CarsMaintenance.Properties.Resources._1;
+            this.pictureBox1.BackgroundImage = global::CarsMaintenance.Properties.Resources.Title;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(-2, 44);
             this.pictureBox1.Name = "pictureBox1";

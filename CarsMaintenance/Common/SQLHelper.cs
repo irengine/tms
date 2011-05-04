@@ -128,7 +128,7 @@ namespace CarsMaintenance.Common
 											inner join Unit as u on s.CustomerID=u.UnitId
 											inner join Unit as pu on u.ParentUnitID=pu.UnitID
 											,(Select SUM(sd1.ScrapQuantity*sd1.UnitPrice) as summaryTotalPrice from ScrapOrderDetail as sd1) total
-											 where (s.ScrapDate between '{0}' and '{1}') and sd.ScrapQuantity>0 
+											 where (s.ScrapDate between '{0}' and '{1}') and sd.ScrapQuantity>0 and pu.UnitId in (1006,1007,1008)
 											Group by pu.code,pu.Name,u.Name,u.Code,summaryTotalPrice) as findAll inner join (
 											select PCode, PName, MAX(TotalPrice) as maxTotal, MIN(TotalPrice) as minTotal,SUM(Percentage) as Percentage
 											from
@@ -139,7 +139,7 @@ namespace CarsMaintenance.Common
 											inner join Unit as u on s.CustomerID=u.UnitId
 											inner join Unit as pu on u.ParentUnitID=pu.UnitID
 											,(Select SUM(sd1.ScrapQuantity*sd1.UnitPrice) as summaryTotalPrice from ScrapOrderDetail as sd1) total
-										   where (s.ScrapDate between '{0}' and '{1}') and sd.ScrapQuantity>0 
+										   where (s.ScrapDate between '{0}' and '{1}') and sd.ScrapQuantity>0 and pu.UnitId in (1006,1007,1008)
 											Group by pu.code,pu.Name,u.Code,u.Name,summaryTotalPrice
 											) temp1
 											group by PCode,PName
@@ -152,10 +152,25 @@ namespace CarsMaintenance.Common
 											inner join Unit as u on s.CustomerID=u.UnitId
 											inner join Unit as pu on u.ParentUnitID=pu.UnitID
 											,(Select SUM(sd1.ScrapQuantity*sd1.UnitPrice) as summaryTotalPrice from ScrapOrderDetail as sd1) total
-											where (s.ScrapDate between '{0}' and '{1}') and sd.ScrapQuantity>0 
+											where (s.ScrapDate between '{0}' and '{1}') and sd.ScrapQuantity>0 and pu.UnitId in (1006,1007,1008)
 											Group by pu.code,pu.Name,u.Code,u.Name,summaryTotalPrice
 											) as findMin on findMax.PCode = findMin.PCode and findMax.minTotal = findMin.TotalPrice
-											";
+                                union all
+                                Select u.Name, Sum(sd.UnitPrice * sd.ScrapQuantity), '', '',
+								 (SUM(sd.UnitPrice*sd.ScrapQuantity)/(Select SUM(sd1.ScrapQuantity*sd1.UnitPrice) from ScrapOrderDetail as sd1)) from ScrapOrder as s 
+								inner join ScrapOrderDetail as sd on s.ScrapOrderID=sd.ScrapOrderID
+								inner join OutboundOrder as o on s.OutboundOrderID=o.OutboundOrderID
+								inner join OutboundOrderDetail as od on sd.OutboundOrderDetailID=od.OutboundOrderDetailID
+								inner join Unit as u on s.CustomerID=u.UnitId
+								inner join Unit as pu on u.ParentUnitID=pu.UnitID
+								where s.ScrapDate between '{0}' and '{1}' and u.UnitId in (1002,1072)
+								Group by u.Name											
+                                union all
+                                Select '工具三班', Sum(sd.UnitPrice * sd.ScrapQuantity), '', '',
+								 (SUM(sd.UnitPrice*sd.ScrapQuantity)/(Select SUM(sd1.ScrapQuantity*sd1.UnitPrice) from ScrapOrderDetail as sd1)) from ScrapOrder as s
+								inner join ScrapOrderDetail as sd on s.ScrapOrderID=sd.ScrapOrderID
+								where s.ScrapDate between '{0}' and '{1}' and s.OutboundOrderID is null
+                                            ";
 
 		private static string sqlToolInfoReport = @"Select s.ScrapDate,s.Code,sd.ScrapQuantity,sd.UnitPrice,sd.ScrapReason, (sd.ScrapQuantity* sd.UnitPrice) as AllUnitPrice,
 											t.Name as ToolName,t.Dimensions,u.Name as CustomerName,o.Berth,
