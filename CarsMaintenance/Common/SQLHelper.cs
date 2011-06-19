@@ -186,7 +186,7 @@ namespace CarsMaintenance.Common
 											inner join SystemUser as su on s.LastUpdatedBy=su.SystemUserID
 											inner join Unit as pu on u.ParentUnitID=pu.UnitID
 											inner join SystemUser as su1 on o.LastUpdatedBy=su1.SystemUserID
-											Where (s.ScrapDate BETWEEN '{0}' AND '{1}') ";
+											Where s.Status = 1 and (s.ScrapDate BETWEEN '{0}' AND '{1}') ";
 
 		private static string sqlAbnormityScrapReport = @"Select S.ScrapDate,o.JobType,o.JobPosition,o.Ship,t.Dimensions,t.Name as ToolName,
 											CASE WHEN o.ClassType=1 Then '日班' ELSE '夜班' END as ClassType,pu.Name as ParentUserName,u.Name as UserName,su.Name as SystemUserName,
