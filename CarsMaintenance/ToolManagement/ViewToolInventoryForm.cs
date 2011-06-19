@@ -121,6 +121,7 @@ namespace CarsMaintenance.ToolManagement
             column.Name = "预报废数";
             column.Width = 60;
             column.DefaultCellStyle = dsc;
+            column.Visible = false;
             dataGridViewToolInventory.Columns.Add(column);
 
             column = new DataGridViewTextBoxColumn();
@@ -173,7 +174,8 @@ namespace CarsMaintenance.ToolManagement
                             //额定数
                             RatedQuantity=t.RatedQuantity,
                             //可用数
-                            DoQuantity=t.RatedQuantity-ti.ScrapQuantity-ti.RepairingQuantity,
+                            //DoQuantity=t.RatedQuantity-ti.ScrapQuantity-ti.RepairingQuantity,
+                            DoQuantity = ti.Quantity + ti.OutQuantity,
                             //补充数
                             RenewQuantity=t.RatedQuantity-(t.RatedQuantity-ti.ScrapQuantity-ti.RepairingQuantity)-ti.RepairingQuantity,
 
@@ -235,7 +237,8 @@ namespace CarsMaintenance.ToolManagement
                                 //额定数
                                 RatedQuantity = t.RatedQuantity,
                                 //可用数
-                                DoQuantity = t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity,
+                                //DoQuantity = t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity,
+                                DoQuantity = ti.Quantity + ti.OutQuantity,
                                 //补充数
                                 RenewQuantity = t.RatedQuantity - (t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity) - ti.RepairingQuantity,
 
@@ -276,7 +279,8 @@ namespace CarsMaintenance.ToolManagement
                                 //额定数
                                 RatedQuantity = t.RatedQuantity,
                                 //可用数
-                                DoQuantity = t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity,
+                                //DoQuantity = t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity,
+                                DoQuantity = ti.Quantity + ti.OutQuantity,
                                 //补充数
                                 RenewQuantity = t.RatedQuantity - (t.RatedQuantity - ti.ScrapQuantity - ti.RepairingQuantity) - ti.RepairingQuantity,
 
