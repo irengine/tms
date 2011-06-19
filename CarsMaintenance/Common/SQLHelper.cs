@@ -537,28 +537,32 @@ namespace CarsMaintenance.Common
 			return val;
 		}
 
+        public const String TIME_OFFSET = "6";
+
 		public static string SQL_DAY1_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where ClassType = 2 and DATEDIFF(day, OutboundOrder.OutboundDate, '{0}') = 0";
+                                            where ClassType = 2 and DATEDIFF(day, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
 		public static string SQL_DAY2_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where ClassType = 1 and DATEDIFF(day, OutboundOrder.OutboundDate, '{0}') = 0";
+											where ClassType = 1 and DATEDIFF(day, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
 		public static string SQL_MONTH_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where  DATEDIFF(month, OutboundOrder.OutboundDate, '{0}') = 0";
+											where DATEDIFF(month, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
 		public static string SQL_YEAR_OUT = @"select SUM(OutboundOrderDetail.Quantity) from OutboundOrderDetail 
 											inner join OutboundOrder on OutboundOrderDetail.OutboundOrderID = OutboundOrder.OutboundOrderID 
-											where  DATEDIFF(year, OutboundOrder.OutboundDate, '{0}') = 0";
+											where DATEDIFF(year, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
+
+        //报废日期和报废班次都和借用单一样
         public static string SQL_DAY1_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
 											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
 											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
-                                              where ClassType = 2 and DATEDIFF(day, ScrapOrderDetail.ScrapDate, '{0}') = 0";
+                                              where ClassType = 2 and DATEDIFF(day, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
         public static string SQL_DAY2_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
 											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
 											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
-                                              where ClassType = 1 and DATEDIFF(day, ScrapOrderDetail.ScrapDate, '{0}') = 0";
-        public static string SQL_MONTH_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEDIFF(month, ScrapOrderDetail.ScrapDate, '{0}') = 0";
-        public static string SQL_YEAR_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEDIFF(year, ScrapOrderDetail.ScrapDate, '{0}') = 0";
+                                              where ClassType = 1 and DATEDIFF(day, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
+        public static string SQL_MONTH_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEDIFF(month, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
+        public static string SQL_YEAR_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEDIFF(year, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
 
 		public static string QueryLandForm(string sql, DateTime dt)
 		{

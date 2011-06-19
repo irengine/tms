@@ -136,6 +136,8 @@ namespace CarsMaintenance.OrderManagement
             }
 
             // if add time or return time equals null, do not show it
+            // AddTime means 补借时间
+            // ReturnTime means 归还时间
             if (CurrentOrder.AddTime != null)
             {
                 dtAddTime.Value = (DateTime)CurrentOrder.AddTime;
@@ -164,11 +166,13 @@ namespace CarsMaintenance.OrderManagement
             txtQuantity.Text = CurrentOrder.Quantity;
             txtProcess.Text = CurrentOrder.Process;
 
+            // 1 日班 第二班
             if (CurrentOrder.ClassType == 1)
             {
                 rbDay.Checked = true;
                 rbNight.Checked = false;
             }
+            // 2 夜班 第一班
             else if (CurrentOrder.ClassType == 2)
             {
                 rbDay.Checked = false;
@@ -205,7 +209,7 @@ namespace CarsMaintenance.OrderManagement
 
         private int GetCurrentClassType()
         {
-            if (System.DateTime.Now.Hour >= 8 && System.DateTime.Now.Hour < 17)
+            if (System.DateTime.Now.Hour >= 6 && System.DateTime.Now.Hour < 18)
                 return 1;
             else
                 return 2;
