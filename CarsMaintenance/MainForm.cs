@@ -311,10 +311,11 @@ namespace CarsMaintenance
 				this.Show();
 
 			});
-            ExecuteActionHelper.ExecuteAction(delegate()
-            {
-                FormsManager.OpenForm(typeof(CarsMaintenance.Reports.LandingForm), null);
-            });
+            // Do not show any form when startup
+            //ExecuteActionHelper.ExecuteAction(delegate()
+            //{
+            //    FormsManager.OpenForm(typeof(CarsMaintenance.Reports.LandingForm), null);
+            //});
 		}
 
 		private void _button_Click(object sender, EventArgs e)

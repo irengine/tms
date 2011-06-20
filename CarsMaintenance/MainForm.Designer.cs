@@ -75,10 +75,8 @@
             this.ResetPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._openedFormsToolStrip = new System.Windows.Forms.ToolStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.backgroupPictureBox = new System.Windows.Forms.PictureBox();
             this._operationsTableLayoutPanel.SuspendLayout();
             this._mainMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.backgroupPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // _operationsTableLayoutPanel
@@ -509,23 +507,12 @@
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStripMain";
             // 
-            // backgroupPictureBox
-            // 
-            this.backgroupPictureBox.BackgroundImage = global::CarsMaintenance.Properties.Resources.Banner;
-            this.backgroupPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backgroupPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backgroupPictureBox.Location = new System.Drawing.Point(100, 50);
-            this.backgroupPictureBox.Name = "backgroupPictureBox";
-            this.backgroupPictureBox.Size = new System.Drawing.Size(802, 474);
-            this.backgroupPictureBox.TabIndex = 7;
-            this.backgroupPictureBox.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::CarsMaintenance.Properties.Resources.Banner;
             this.ClientSize = new System.Drawing.Size(902, 546);
-            this.Controls.Add(this.backgroupPictureBox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this._operationsTableLayoutPanel);
             this.Controls.Add(this._openedFormsToolStrip);
@@ -540,7 +527,6 @@
             this._operationsTableLayoutPanel.ResumeLayout(false);
             this._mainMenuStrip.ResumeLayout(false);
             this._mainMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.backgroupPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -594,7 +580,6 @@
         private System.Windows.Forms.ToolStripMenuItem ScrapAdvanceMenu;
         private System.Windows.Forms.Button bt_Technics;
         private System.Windows.Forms.ToolStripMenuItem ResetPasswordToolStripMenuItem;
-        private System.Windows.Forms.PictureBox backgroupPictureBox;
 	}
 }
 
