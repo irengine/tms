@@ -416,6 +416,22 @@ namespace TMS.Model
             }
         }
         private ObjectSet<ToolGroup> _ToolGroups;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Job> Jobs
+        {
+            get
+            {
+                if ((_Jobs == null))
+                {
+                    _Jobs = base.CreateObjectSet<Job>("Jobs");
+                }
+                return _Jobs;
+            }
+        }
+        private ObjectSet<Job> _Jobs;
 
         #endregion
         #region AddTo Methods
@@ -570,6 +586,14 @@ namespace TMS.Model
         public void AddToToolGroups(ToolGroup toolGroup)
         {
             base.AddObject("ToolGroups", toolGroup);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Jobs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToJobs(Job job)
+        {
+            base.AddObject("Jobs", job);
         }
 
         #endregion
@@ -1559,6 +1583,301 @@ namespace TMS.Model
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="TMS.Model", Name="Job")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Job : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Job object.
+        /// </summary>
+        /// <param name="jobID">Initial value of the JobID property.</param>
+        public static Job CreateJob(global::System.Int32 jobID)
+        {
+            Job job = new Job();
+            job.JobID = jobID;
+            return job;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 JobID
+        {
+            get
+            {
+                return _JobID;
+            }
+            set
+            {
+                if (_JobID != value)
+                {
+                    OnJobIDChanging(value);
+                    ReportPropertyChanging("JobID");
+                    _JobID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("JobID");
+                    OnJobIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _JobID;
+        partial void OnJobIDChanging(global::System.Int32 value);
+        partial void OnJobIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String JobCode
+        {
+            get
+            {
+                return _JobCode;
+            }
+            set
+            {
+                OnJobCodeChanging(value);
+                ReportPropertyChanging("JobCode");
+                _JobCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("JobCode");
+                OnJobCodeChanged();
+            }
+        }
+        private global::System.String _JobCode;
+        partial void OnJobCodeChanging(global::System.String value);
+        partial void OnJobCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String JobPosition
+        {
+            get
+            {
+                return _JobPosition;
+            }
+            set
+            {
+                OnJobPositionChanging(value);
+                ReportPropertyChanging("JobPosition");
+                _JobPosition = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("JobPosition");
+                OnJobPositionChanged();
+            }
+        }
+        private global::System.String _JobPosition;
+        partial void OnJobPositionChanging(global::System.String value);
+        partial void OnJobPositionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String JobType
+        {
+            get
+            {
+                return _JobType;
+            }
+            set
+            {
+                OnJobTypeChanging(value);
+                ReportPropertyChanging("JobType");
+                _JobType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("JobType");
+                OnJobTypeChanged();
+            }
+        }
+        private global::System.String _JobType;
+        partial void OnJobTypeChanging(global::System.String value);
+        partial void OnJobTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Berth
+        {
+            get
+            {
+                return _Berth;
+            }
+            set
+            {
+                OnBerthChanging(value);
+                ReportPropertyChanging("Berth");
+                _Berth = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Berth");
+                OnBerthChanged();
+            }
+        }
+        private global::System.String _Berth;
+        partial void OnBerthChanging(global::System.String value);
+        partial void OnBerthChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Machine
+        {
+            get
+            {
+                return _Machine;
+            }
+            set
+            {
+                OnMachineChanging(value);
+                ReportPropertyChanging("Machine");
+                _Machine = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Machine");
+                OnMachineChanged();
+            }
+        }
+        private global::System.String _Machine;
+        partial void OnMachineChanging(global::System.String value);
+        partial void OnMachineChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Ship
+        {
+            get
+            {
+                return _Ship;
+            }
+            set
+            {
+                OnShipChanging(value);
+                ReportPropertyChanging("Ship");
+                _Ship = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Ship");
+                OnShipChanged();
+            }
+        }
+        private global::System.String _Ship;
+        partial void OnShipChanging(global::System.String value);
+        partial void OnShipChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Hatch
+        {
+            get
+            {
+                return _Hatch;
+            }
+            set
+            {
+                OnHatchChanging(value);
+                ReportPropertyChanging("Hatch");
+                _Hatch = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Hatch");
+                OnHatchChanged();
+            }
+        }
+        private global::System.String _Hatch;
+        partial void OnHatchChanging(global::System.String value);
+        partial void OnHatchChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Cargo
+        {
+            get
+            {
+                return _Cargo;
+            }
+            set
+            {
+                OnCargoChanging(value);
+                ReportPropertyChanging("Cargo");
+                _Cargo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Cargo");
+                OnCargoChanged();
+            }
+        }
+        private global::System.String _Cargo;
+        partial void OnCargoChanging(global::System.String value);
+        partial void OnCargoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Quantity
+        {
+            get
+            {
+                return _Quantity;
+            }
+            set
+            {
+                OnQuantityChanging(value);
+                ReportPropertyChanging("Quantity");
+                _Quantity = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Quantity");
+                OnQuantityChanged();
+            }
+        }
+        private global::System.String _Quantity;
+        partial void OnQuantityChanging(global::System.String value);
+        partial void OnQuantityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Process
+        {
+            get
+            {
+                return _Process;
+            }
+            set
+            {
+                OnProcessChanging(value);
+                ReportPropertyChanging("Process");
+                _Process = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Process");
+                OnProcessChanged();
+            }
+        }
+        private global::System.String _Process;
+        partial void OnProcessChanging(global::System.String value);
+        partial void OnProcessChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

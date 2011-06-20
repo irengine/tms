@@ -362,5 +362,29 @@ namespace CarsMaintenance.OrderManagement
                 dgv.DefaultCellStyle.BackColor = d == 0 ? Color.LightBlue : SystemColors.Window;
             } 
         }
+
+        private void btnImportVechicle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ExcelImport.ImportVechicle();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("导入数据失败, 请重试！");
+            }
+        }
+
+        private void btnImportShip_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ExcelImport.ImportShip();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("导入数据失败, 请重试！");
+            }
+        }
     }
 }

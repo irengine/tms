@@ -9,6 +9,7 @@
           <EntitySet Name="Article" EntityType="TMS.Model.Store.Article" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="InboundOrder" EntityType="TMS.Model.Store.InboundOrder" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="InboundOrderDetail" EntityType="TMS.Model.Store.InboundOrderDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Job" EntityType="TMS.Model.Store.Job" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="OutboundOrder" EntityType="TMS.Model.Store.OutboundOrder" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="OutboundOrderDetail" EntityType="TMS.Model.Store.OutboundOrderDetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PurchaseOrder" EntityType="TMS.Model.Store.PurchaseOrder" store:Type="Tables" Schema="dbo" />
@@ -239,6 +240,22 @@
           <Property Name="ScrapReason" Type="nvarchar" MaxLength="20" />
           <Property Name="TransferQuantity" Type="numeric" Nullable="false" Precision="10" Scale="2" />
           <Property Name="UnitPrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JobCode" Type="varchar" MaxLength="50" />
+          <Property Name="JobPosition" Type="nvarchar" MaxLength="20" />
+          <Property Name="JobType" Type="nvarchar" MaxLength="20" />
+          <Property Name="Berth" Type="varchar" MaxLength="50" />
+          <Property Name="Machine" Type="varchar" MaxLength="50" />
+          <Property Name="Ship" Type="varchar" MaxLength="50" />
+          <Property Name="Hatch" Type="varchar" MaxLength="50" />
+          <Property Name="Cargo" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="varchar" MaxLength="50" />
+          <Property Name="Process" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="OutboundOrder">
           <Key>
@@ -1195,6 +1212,7 @@
             <End Role="Tool" EntitySet="Tools" />
             <End Role="ToolGroup" EntitySet="ToolGroups" />
           </AssociationSet>
+          <EntitySet Name="Jobs" EntityType="TMS.Model.Job" />
           </EntityContainer>
         <EntityType Name="SystemUser">
           <Key>
@@ -2077,6 +2095,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Type="Int32" Name="JobID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="JobCode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="JobPosition" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="JobType" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Berth" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Machine" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ship" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Hatch" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Cargo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Quantity" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Process" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2363,6 +2397,23 @@
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="ToolID" ColumnName="ToolID" />
                 <ScalarProperty Name="ToolGroupID" ColumnName="ToolGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="TMS.Model.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="Process" ColumnName="Process" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Hatch" ColumnName="Hatch" />
+                <ScalarProperty Name="Ship" ColumnName="Ship" />
+                <ScalarProperty Name="Machine" ColumnName="Machine" />
+                <ScalarProperty Name="Berth" ColumnName="Berth" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="JobPosition" ColumnName="JobPosition" />
+                <ScalarProperty Name="JobCode" ColumnName="JobCode" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2802,6 +2853,7 @@
           <ConnectorPoint PointX="4.0772675468749995" PointY="13.283387044270832" />
           <ConnectorPoint PointX="4.0772675468749995" PointY="17.25" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="TMS.Model.Job" Width="1.5" PointX="10.375" PointY="3.75" Height="3.1161507161458317" />
         </Diagram>
     </Diagrams>
   </Designer>
