@@ -453,7 +453,7 @@ namespace CarsMaintenance.OrderManagement
             int col = dataGridViewDetail.CurrentCell.ColumnIndex;
             if (col == 1 || col == 2 || col == 3 || col == 3)
             {
-                if (IsEnough(dataGridViewDetail.Rows[row]) && e.KeyCode == Keys.Tab)
+                if ((row < ItemCount || IsEnough(dataGridViewDetail.Rows[row])) && e.KeyCode == Keys.Tab)
                 {
                     dataGridViewDetail.CurrentCell = dataGridViewDetail.Rows[row + 1].Cells[0];
                     e.SuppressKeyPress = true;
@@ -464,8 +464,15 @@ namespace CarsMaintenance.OrderManagement
 
         private void dataGridViewDetail_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
-            DataGridViewRow row = dataGridViewDetail.Rows[e.RowIndex];
-            e.Cancel = !IsEnough(row);
+            if (e.RowIndex < ItemCount)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                DataGridViewRow row = dataGridViewDetail.Rows[e.RowIndex];
+                e.Cancel = !IsEnough(row);
+            }
         }
 
         private bool IsEnough(DataGridViewRow row)
