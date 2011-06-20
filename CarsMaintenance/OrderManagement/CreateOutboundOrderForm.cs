@@ -489,5 +489,33 @@ namespace CarsMaintenance.OrderManagement
 
             return isEnough;
         }
+
+        private void txtJob_Validated(object sender, EventArgs e)
+        {
+            String code = txtJob.Text.Trim();
+
+            if (String.IsNullOrEmpty(code))
+                return;
+
+            Job job = SystemHelper.TMSContext.Jobs.FirstOrDefault(s => s.JobCode == code);
+            if (null == job)
+            {
+                txtBerth.Text = "";
+                txtCargo.Text = "";
+                txtHatch.Text = "";
+                txtMachine.Text = "";
+                txtProcess.Text = "";
+                txtShip.Text = "";
+            }
+            else
+            {
+                txtBerth.Text = job.Berth;
+                txtCargo.Text = job.Cargo;
+                txtHatch.Text = job.Hatch;
+                txtMachine.Text = job.Machine;
+                txtProcess.Text = job.Process;
+                txtShip.Text = job.Ship;
+            }
+        }
     }
 }

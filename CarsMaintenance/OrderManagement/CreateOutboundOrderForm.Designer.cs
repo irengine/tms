@@ -305,6 +305,7 @@
             this.txtJob.Name = "txtJob";
             this.txtJob.Size = new System.Drawing.Size(200, 21);
             this.txtJob.TabIndex = 10;
+            this.txtJob.Validated += new System.EventHandler(this.txtJob_Validated);
             // 
             // lblJob
             // 
