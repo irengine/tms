@@ -561,8 +561,14 @@ namespace CarsMaintenance.Common
 											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
 											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
                                               where ClassType = 1 and DATEDIFF(day, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
-        public static string SQL_MONTH_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEDIFF(month, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
-        public static string SQL_YEAR_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail where DATEDIFF(year, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
+        public static string SQL_MONTH_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
+											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
+											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
+                                              where DATEDIFF(month, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
+        public static string SQL_YEAR_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
+											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
+											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
+                                              where DATEDIFF(year, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
 
 		public static string QueryLandForm(string sql, DateTime dt)
 		{

@@ -369,9 +369,10 @@ namespace CarsMaintenance.OrderManagement
             {
                 ExcelImport.ImportVechicle();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("导入数据失败, 请重试！");
+                Console.WriteLine(ex.Message);
             }
         }
 

@@ -5,6 +5,7 @@ using System.Text;
 using CarsMaintenance.Common;
 using System.Data;
 using TMS.Model;
+using System.Windows.Forms;
 
 namespace CarsMaintenance.OrderManagement
 {
@@ -35,6 +36,8 @@ namespace CarsMaintenance.OrderManagement
             {
                 String code = dt.Rows[i][0].ToString();
 
+                Console.Write(code);
+
                 // Any row should include code
                 if (String.IsNullOrEmpty(code))
                     continue;
@@ -51,7 +54,11 @@ namespace CarsMaintenance.OrderManagement
                 job.Machine = dt.Rows[i]["使用机械"].ToString();
                 job.Ship = dt.Rows[i]["船名"].ToString();
                 SystemHelper.TMSContext.SaveChanges();
+
+                Console.WriteLine("-");
             }
+
+            MessageBox.Show(excelName + "导入成功");
         }
 
         public static void ImportShip()
@@ -101,6 +108,8 @@ namespace CarsMaintenance.OrderManagement
                 job.Machine = dt.Rows[i]["使用机械"].ToString();
                 SystemHelper.TMSContext.SaveChanges();
             }
+
+            MessageBox.Show(excelName + "导入成功");
         }
     }
 }

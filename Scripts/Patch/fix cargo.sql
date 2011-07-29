@@ -1,0 +1,7 @@
+ALTER TABLE Job
+ALTER COLUMN Cargo nvarchar (50) NULL
+GO
+
+ALTER TABLE OutboundOrder
+ALTER COLUMN Cargo nvarchar (50) NULL
+GO
