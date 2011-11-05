@@ -253,7 +253,7 @@
           <Property Name="Machine" Type="varchar" MaxLength="50" />
           <Property Name="Ship" Type="varchar" MaxLength="50" />
           <Property Name="Hatch" Type="varchar" MaxLength="50" />
-          <Property Name="Cargo" Type="varchar" MaxLength="50" />
+          <Property Name="Cargo" Type="nvarchar" MaxLength="50" />
           <Property Name="Quantity" Type="varchar" MaxLength="50" />
           <Property Name="Process" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -274,13 +274,14 @@
           <Property Name="Machine" Type="varchar" MaxLength="50" />
           <Property Name="Ship" Type="varchar" MaxLength="50" />
           <Property Name="Hatch" Type="varchar" MaxLength="50" />
-          <Property Name="Cargo" Type="varchar" MaxLength="50" />
+          <Property Name="Cargo" Type="nvarchar" MaxLength="50" />
           <Property Name="Quantity" Type="varchar" MaxLength="50" />
           <Property Name="Process" Type="varchar" MaxLength="50" />
           <Property Name="LastUpdatedBy" Type="int" Nullable="false" />
           <Property Name="LastUpdateTime" Type="datetime2" Nullable="false" />
           <Property Name="AddTime" Type="datetime2" />
           <Property Name="ReturnTime" Type="datetime2" />
+          <Property Name="timestamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="OutboundOrderDetail">
           <Key>
@@ -295,6 +296,7 @@
           <Property Name="Quantity" Type="numeric" Nullable="false" Precision="10" Scale="2" />
           <Property Name="Balance" Type="numeric" Nullable="false" Precision="10" Scale="2" />
           <Property Name="Description" Type="text" />
+          <Property Name="timestamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="PurchaseOrder">
           <Key>
@@ -449,6 +451,7 @@
           <Property Name="UnitPrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
           <Property Name="SupplyID" Type="int" />
           <Property Name="LastInboundDate" Type="date" />
+          <Property Name="timestamp" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="ToolInventoryHistory">
           <Key>
@@ -1386,6 +1389,7 @@
           <Property Type="Decimal" Name="ScrapQuantity" Nullable="false" Precision="10" Scale="2" />
           <Property Type="Decimal" Name="RepairingQuantity" Nullable="false" Precision="10" Scale="2" />
           <Property Type="Decimal" Name="PrescrapQuantity" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Binary" Name="timestamp" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <Association Name="FK_ToolInventory_Supply">
           <End Type="TMS.Model.Supply" Role="Supply" Multiplicity="0..1" />
@@ -1544,6 +1548,7 @@
           <Property Type="Int32" Name="ClassType" Nullable="false" />
           <Property Type="DateTime" Name="AddTime" />
           <Property Type="DateTime" Name="ReturnTime" />
+          <Property Type="Binary" Name="timestamp" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="OutboundOrderDetail">
           <Key>
@@ -1564,6 +1569,7 @@
           <NavigationProperty Name="RepairOrderDetails" Relationship="TMS.Model.FK_RepairOrderDetail_OutboundOrderDetail" FromRole="OutboundOrderDetail" ToRole="RepairOrderDetail" />
           <Property Type="Decimal" Name="Balance" Nullable="false" Precision="10" Scale="2" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="timestamp" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <Association Name="FK_OutboundOrder_SystemUser">
           <End Type="TMS.Model.SystemUser" Role="SystemUser" Multiplicity="1" />
@@ -2203,6 +2209,7 @@
           <EntitySetMapping Name="ToolInventories">
             <EntityTypeMapping TypeName="TMS.Model.ToolInventory">
               <MappingFragment StoreEntitySet="ToolInventory">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
                 <ScalarProperty Name="PrescrapQuantity" ColumnName="PrescrapQuantity" />
                 <ScalarProperty Name="RepairingQuantity" ColumnName="RepairingQuantity" />
                 <ScalarProperty Name="ScrapQuantity" ColumnName="ScrapQuantity" />
@@ -2250,6 +2257,7 @@
           <EntitySetMapping Name="OutboundOrders">
             <EntityTypeMapping TypeName="TMS.Model.OutboundOrder">
               <MappingFragment StoreEntitySet="OutboundOrder">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
                 <ScalarProperty Name="ReturnTime" ColumnName="ReturnTime" />
                 <ScalarProperty Name="AddTime" ColumnName="AddTime" />
                 <ScalarProperty Name="ClassType" ColumnName="ClassType" />
@@ -2276,6 +2284,7 @@
           <EntitySetMapping Name="OutboundOrderDetails">
             <EntityTypeMapping TypeName="TMS.Model.OutboundOrderDetail">
               <MappingFragment StoreEntitySet="OutboundOrderDetail">
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Balance" ColumnName="Balance" />
                 <ScalarProperty Name="OutboundDate" ColumnName="OutboundDate" />

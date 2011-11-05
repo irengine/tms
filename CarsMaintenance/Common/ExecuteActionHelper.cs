@@ -8,6 +8,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Reflection;
 using Common.Logging;
+using System.Data;
 
 namespace CarsMaintenance.Common
 {
@@ -27,6 +28,12 @@ namespace CarsMaintenance.Common
 				}
 				action.Invoke();
 			}
+            catch (OptimisticConcurrencyException oce)
+            {
+                log.Error(oce);
+                MessageBox.Show("数据已被其它客户端更改，请重新进入!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
 			catch (Exception exception)
 			{
                 log.Error(exception);

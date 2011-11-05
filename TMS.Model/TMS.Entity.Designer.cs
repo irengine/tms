@@ -1901,7 +1901,8 @@ namespace TMS.Model
         /// <param name="lastUpdatedBy">Initial value of the LastUpdatedBy property.</param>
         /// <param name="lastUpdateTime">Initial value of the LastUpdateTime property.</param>
         /// <param name="classType">Initial value of the ClassType property.</param>
-        public static OutboundOrder CreateOutboundOrder(global::System.Int32 outboundOrderID, global::System.DateTime outboundDate, global::System.Int32 version, global::System.String code, global::System.Int32 customerID, global::System.Int32 lastUpdatedBy, global::System.DateTime lastUpdateTime, global::System.Int32 classType)
+        /// <param name="timestamp">Initial value of the timestamp property.</param>
+        public static OutboundOrder CreateOutboundOrder(global::System.Int32 outboundOrderID, global::System.DateTime outboundDate, global::System.Int32 version, global::System.String code, global::System.Int32 customerID, global::System.Int32 lastUpdatedBy, global::System.DateTime lastUpdateTime, global::System.Int32 classType, global::System.Byte[] timestamp)
         {
             OutboundOrder outboundOrder = new OutboundOrder();
             outboundOrder.OutboundOrderID = outboundOrderID;
@@ -1912,6 +1913,7 @@ namespace TMS.Model
             outboundOrder.LastUpdatedBy = lastUpdatedBy;
             outboundOrder.LastUpdateTime = lastUpdateTime;
             outboundOrder.ClassType = classType;
+            outboundOrder.timestamp = timestamp;
             return outboundOrder;
         }
 
@@ -2400,6 +2402,30 @@ namespace TMS.Model
         private Nullable<global::System.DateTime> _ReturnTime;
         partial void OnReturnTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnReturnTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] timestamp
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_timestamp);
+            }
+            set
+            {
+                OntimestampChanging(value);
+                ReportPropertyChanging("timestamp");
+                _timestamp = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("timestamp");
+                OntimestampChanged();
+            }
+        }
+        private global::System.Byte[] _timestamp;
+        partial void OntimestampChanging(global::System.Byte[] value);
+        partial void OntimestampChanged();
 
         #endregion
     
@@ -2615,7 +2641,8 @@ namespace TMS.Model
         /// <param name="quantity">Initial value of the Quantity property.</param>
         /// <param name="outboundDate">Initial value of the OutboundDate property.</param>
         /// <param name="balance">Initial value of the Balance property.</param>
-        public static OutboundOrderDetail CreateOutboundOrderDetail(global::System.Int32 outboundOrderDetailID, global::System.Int32 outboundOrderID, global::System.Int32 version, global::System.Int32 toolID, global::System.Decimal unitPrice, global::System.Decimal quantity, global::System.DateTime outboundDate, global::System.Decimal balance)
+        /// <param name="timestamp">Initial value of the timestamp property.</param>
+        public static OutboundOrderDetail CreateOutboundOrderDetail(global::System.Int32 outboundOrderDetailID, global::System.Int32 outboundOrderID, global::System.Int32 version, global::System.Int32 toolID, global::System.Decimal unitPrice, global::System.Decimal quantity, global::System.DateTime outboundDate, global::System.Decimal balance, global::System.Byte[] timestamp)
         {
             OutboundOrderDetail outboundOrderDetail = new OutboundOrderDetail();
             outboundOrderDetail.OutboundOrderDetailID = outboundOrderDetailID;
@@ -2626,6 +2653,7 @@ namespace TMS.Model
             outboundOrderDetail.Quantity = quantity;
             outboundOrderDetail.OutboundDate = outboundDate;
             outboundOrderDetail.Balance = balance;
+            outboundOrderDetail.timestamp = timestamp;
             return outboundOrderDetail;
         }
 
@@ -2850,6 +2878,30 @@ namespace TMS.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] timestamp
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_timestamp);
+            }
+            set
+            {
+                OntimestampChanging(value);
+                ReportPropertyChanging("timestamp");
+                _timestamp = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("timestamp");
+                OntimestampChanged();
+            }
+        }
+        private global::System.Byte[] _timestamp;
+        partial void OntimestampChanging(global::System.Byte[] value);
+        partial void OntimestampChanged();
 
         #endregion
     
@@ -6856,7 +6908,8 @@ namespace TMS.Model
         /// <param name="scrapQuantity">Initial value of the ScrapQuantity property.</param>
         /// <param name="repairingQuantity">Initial value of the RepairingQuantity property.</param>
         /// <param name="prescrapQuantity">Initial value of the PrescrapQuantity property.</param>
-        public static ToolInventory CreateToolInventory(global::System.Decimal quantity, global::System.Decimal unitPrice, global::System.Int32 toolID, global::System.Decimal outQuantity, global::System.Decimal scrapQuantity, global::System.Decimal repairingQuantity, global::System.Decimal prescrapQuantity)
+        /// <param name="timestamp">Initial value of the timestamp property.</param>
+        public static ToolInventory CreateToolInventory(global::System.Decimal quantity, global::System.Decimal unitPrice, global::System.Int32 toolID, global::System.Decimal outQuantity, global::System.Decimal scrapQuantity, global::System.Decimal repairingQuantity, global::System.Decimal prescrapQuantity, global::System.Byte[] timestamp)
         {
             ToolInventory toolInventory = new ToolInventory();
             toolInventory.Quantity = quantity;
@@ -6866,6 +6919,7 @@ namespace TMS.Model
             toolInventory.ScrapQuantity = scrapQuantity;
             toolInventory.RepairingQuantity = repairingQuantity;
             toolInventory.PrescrapQuantity = prescrapQuantity;
+            toolInventory.timestamp = timestamp;
             return toolInventory;
         }
 
@@ -7090,6 +7144,30 @@ namespace TMS.Model
         private global::System.Decimal _PrescrapQuantity;
         partial void OnPrescrapQuantityChanging(global::System.Decimal value);
         partial void OnPrescrapQuantityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] timestamp
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_timestamp);
+            }
+            set
+            {
+                OntimestampChanging(value);
+                ReportPropertyChanging("timestamp");
+                _timestamp = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("timestamp");
+                OntimestampChanged();
+            }
+        }
+        private global::System.Byte[] _timestamp;
+        partial void OntimestampChanging(global::System.Byte[] value);
+        partial void OntimestampChanged();
 
         #endregion
     

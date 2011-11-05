@@ -186,7 +186,18 @@ namespace CarsMaintenance.Common
 											inner join SystemUser as su on s.LastUpdatedBy=su.SystemUserID
 											inner join Unit as pu on u.ParentUnitID=pu.UnitID
 											inner join SystemUser as su1 on o.LastUpdatedBy=su1.SystemUserID
-											Where s.Status = 1 and (s.ScrapDate BETWEEN '{0}' AND '{1}') ";
+											Where s.Status = 1 and (s.ScrapDate BETWEEN '{0}' AND '{1}') and sd.ScrapQuantity <> 0 {2}
+                                            union all
+                                            Select s.ScrapDate,s.Code,sd.ScrapQuantity,sd.UnitPrice,sd.ScrapReason, (sd.ScrapQuantity* sd.UnitPrice) as AllUnitPrice,
+											t.Name as ToolName,t.Dimensions,'' as CustomerName,'' asBerth,
+											'' as Cargo, '' as Hatch, '' as Job, '' as JobPosition, '' as JobType, '' as Machine, '' as Process,
+											'' as Ship, '' as [Version],su.Name as ScrapSystemUnerName, '' as OutboundSystemUserName,'' as ParentUserName,
+											'日班' as ClassType ,Case When sd.IsAbnormal=0 THEN '否' ELSE '是' END as  IsAbnormal
+											From ScrapOrder as s 
+											inner join ScrapOrderDetail as sd on s.ScrapOrderID = sd.ScrapOrderID
+											inner join Tool as t on sd.ToolID=t.ToolID
+											inner join SystemUser as su on s.LastUpdatedBy=su.SystemUserID
+											Where s.Status = 1 and s.OutboundOrderId is null and (s.ScrapDate BETWEEN '{0}' AND '{1}') and sd.ScrapQuantity <> 0 ";
 
 		private static string sqlAbnormityScrapReport = @"Select S.ScrapDate,o.JobType,o.JobPosition,o.Ship,t.Dimensions,t.Name as ToolName,
 											CASE WHEN o.ClassType=1 Then '日班' ELSE '夜班' END as ClassType,pu.Name as ParentUserName,u.Name as UserName,su.Name as SystemUserName,
@@ -261,17 +272,19 @@ namespace CarsMaintenance.Common
 				{
 					conn.Open();
 
-					string sql =string.Format( sqlToolInfoReport,beginDate,endDate);
-
+                    string c = "";
 					if (!JobType.Trim().Equals(string.Empty))
 					{ 
-						 sql=sql+ " and o.JobType='"+JobType+"' ";
+						 c=c+ " and o.JobType='"+JobType+"' ";
 					}
 
 					if (!JobPosition.Trim().Equals(string.Empty))
-					{ 
-						sql=sql+ " and o.JobPosition='"+JobPosition+"' ";
+					{
+                        c=c+ " and o.JobPosition='"+JobPosition+"' ";
 					}
+
+                    string sql = string.Format( sqlToolInfoReport,beginDate,endDate,c);
+
 					SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, conn);
 					dataAdapter.Fill(dataSet.Tables[0]);
 				}
@@ -553,22 +566,31 @@ namespace CarsMaintenance.Common
 											where DATEDIFF(year, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
 
         //报废日期和报废班次都和借用单一样
-        public static string SQL_DAY1_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
+        public static string SQL_DAY1_SCRAP = @"select SUM(ScrapQuantity) from (select ScrapQuantity from ScrapOrderDetail
 											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
 											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
-                                              where ClassType = 2 and DATEDIFF(day, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
+                                              where ClassType = 2 and DATEDIFF(day, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + @", '{0}')) = 0
+                                              union all select ScrapQuantity from ScrapOrderDetail
+                                              inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID
+                                              where ScrapOrder.OutboundOrderID is null and DATEDIFF(day, DATEADD(hour, " + TIME_OFFSET + ", ScrapOrder.ScrapDate), DATEADD(hour, " + TIME_OFFSET + @", '{0}')) = 0) t";
         public static string SQL_DAY2_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
 											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
 											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
                                               where ClassType = 1 and DATEDIFF(day, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
-        public static string SQL_MONTH_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
+        public static string SQL_MONTH_SCRAP = @"select SUM(ScrapQuantity) from (select ScrapQuantity from ScrapOrderDetail
 											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
 											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
-                                              where DATEDIFF(month, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
-        public static string SQL_YEAR_SCRAP = @"select SUM(ScrapQuantity) from ScrapOrderDetail
+                                              where DATEDIFF(month, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + @", '{0}')) = 0
+                                              union all select ScrapQuantity from ScrapOrderDetail
+                                              inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID
+                                              where ScrapOrder.OutboundOrderID is null and DATEDIFF(month, DATEADD(hour, " + TIME_OFFSET + ", ScrapOrder.ScrapDate), DATEADD(hour, " + TIME_OFFSET + @", '{0}')) = 0) t";
+        public static string SQL_YEAR_SCRAP = @"select SUM(ScrapQuantity) from (select ScrapQuantity from ScrapOrderDetail
 											  inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID 
 											  inner join OutboundOrder on ScrapOrder.OutboundOrderID = OutboundOrder.OutboundOrderID 
-                                              where DATEDIFF(year, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + ", '{0}')) = 0";
+                                              where DATEDIFF(year, DATEADD(hour, " + TIME_OFFSET + ", OutboundOrder.OutboundDate), DATEADD(hour, " + TIME_OFFSET + @", '{0}')) = 0
+                                              union all select ScrapQuantity from ScrapOrderDetail
+                                              inner join ScrapOrder on ScrapOrderDetail.ScrapOrderID = ScrapOrder.ScrapOrderID
+                                              where ScrapOrder.OutboundOrderID is null and DATEDIFF(year, DATEADD(hour, " + TIME_OFFSET + ", ScrapOrder.ScrapDate), DATEADD(hour, " + TIME_OFFSET + @", '{0}')) = 0) t";
 
 		public static string QueryLandForm(string sql, DateTime dt)
 		{
