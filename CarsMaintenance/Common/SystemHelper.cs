@@ -165,13 +165,18 @@ namespace CarsMaintenance.Common
             return isValid;
         }
 
+        public static Tool FindToolByCode(string code)
+        {
+            return SystemHelper.TMSContext.Tools.FirstOrDefault(s => (s.Code == code && !s.Deleted));
+        }
+
         public static bool ValidateComboxForTool(ComboBox cbTool)
         {
             bool isValid = true;
             if (cbTool.SelectedItem == null)
             {
                 string code = cbTool.Text;
-                Tool cs = SystemHelper.TMSContext.Tools.FirstOrDefault(s => s.Code == code);
+                Tool cs = SystemHelper.FindToolByCode(code);
                 if (cs == null)
                 {
                     isValid = false;

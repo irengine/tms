@@ -154,7 +154,7 @@ namespace CarsMaintenance.ToolManagement
                         {
                             htCodes.Add(code, quantity);
                         }
-                        Tool t = SystemHelper.TMSContext.Tools.FirstOrDefault(s => s.Code == code);
+                        Tool t = SystemHelper.FindToolByCode(code);
 
 
                         ToolGroup tg = SystemHelper.TMSContext.ToolGroups.CreateObject();
@@ -197,7 +197,7 @@ namespace CarsMaintenance.ToolManagement
             {
                 case 0:
                     string code = e.FormattedValue.ToString();
-                    Tool t = SystemHelper.TMSContext.Tools.FirstOrDefault(s => s.Code == code);
+                    Tool t = SystemHelper.FindToolByCode(code);
                     if (t == null)
                     {
                         e.Cancel = true;

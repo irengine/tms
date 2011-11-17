@@ -235,7 +235,7 @@ namespace CarsMaintenance.OrderManagement
                             decimal unitPrice = SystemHelper.ConvertToNumber(dgvr.Cells["ItemUnitPrice"].Value);
 
                             string code = dgvr.Cells["ItemCode"].Value.ToString();
-                            Tool t = SystemHelper.TMSContext.Tools.FirstOrDefault(s => s.Code == code);
+                            Tool t = SystemHelper.FindToolByCode(code);
                             item.Tool = t;
                             item.Quantity = transferQuantity;
                             item.Balance = transferQuantity;

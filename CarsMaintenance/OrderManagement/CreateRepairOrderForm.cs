@@ -145,7 +145,7 @@ namespace CarsMaintenance.OrderManagement
 
                         // for repair detail
                         string code = dgvr.Cells["ItemCode"].Value.ToString();
-                        Tool t = SystemHelper.TMSContext.Tools.FirstOrDefault(s => s.Code == code);
+                        Tool t = SystemHelper.FindToolByCode(code);
 
                         decimal repairingQuantity = 0;
                         decimal.TryParse(dgvr.Cells["ItemQuantity"].Value.ToString(), out repairingQuantity);
@@ -205,7 +205,7 @@ namespace CarsMaintenance.OrderManagement
             {
                 case 1:
                     string code = e.FormattedValue.ToString();
-                    Tool t = SystemHelper.TMSContext.Tools.FirstOrDefault(s => s.Code == code);
+                    Tool t = SystemHelper.FindToolByCode(code);
                     if (t == null)
                     {
                         e.Cancel = true;

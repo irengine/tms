@@ -163,7 +163,7 @@ namespace CarsMaintenance.OrderManagement
                     {
                         // for scrap detail
                         string code = dgvr.Cells["ItemCode"].Value.ToString();
-                        Tool t = SystemHelper.TMSContext.Tools.FirstOrDefault(s => s.Code == code);
+                        Tool t = SystemHelper.FindToolByCode(code);
 
                         decimal scrapQuantity = 0;
                         decimal.TryParse(dgvr.Cells["ScrapQuantity"].Value.ToString(), out scrapQuantity);
@@ -258,7 +258,7 @@ namespace CarsMaintenance.OrderManagement
             {
                 case 1:
                     string code = e.FormattedValue.ToString();
-                    Tool t = SystemHelper.TMSContext.Tools.FirstOrDefault(s => s.Code == code);
+                    Tool t = SystemHelper.FindToolByCode(code);
                     if (t == null)
                     {
                         e.Cancel = true;
