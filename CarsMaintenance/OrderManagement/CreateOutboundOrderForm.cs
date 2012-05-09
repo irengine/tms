@@ -46,6 +46,14 @@ namespace CarsMaintenance.OrderManagement
 
             rbDay.Enabled = true;
             rbNight.Enabled = true;
+
+            // 工具主任
+            string roles = SystemHelper.CurrentUser.Roles;
+            if (roles.IndexOf('3') >= 0)
+                dtOutboundDate.Enabled = true;
+            else
+                dtOutboundDate.Enabled = false;
+
         }
 
         #region register validator for input controls
